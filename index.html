@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>SurgePoint Digital | Websites, SEO &amp; paid ads for local businesses</title>
-  <meta name="description" content="SurgePoint Digital builds websites, runs local SEO, and manages paid ads for owner-operated small businesses. Fixed scope, fixed price, three-week launches, no retainers you can't leave." />
+  <meta name="description" content="SurgePoint Digital builds websites, runs local SEO, and manages Google, Yelp, and Meta ads for owner-operated small businesses. Fixed-price projects, three-week launches, and flexible monthly retainers scoped to what you actually need." />
   <meta name="author" content="SurgePoint Digital" />
   <meta name="theme-color" content="#FCFCFA" />
 
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SurgePoint Digital" />
   <meta property="og:title" content="SurgePoint Digital | Websites, SEO &amp; paid ads for local businesses" />
-  <meta property="og:description" content="Websites, local SEO, and paid ads for owner-operated small businesses. Fixed scope, fixed price, three-week launches." />
+  <meta property="og:description" content="Strategy, websites, SEO, ads, email, and social for owner-operated local businesses. Fixed-price projects and flexible monthly retainers." />
   <meta property="og:url" content="https://surgepointdigital.co/" />
 
   <meta name="twitter:card" content="summary" />
@@ -31,7 +31,7 @@
         "name": "SurgePoint Digital",
         "url": "https://surgepointdigital.co/",
         "telephone": "+1-415-265-0873",
-        "description": "Digital marketing agency for local, owner-operated businesses. Websites, local SEO, and paid ad campaigns on fixed scope and fixed price.",
+        "description": "Digital marketing agency for local, owner-operated businesses. Strategy, websites, local SEO, paid ads, email, and social — fixed-price projects or flexible monthly retainers.",
         "areaServed": "United States",
         "knowsAbout": [
           "Growth Strategy",
@@ -61,37 +61,37 @@
         "@type": "Service",
         "name": "Strategy",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "A written growth plan, channel priority order, and a monthly number to hold everyone accountable to — before anyone opens Photoshop or a Google Ads account."
+        "description": "Market positioning, pricing, and workflow automation for local, owner-operated businesses. Stake out a defensible position, price the work with room to grow, and automate the busywork that keeps you at the shop after close."
       },
       {
         "@type": "Service",
         "name": "Websites",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "A five-to-eight page site built to convert — new build or full rebuild. Copy, structure, and launch handled end to end, with rankings preserved through migration."
+        "description": "Five to eight pages built to turn visitors into phone calls — new build or full rebuild. Copy, structure, and launch handled end to end, with existing rankings carried through migration."
       },
       {
         "@type": "Service",
         "name": "SEO",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "Google Business Profile buildout, service-area and service-page architecture, technical cleanup, and review generation."
+        "description": "Google Business Profile ranked in the map pack, pages for every service and every town you serve, and the citations and reviews to back them up."
       },
       {
         "@type": "Service",
         "name": "Ads",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "Google and Meta campaigns run on a budget that makes sense for a local shop. Reporting on booked jobs and cost per lead, not impressions."
+        "description": "Google, Yelp, and Meta campaigns run on a budget that makes sense for a local shop. Reporting on booked jobs and cost per lead — not clicks and not impressions."
       },
       {
         "@type": "Service",
         "name": "Email",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "Welcome flows, review-request sequences, and monthly campaigns that stay out of promotions and actually get read."
+        "description": "Welcome sequences, review requests, appointment reminders, and monthly campaigns that stay out of the promotions tab and actually get opened."
       },
       {
         "@type": "Service",
         "name": "Social",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "A steady social presence that shows up when a prospect Googles you, and content that runs without eating your evenings."
+        "description": "A steady, credible social presence that shows up when a prospect Googles your name, plus content that runs on a schedule instead of eating your evenings and weekends."
       }
     ]
   }
@@ -288,21 +288,31 @@
     }
     .panel h2 { color: var(--bg); }
     .panel .panel-intro { font-size: 17px; color: var(--dim); margin: 12px 0 52px; max-width: 560px; }
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; }
     .step { border-top: 2px solid var(--panel-rule); padding-top: 20px; }
     .step.first { border-top-color: var(--accent); }
+    .step-retainer { border-top-color: var(--accent); border-top-style: dashed; }
     .step-week {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 12px; color: var(--mute); margin-bottom: 12px;
     }
-    .step.first .step-week { color: var(--accent); }
+    .step.first .step-week,
+    .step-retainer .step-week { color: var(--accent); }
     .step h3 { font-size: 20px; font-weight: 700; margin: 0 0 10px; color: var(--bg); }
-    .step p { font-size: 15px; line-height: 1.55; color: var(--dim); margin: 0; }
-    @media (max-width: 960px) {
-      .panel { padding: 40px 28px; }
-      .steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .step h3 .opt {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px; font-weight: 400; color: var(--mute);
+      letter-spacing: 0.06em; margin-left: 4px;
     }
-    @media (max-width: 560px) {
+    .step p { font-size: 15px; line-height: 1.55; color: var(--dim); margin: 0; }
+    @media (max-width: 1080px) {
+      .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    }
+    @media (max-width: 780px) {
+      .panel { padding: 40px 28px; }
+      .steps { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    }
+    @media (max-width: 480px) {
       .steps { grid-template-columns: 1fr; }
     }
 
@@ -454,9 +464,9 @@
 
     <section class="wrap hero">
       <div class="reveal">
-        <div class="eyebrow">Websites &middot; SEO &middot; Paid ads</div>
+        <div class="eyebrow">Strategy &middot; Websites &middot; SEO &middot; Ads &middot; Email &middot; Social</div>
         <h1 class="h1">Marketing that earns its keep for local businesses.</h1>
-        <p class="lede">We build and run the websites, search rankings, and ad campaigns that bring customers to small businesses. Straight scope, fixed timelines, no retainers you can't leave.</p>
+        <p class="lede">We build the websites, run the search rankings, and manage the campaigns that turn a local business into the one everyone in town calls first. Clear scope, honest pricing, terms that flex with how you actually work.</p>
         <div class="cta-row">
           <a href="#quote" class="btn-primary">Get a quote</a>
           <a href="#services" class="btn-link">See services</a>
@@ -489,61 +499,61 @@
         <article class="card">
           <div class="card-num">01</div>
           <h3>Strategy</h3>
-          <p>Before anyone opens Photoshop or a Google Ads account, we figure out where the money actually comes from. A written plan, a channel priority order, and a monthly number to hold everyone accountable to.</p>
+          <p>How you show up in the market, what you charge, and what runs while you sleep. We help you stake out a position competitors can't easily copy, price the work so it leaves room to grow, and automate the busywork that keeps you at the shop after close.</p>
           <ul>
-            <li>Market and competitor read</li>
-            <li>Channel mix and 90-day roadmap</li>
-            <li>KPI targets and reporting cadence</li>
+            <li>Market positioning and offer design</li>
+            <li>Pricing strategy and package structure</li>
+            <li>Workflow automation and follow-up systems</li>
           </ul>
         </article>
         <article class="card">
           <div class="card-num">02</div>
           <h3>Websites</h3>
-          <p>A five-to-eight page site built to convert &mdash; new build or full rebuild. Copy, structure, and launch handled end to end, with rankings preserved through migration.</p>
+          <p>Five to eight pages built to turn visitors into phone calls &mdash; new build or full rebuild. Copy, structure, and launch handled end to end, with your existing rankings carried through the migration so you don't reset the clock on SEO.</p>
           <ul>
             <li>Copywriting and page structure</li>
-            <li>Mobile-first build on a platform you can edit</li>
-            <li>Analytics, call tracking, and lead routing</li>
+            <li>Mobile-first build on a platform you can edit yourself</li>
+            <li>Analytics, call tracking, and lead routing to your inbox</li>
           </ul>
         </article>
         <article class="card">
           <div class="card-num">03</div>
           <h3>SEO</h3>
-          <p>The work that actually moves a local business: a Google Business Profile that ranks in the map pack, pages for every service and town you serve, and citations that line up.</p>
+          <p>The work that actually moves a local business: a Google Business Profile that ranks in the map pack, pages for every service and every town you serve, and the citations and reviews to back them up.</p>
           <ul>
-            <li>Google Business Profile buildout</li>
+            <li>Google Business Profile buildout and optimization</li>
             <li>Service-area and service-page architecture</li>
-            <li>Technical cleanup and review generation</li>
+            <li>Technical cleanup and review-generation systems</li>
           </ul>
         </article>
         <article class="card">
           <div class="card-num">04</div>
           <h3>Ads</h3>
-          <p>Google and Meta campaigns run on a budget that makes sense for a local shop. We report on booked jobs and cost per lead, not impressions.</p>
+          <p>Google, Yelp, and Meta campaigns run on a budget that makes sense for a local shop. We report on booked jobs and cost per lead &mdash; not clicks and not impressions &mdash; so you always know what a customer actually costs.</p>
           <ul>
-            <li>Search, Local Services, and Meta campaigns</li>
-            <li>Landing pages built to match the ad</li>
+            <li>Google Search, Local Services, Yelp, and Meta campaigns</li>
+            <li>Landing pages built to match the ad copy</li>
             <li>Monthly call and cost-per-lead reporting</li>
           </ul>
         </article>
         <article class="card">
           <div class="card-num">05</div>
           <h3>Email</h3>
-          <p>The channel your competitors keep forgetting. Welcome flows, review-request sequences, and monthly campaigns that stay out of promotions and actually get read.</p>
+          <p>The channel your competitors keep ignoring. Welcome sequences, review requests, appointment reminders, and monthly campaigns that stay out of the promotions tab and actually get opened.</p>
           <ul>
-            <li>Welcome and review-request automations</li>
-            <li>Segmentation from your CRM or POS</li>
-            <li>Monthly campaigns written and sent</li>
+            <li>Welcome, review-request, and reminder automations</li>
+            <li>Segmentation pulled straight from your CRM or POS</li>
+            <li>Monthly campaigns written, designed, and sent</li>
           </ul>
         </article>
         <article class="card">
           <div class="card-num">06</div>
           <h3>Social</h3>
-          <p>Not a follower count. A steady presence that shows up when a prospect Googles you, and content that runs without eating your evenings.</p>
+          <p>Not a follower count. A steady, credible presence that shows up when a prospect Googles your name, and content that runs on a schedule instead of eating your evenings and weekends.</p>
           <ul>
-            <li>Profile setup and cleanup across platforms</li>
+            <li>Profile cleanup across the platforms your customers use</li>
             <li>Monthly content calendar written and scheduled</li>
-            <li>Reply monitoring and reputation management</li>
+            <li>Reply monitoring and review-response management</li>
           </ul>
         </article>
       </div>
@@ -552,27 +562,32 @@
     <section id="process" class="wrap process">
       <div class="panel reveal">
         <h2 class="h2">How a project runs</h2>
-        <p class="panel-intro">One point of contact, a fixed price agreed before anything starts, and a schedule you can hold us to.</p>
+        <p class="panel-intro">One point of contact from first call to launch day, a fixed price agreed before any work starts, and a monthly option for ongoing work once you're live.</p>
         <div class="steps">
           <div class="step first">
             <div class="step-week">Week 0</div>
             <h3>Quote</h3>
-            <p>A 30-minute call, then a written scope and fixed price within two business days.</p>
+            <p>A 30-minute call, then a written scope and fixed price in your inbox within two business days.</p>
           </div>
           <div class="step">
             <div class="step-week">Week 1</div>
             <h3>Content</h3>
-            <p>We write the pages and collect photos, reviews, and service details from you in one pass.</p>
+            <p>We write the pages and collect photos, reviews, and service details from you in one clean pass.</p>
           </div>
           <div class="step">
             <div class="step-week">Week 2</div>
             <h3>Build</h3>
-            <p>You review a working site, not a picture of one. Two rounds of revisions are included.</p>
+            <p>You review a working site, not a picture of one. Two rounds of revisions are included in the price.</p>
           </div>
           <div class="step">
             <div class="step-week">Week 3</div>
             <h3>Launch</h3>
-            <p>Tracking verified, ads live if you're running them, and a walkthrough of how to edit it yourself.</p>
+            <p>Tracking verified, ads switched on if you're running them, and a walkthrough of how to edit the site yourself.</p>
+          </div>
+          <div class="step step-retainer">
+            <div class="step-week">Month 2+</div>
+            <h3>Retainer <span class="opt">(optional)</span></h3>
+            <p>Ongoing SEO, ads, email, or social &mdash; scoped to what your business actually needs that month, priced accordingly, and cancellable any time.</p>
           </div>
         </div>
       </div>
@@ -581,8 +596,8 @@
     <section id="about" class="wrap sec about">
       <div class="reveal">
         <h2 class="h2">Built for businesses that answer their own phone.</h2>
-        <p>SurgePoint works with owner-operated businesses across trades, clinics, restaurants, and professional services. Most projects land between $1,500 and $5,000, and most clients have been burned once already by an agency that sent reports instead of customers.</p>
-        <p>You keep ownership of every account, domain, and ad profile we touch. If you leave, everything goes with you.</p>
+        <p>SurgePoint works with owner-operated businesses across trades, clinics, restaurants, salons, and professional services. Most projects run between $1,500 and $5,000, and most clients arrive after an agency spent a year sending reports instead of sending customers.</p>
+        <p>Every account, domain, and ad profile lives in your name from day one &mdash; full access, full visibility into what's being done and why, and full portability if your business ever needs to move a different direction.</p>
       </div>
       <div class="creds reveal d1">
         <div class="creds-label">Credentials</div>
@@ -599,7 +614,7 @@
       <div class="quote-inner">
         <div class="reveal">
           <h2 class="quote-h">Get a quote.</h2>
-          <p class="quote-lede">Tell us what you're trying to fix. We'll reply within one business day with a scope and a fixed price, or tell you honestly that we're not the right fit.</p>
+          <p class="quote-lede">Tell us what you're trying to grow. You'll get a reply within one business day &mdash; a scope, a fixed price, and a plan for how to get there, or an honest note if we're not the right fit for what you need.</p>
           <div class="contact-lines">
             <div><a href="tel:+14152650873">(415) 265-0873</a></div>
           </div>
@@ -663,7 +678,7 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="name">surgepointdigital.co</span>
       </div>
-      <div class="foot-meta">&copy; <span id="year">2026</span> SurgePoint Digital &middot; All accounts stay yours</div>
+      <div class="foot-meta">&copy; <span id="year">2026</span> SurgePoint Digital &middot; Built for local business</div>
     </div>
   </footer>
 
