@@ -26,6 +26,25 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Person",
+        "@id": "https://surgepointdigital.co/#founder",
+        "name": "Ron I.",
+        "jobTitle": "Founder & CEO",
+        "description": "10+ years running digital growth for local businesses across websites, SEO, paid ads, email, social, and workflow automation.",
+        "knowsAbout": [
+          "Digital Growth",
+          "Local SEO",
+          "Google Ads",
+          "Meta Ads",
+          "Yelp Ads",
+          "Web Design",
+          "Email Marketing",
+          "Social Media Marketing",
+          "Workflow Automation"
+        ],
+        "worksFor": { "@id": "https://surgepointdigital.co/#organization" }
+      },
+      {
         "@type": "Organization",
         "@id": "https://surgepointdigital.co/#organization",
         "name": "SurgePoint Digital",
@@ -33,6 +52,7 @@
         "telephone": "+1-415-265-0873",
         "description": "Digital marketing agency for local, owner-operated businesses. Strategy, websites, local SEO, paid ads, email, and social — fixed-price projects or flexible monthly retainers.",
         "areaServed": "United States",
+        "founder": { "@id": "https://surgepointdigital.co/#founder" },
         "knowsAbout": [
           "Growth Strategy",
           "Website Design",
@@ -338,24 +358,40 @@
     .about h2 { margin-bottom: 20px; }
     .about p { font-size: 17px; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px; }
     .about p:last-child { margin-bottom: 0; }
-    .creds { border: 1px solid var(--rule); padding: 36px; }
+    .about-side {
+      border: 1px solid var(--rule); padding: 32px;
+      display: grid; gap: 26px;
+    }
+    .founder-block { display: grid; gap: 8px; }
+    .founder-role {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);
+    }
+    .founder-name {
+      font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
+    }
+    .founder-blurb {
+      font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 6px 0 0;
+    }
+    .about-divider { height: 1px; background: var(--rule); }
     .creds-label {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute);
-      margin-bottom: 24px;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute);
+      margin-bottom: 20px;
     }
-    .cred-list { display: grid; gap: 18px; }
-    .cred { display: flex; gap: 16px; align-items: baseline; }
+    .cred-list { display: grid; gap: 16px; }
+    .cred { display: flex; gap: 14px; align-items: baseline; }
     .cred-dot { width: 8px; height: 8px; background: var(--accent); flex: none; margin-top: 6px; }
-    .cred-text { font-size: 16px; color: var(--ink); line-height: 1.4; }
+    .cred-text { font-size: 15px; color: var(--ink); line-height: 1.4; }
     @media (max-width: 860px) {
       .about { grid-template-columns: 1fr; gap: 40px; }
-      .creds { padding: 28px 24px; }
+      .about-side { padding: 28px 24px; }
     }
     @media (max-width: 480px) {
       .about { gap: 32px; }
       .about p { font-size: 16px; }
-      .creds { padding: 24px 20px; }
+      .about-side { padding: 24px 20px; gap: 22px; }
+      .founder-name { font-size: 24px; }
     }
 
     /* Quote / contact */
@@ -796,16 +832,24 @@
     <section id="about" class="wrap sec about">
       <div class="reveal">
         <h2 class="h2">Built for businesses that answer their own phone.</h2>
-        <p>SurgePoint works with owner-operated businesses across trades, clinics, restaurants, salons, and professional services. Most projects run between $1,500 and $5,000, and most clients arrive after an agency spent a year sending reports instead of sending customers.</p>
-        <p>Every account, domain, and ad profile lives in your name from day one &mdash; full access, full visibility into what's being done and why, and full portability if your business ever needs to move a different direction.</p>
+        <p>SurgePoint works with owner-operated businesses across trades, clinics, restaurants, salons, and professional services. Every engagement is scoped to your business, priced against the outcome we're chasing, and measured on whether the phone actually rings.</p>
+        <p>Every account, domain, and ad profile lives in your name from day one &mdash; full access to what's being done and why, and full portability if your business ever needs to move a different direction.</p>
       </div>
-      <div class="creds reveal d1">
-        <div class="creds-label">Credentials</div>
-        <div class="cred-list">
+      <div class="about-side reveal d1">
+        <div class="founder-block">
+          <div class="founder-role">Founder &amp; CEO</div>
+          <div class="founder-name">Ron I.</div>
+          <p class="founder-blurb">10+ years running digital growth for local businesses &mdash; websites, SEO, paid ads, email, social, and the workflow automation that ties it all together.</p>
+        </div>
+        <div class="about-divider" aria-hidden="true"></div>
+        <div>
+          <div class="creds-label">Credentials</div>
+          <div class="cred-list">
           <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Google Partner &mdash; Search &amp; Performance Max certified</span></div>
           <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Meta Blueprint certified media buyer</span></div>
           <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Nine years managing local search and paid campaigns</span></div>
           <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Google Analytics 4 and Tag Manager certified</span></div>
+        </div>
         </div>
       </div>
     </section>
