@@ -35,12 +35,16 @@
         "description": "Digital marketing agency for local, owner-operated businesses. Websites, local SEO, and paid ad campaigns on fixed scope and fixed price.",
         "areaServed": "United States",
         "knowsAbout": [
-          "Local SEO",
-          "Google Business Profile",
+          "Growth Strategy",
           "Website Design",
           "Website Redesign",
+          "Local SEO",
+          "Google Business Profile",
           "Google Ads",
           "Meta Ads",
+          "Email Marketing",
+          "Lifecycle Marketing",
+          "Social Media Management",
           "Landing Page Design",
           "Conversion Optimization"
         ],
@@ -56,27 +60,39 @@
       },
       {
         "@type": "Service",
-        "name": "Website launch",
+        "name": "Strategy",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "A five-to-eight page site built to convert: services, service areas, reviews, and a phone number that's never more than a thumb away."
+        "description": "A written growth plan, channel priority order, and a monthly number to hold everyone accountable to — before anyone opens Photoshop or a Google Ads account."
       },
       {
         "@type": "Service",
-        "name": "Website redesign",
+        "name": "Websites",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
-        "description": "Keep what ranks, fix what leaks, and rebuild the pages that decide whether someone calls you or your competitor."
+        "description": "A five-to-eight page site built to convert — new build or full rebuild. Copy, structure, and launch handled end to end, with rankings preserved through migration."
       },
       {
         "@type": "Service",
-        "name": "Foundational SEO",
+        "name": "SEO",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
         "description": "Google Business Profile buildout, service-area and service-page architecture, technical cleanup, and review generation."
       },
       {
         "@type": "Service",
-        "name": "Paid ads management",
+        "name": "Ads",
         "provider": { "@id": "https://surgepointdigital.co/#organization" },
         "description": "Google and Meta campaigns run on a budget that makes sense for a local shop. Reporting on booked jobs and cost per lead, not impressions."
+      },
+      {
+        "@type": "Service",
+        "name": "Email",
+        "provider": { "@id": "https://surgepointdigital.co/#organization" },
+        "description": "Welcome flows, review-request sequences, and monthly campaigns that stay out of promotions and actually get read."
+      },
+      {
+        "@type": "Service",
+        "name": "Social",
+        "provider": { "@id": "https://surgepointdigital.co/#organization" },
+        "description": "A steady social presence that shows up when a prospect Googles you, and content that runs without eating your evenings."
       }
     ]
   }
@@ -221,27 +237,6 @@
       .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 0 48px; align-items: start; }
     }
 
-    /* Trust bar */
-    .trust { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-    .trust .row { padding: 28px 0; display: flex; align-items: center; gap: 40px; }
-    .trust-label {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute);
-      white-space: nowrap;
-    }
-    .logos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; flex: 1; }
-    .logo-tile {
-      height: 40px;
-      background: repeating-linear-gradient(135deg, var(--tile) 0 6px, var(--bg) 6px 12px);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 10px; color: var(--mute-2);
-    }
-    @media (max-width: 720px) {
-      .trust .row { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .logos { grid-template-columns: repeat(2, 1fr); width: 100%; }
-    }
-
     /* Section head */
     .sec { padding: 88px 0 0; }
     .sec-head {
@@ -258,10 +253,10 @@
 
     /* Services grid */
     .grid-cards {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
       background: var(--rule); border: 1px solid var(--rule);
     }
-    .card { background: var(--bg); padding: 40px; }
+    .card { background: var(--bg); padding: 36px 32px; }
     .card-num {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 12px; color: var(--accent); margin-bottom: 18px;
@@ -279,31 +274,12 @@
       content: ''; position: absolute; left: 0; top: 9px;
       width: 8px; height: 1px; background: var(--accent);
     }
-    @media (max-width: 720px) {
+    @media (max-width: 960px) {
+      .grid-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
       .grid-cards { grid-template-columns: 1fr; }
       .card { padding: 32px 24px; }
-    }
-
-    /* Work / results */
-    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .case { border-top: 3px solid var(--ink); padding-top: 24px; }
-    .case-vis {
-      height: 180px; margin-bottom: 24px;
-      background: repeating-linear-gradient(135deg, var(--tile) 0 8px, var(--bg) 8px 16px);
-      display: flex; align-items: flex-end; padding: 12px;
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--mute-2);
-    }
-    .case-tag {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--mute); margin-bottom: 12px;
-    }
-    .case-num {
-      font-size: 40px; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); line-height: 1;
-    }
-    .case p { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 12px 0 0; }
-    @media (max-width: 860px) {
-      .cases { grid-template-columns: 1fr; gap: 40px; }
     }
 
     /* Process panel */
@@ -465,7 +441,6 @@
       </button>
       <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="#services">Services</a>
-        <a href="#work">Work</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
         <a href="#quote" class="cta">Get a quote</a>
@@ -482,7 +457,7 @@
         <p class="lede">We build and run the websites, search rankings, and ad campaigns that bring customers to small businesses. Straight scope, fixed timelines, no retainers you can't leave.</p>
         <div class="cta-row">
           <a href="#quote" class="btn-primary">Get a quote</a>
-          <a href="#work" class="btn-link">See results</a>
+          <a href="#services" class="btn-link">See services</a>
         </div>
       </div>
       <aside class="stats reveal d2" aria-label="At a glance">
@@ -503,29 +478,26 @@
       </aside>
     </section>
 
-    <section class="trust" aria-label="Trusted by">
-      <div class="wrap row">
-        <div class="trust-label">Trusted by</div>
-        <div class="logos" aria-hidden="true">
-          <div class="logo-tile">client logo</div>
-          <div class="logo-tile">client logo</div>
-          <div class="logo-tile">client logo</div>
-          <div class="logo-tile">client logo</div>
-          <div class="logo-tile">client logo</div>
-        </div>
-      </div>
-    </section>
-
     <section id="services" class="wrap sec">
       <div class="sec-head reveal">
-        <h2 class="h2">Four services. That's the whole menu.</h2>
-        <div class="sec-note">01 &mdash; 04</div>
+        <h2 class="h2">Six services. That's the whole menu.</h2>
+        <div class="sec-note">01 &mdash; 06</div>
       </div>
       <div class="grid-cards reveal">
         <article class="card">
           <div class="card-num">01</div>
-          <h3>Website launch</h3>
-          <p>A five-to-eight page site built to convert: services, service areas, reviews, and a phone number that's never more than a thumb away. Copy, build, and launch handled end to end.</p>
+          <h3>Strategy</h3>
+          <p>Before anyone opens Photoshop or a Google Ads account, we figure out where the money actually comes from. A written plan, a channel priority order, and a monthly number to hold everyone accountable to.</p>
+          <ul>
+            <li>Market and competitor read</li>
+            <li>Channel mix and 90-day roadmap</li>
+            <li>KPI targets and reporting cadence</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-num">02</div>
+          <h3>Websites</h3>
+          <p>A five-to-eight page site built to convert &mdash; new build or full rebuild. Copy, structure, and launch handled end to end, with rankings preserved through migration.</p>
           <ul>
             <li>Copywriting and page structure</li>
             <li>Mobile-first build on a platform you can edit</li>
@@ -533,18 +505,8 @@
           </ul>
         </article>
         <article class="card">
-          <div class="card-num">02</div>
-          <h3>Website redesign</h3>
-          <p>Your site works, it just doesn't sell. We keep what ranks, fix what leaks, and rebuild the pages that decide whether someone calls you or your competitor.</p>
-          <ul>
-            <li>Conversion and speed audit first</li>
-            <li>Rankings preserved through migration</li>
-            <li>Rewritten service and location pages</li>
-          </ul>
-        </article>
-        <article class="card">
           <div class="card-num">03</div>
-          <h3>Foundational SEO</h3>
+          <h3>SEO</h3>
           <p>The work that actually moves a local business: a Google Business Profile that ranks in the map pack, pages for every service and town you serve, and citations that line up.</p>
           <ul>
             <li>Google Business Profile buildout</li>
@@ -554,7 +516,7 @@
         </article>
         <article class="card">
           <div class="card-num">04</div>
-          <h3>Paid ads management</h3>
+          <h3>Ads</h3>
           <p>Google and Meta campaigns run on a budget that makes sense for a local shop. We report on booked jobs and cost per lead, not impressions.</p>
           <ul>
             <li>Search, Local Services, and Meta campaigns</li>
@@ -562,32 +524,25 @@
             <li>Monthly call and cost-per-lead reporting</li>
           </ul>
         </article>
-      </div>
-    </section>
-
-    <section id="work" class="wrap sec">
-      <div class="sec-head reveal">
-        <h2 class="h2">Recent results</h2>
-        <div class="sec-note">Verified in client accounts</div>
-      </div>
-      <div class="cases">
-        <article class="case reveal">
-          <div class="case-vis" aria-hidden="true">before / after screenshot</div>
-          <div class="case-tag">HVAC &middot; Redesign + SEO</div>
-          <div class="case-num">+212%</div>
-          <p>Calls from organic search over eight months, after rebuilding the site around 14 service-area pages.</p>
+        <article class="card">
+          <div class="card-num">05</div>
+          <h3>Email</h3>
+          <p>The channel your competitors keep forgetting. Welcome flows, review-request sequences, and monthly campaigns that stay out of promotions and actually get read.</p>
+          <ul>
+            <li>Welcome and review-request automations</li>
+            <li>Segmentation from your CRM or POS</li>
+            <li>Monthly campaigns written and sent</li>
+          </ul>
         </article>
-        <article class="case reveal d1">
-          <div class="case-vis" aria-hidden="true">before / after screenshot</div>
-          <div class="case-tag">Dental &middot; Paid ads</div>
-          <div class="case-num">$38</div>
-          <p>Cost per booked new-patient consult, down from $121 in the first quarter of management.</p>
-        </article>
-        <article class="case reveal d2">
-          <div class="case-vis" aria-hidden="true">before / after screenshot</div>
-          <div class="case-tag">Landscaping &middot; New site</div>
-          <div class="case-num">19 days</div>
-          <p>From kickoff to launch, with quote requests arriving the first week the site was live.</p>
+        <article class="card">
+          <div class="card-num">06</div>
+          <h3>Social</h3>
+          <p>Not a follower count. A steady presence that shows up when a prospect Googles you, and content that runs without eating your evenings.</p>
+          <ul>
+            <li>Profile setup and cleanup across platforms</li>
+            <li>Monthly content calendar written and scheduled</li>
+            <li>Reply monitoring and reputation management</li>
+          </ul>
         </article>
       </div>
     </section>
