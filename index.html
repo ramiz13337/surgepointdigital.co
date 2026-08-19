@@ -223,12 +223,12 @@
     }
     .btn-link:hover { color: var(--accent); }
 
-    .stats { border-top: 3px solid var(--ink); padding-top: 22px; display: grid; gap: 22px; }
-    .stat-num { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .stats { border-top: 3px solid var(--ink); padding-top: 22px; display: grid; gap: 20px; }
+    .stat-num { font-size: 42px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
     .stat-num em { color: var(--accent); font-style: normal; }
     .stat-cap {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 12px; color: var(--mute); margin-top: 6px;
+      font-size: 12px; color: var(--mute); margin-top: 8px; line-height: 1.45;
     }
     .rule { height: 1px; background: var(--rule); }
 
@@ -406,18 +406,6 @@
       .field-row { grid-template-columns: 1fr; }
     }
 
-    /* Footer */
-    .site-footer { border-top: 1px solid var(--rule); }
-    .site-footer .row {
-      padding: 40px 0; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
-    }
-    .foot-brand { display: flex; align-items: center; gap: 12px; }
-    .foot-brand .brand-mark { width: 20px; height: 20px; }
-    .foot-brand .name { font-size: 14px; font-weight: 700; }
-    .foot-meta {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 12px; color: var(--mute);
-    }
 
     /* Reveal */
     .reveal { opacity: 1; transform: none; transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -438,6 +426,136 @@
 
     /* Netlify honeypot (hidden from real users) */
     .hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* Design system: keyframes */
+    @keyframes sp-marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes sp-arrow {
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(4px, -4px); }
+    }
+
+    /* Marquee band */
+    .marquee {
+      background: var(--panel); color: var(--bg);
+      overflow: hidden; padding: 16px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .marquee-track {
+      display: flex; width: max-content;
+      animation: sp-marquee 26s linear infinite;
+    }
+    .marquee-group {
+      display: flex; align-items: center; gap: 34px; padding-right: 34px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+    }
+    .marquee .arr { color: var(--accent); }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+    }
+
+    /* Arrow icon (inline unicode) shared */
+    .arrow-tr { display: inline-block; }
+
+    /* Service card upgrades: corner arrow + hover tint */
+    .card { position: relative; transition: background .18s ease; }
+    .card:hover { background: #F5F4EF; }
+    .card .card-arrow {
+      position: absolute; right: 28px; top: 30px;
+      font-size: 20px; color: var(--accent);
+      transition: transform .2s ease;
+    }
+    .card:hover .card-arrow { transform: translate(3px, -3px); }
+
+    /* Primary button arrow (in hero + footer CTA) */
+    .btn-primary .arr,
+    .btn-cta .arr { display: inline-block; margin-left: 6px; }
+    .btn-cta:hover .arr,
+    .btn-primary:hover .arr { animation: sp-arrow 1.6s ease-in-out infinite; }
+
+    /* Process step arrow (inside h3) */
+    .step h3 { display: flex; align-items: center; gap: 10px; }
+    .step h3 .arr { font-size: 15px; color: var(--mute); }
+    .step.first h3 .arr,
+    .step-retainer h3 .arr { color: var(--accent); }
+    .step:last-child h3 .arr { color: var(--accent); }
+
+    /* Dark footer redesign */
+    .site-footer {
+      background: var(--panel); color: var(--bg);
+      border-top: 0; position: relative; overflow: hidden; margin-top: 40px;
+    }
+    .site-footer::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(90deg, rgba(252,252,250,0.05) 1px, transparent 1px);
+      background-size: 62px 100%; pointer-events: none;
+    }
+    .site-footer::after {
+      content: '\2197';
+      position: absolute; right: -70px; bottom: 118px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 300px; line-height: 1; font-weight: 500;
+      color: rgba(217, 31, 17, 0.10); pointer-events: none;
+    }
+    .site-footer .wrap { position: relative; padding-top: 88px; padding-bottom: 0; }
+    .foot-grid {
+      display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 56px; align-items: start;
+    }
+    .foot-brand-block .brand-mark { width: 30px; height: 30px; }
+    .foot-brand-block .name { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+    .foot-brand-block .foot-brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+    .foot-tagline {
+      font-size: clamp(28px, 3.4vw, 40px); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.05;
+      max-width: 420px; margin: 0 0 26px;
+    }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--accent); color: var(--bg);
+      font-size: 16px; font-weight: 600; padding: 16px 28px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .btn-cta:hover { background: var(--bg); color: var(--ink); }
+
+    .foot-col-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--mute); margin-bottom: 6px;
+    }
+    .foot-col { display: grid; gap: 14px; }
+    .foot-col a { color: var(--bg); font-size: 15px; transition: color .18s ease; }
+    .foot-col a:hover { color: var(--accent); }
+    .foot-col .foot-rule { height: 1px; background: #2A2A26; margin: 10px 0; }
+    .foot-col .foot-static { font-size: 15px; color: var(--dim); }
+
+    .foot-wordmark {
+      margin-top: 72px; overflow: hidden;
+      border-top: 1px solid #2A2A26;
+    }
+    .foot-wordmark-inner {
+      font-size: clamp(40px, 8.6vw, 112px);
+      font-weight: 800; letter-spacing: -0.05em; line-height: 1.08;
+      padding-top: 18px; white-space: nowrap; color: var(--bg);
+    }
+    .foot-wordmark-inner .tld { color: var(--accent); }
+
+    .foot-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; padding: 22px 0 34px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; color: var(--mute);
+    }
+
+    @media (max-width: 860px) {
+      .foot-grid { grid-template-columns: 1fr; gap: 40px; }
+      .site-footer::after { font-size: 200px; right: -50px; bottom: 60px; }
+    }
+    @media (max-width: 560px) {
+      .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
   </style>
 </head>
 <body id="top">
@@ -468,27 +586,65 @@
         <h1 class="h1">Marketing that earns its keep for local businesses.</h1>
         <p class="lede">We build the websites, run the search rankings, and manage the campaigns that turn a local business into the one everyone in town calls first. Clear scope, honest pricing, terms that flex with how you actually work.</p>
         <div class="cta-row">
-          <a href="#quote" class="btn-primary">Get a quote</a>
-          <a href="#services" class="btn-link">See services</a>
+          <a href="#quote" class="btn-primary">Get a quote <span class="arr" aria-hidden="true">&#8599;</span></a>
+          <a href="#services" class="btn-link">What we do</a>
         </div>
       </div>
       <aside class="stats reveal d2" aria-label="At a glance">
         <div>
-          <div class="stat-num">9 yrs</div>
-          <div class="stat-cap">running local campaigns</div>
+          <div class="stat-num">2.4<em>&times;</em></div>
+          <div class="stat-cap">more inbound calls within six months<br />of launch, on average</div>
         </div>
         <div class="rule"></div>
         <div>
-          <div class="stat-num">140<em>+</em></div>
-          <div class="stat-cap">sites launched &amp; rebuilt</div>
+          <div class="stat-num">$41</div>
+          <div class="stat-cap">median cost per booked job from<br />the ad campaigns we manage</div>
         </div>
         <div class="rule"></div>
         <div>
-          <div class="stat-num">3 wks</div>
-          <div class="stat-cap">typical launch window</div>
+          <div class="stat-num">19 days</div>
+          <div class="stat-cap">fastest site launch &mdash; three weeks<br />is the typical window</div>
+        </div>
+        <div class="rule"></div>
+        <div>
+          <div class="stat-num">92<em>%</em></div>
+          <div class="stat-cap">of clients are still with us<br />after the first year</div>
         </div>
       </aside>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Strategy</span><span class="arr">&#8599;</span>
+          <span>Websites</span><span class="arr">&#8599;</span>
+          <span>SEO</span><span class="arr">&#8599;</span>
+          <span>Ads</span><span class="arr">&#8599;</span>
+          <span>Email</span><span class="arr">&#8599;</span>
+          <span>Social</span><span class="arr">&#8599;</span>
+          <span>Strategy</span><span class="arr">&#8599;</span>
+          <span>Websites</span><span class="arr">&#8599;</span>
+          <span>SEO</span><span class="arr">&#8599;</span>
+          <span>Ads</span><span class="arr">&#8599;</span>
+          <span>Email</span><span class="arr">&#8599;</span>
+          <span>Social</span><span class="arr">&#8599;</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>Strategy</span><span class="arr">&#8599;</span>
+          <span>Websites</span><span class="arr">&#8599;</span>
+          <span>SEO</span><span class="arr">&#8599;</span>
+          <span>Ads</span><span class="arr">&#8599;</span>
+          <span>Email</span><span class="arr">&#8599;</span>
+          <span>Social</span><span class="arr">&#8599;</span>
+          <span>Strategy</span><span class="arr">&#8599;</span>
+          <span>Websites</span><span class="arr">&#8599;</span>
+          <span>SEO</span><span class="arr">&#8599;</span>
+          <span>Ads</span><span class="arr">&#8599;</span>
+          <span>Email</span><span class="arr">&#8599;</span>
+          <span>Social</span><span class="arr">&#8599;</span>
+        </div>
+      </div>
+    </div>
 
     <section id="services" class="wrap sec">
       <div class="sec-head reveal">
@@ -497,6 +653,7 @@
       </div>
       <div class="grid-cards reveal">
         <article class="card">
+          <span class="card-arrow" aria-hidden="true">&#8599;</span>
           <div class="card-num">01</div>
           <h3>Strategy</h3>
           <p>How you show up in the market, what you charge, and what runs while you sleep. We help you stake out a position competitors can't easily copy, price the work so it leaves room to grow, and automate the busywork that keeps you at the shop after close.</p>
@@ -507,6 +664,7 @@
           </ul>
         </article>
         <article class="card">
+          <span class="card-arrow" aria-hidden="true">&#8599;</span>
           <div class="card-num">02</div>
           <h3>Websites</h3>
           <p>Five to eight pages built to turn visitors into phone calls &mdash; new build or full rebuild. Copy, structure, and launch handled end to end, with your existing rankings carried through the migration so you don't reset the clock on SEO.</p>
@@ -517,6 +675,7 @@
           </ul>
         </article>
         <article class="card">
+          <span class="card-arrow" aria-hidden="true">&#8599;</span>
           <div class="card-num">03</div>
           <h3>SEO</h3>
           <p>The work that actually moves a local business: a Google Business Profile that ranks in the map pack, pages for every service and every town you serve, and the citations and reviews to back them up.</p>
@@ -527,6 +686,7 @@
           </ul>
         </article>
         <article class="card">
+          <span class="card-arrow" aria-hidden="true">&#8599;</span>
           <div class="card-num">04</div>
           <h3>Ads</h3>
           <p>Google, Yelp, and Meta campaigns run on a budget that makes sense for a local shop. We report on booked jobs and cost per lead &mdash; not clicks and not impressions &mdash; so you always know what a customer actually costs.</p>
@@ -537,6 +697,7 @@
           </ul>
         </article>
         <article class="card">
+          <span class="card-arrow" aria-hidden="true">&#8599;</span>
           <div class="card-num">05</div>
           <h3>Email</h3>
           <p>The channel your competitors keep ignoring. Welcome sequences, review requests, appointment reminders, and monthly campaigns that stay out of the promotions tab and actually get opened.</p>
@@ -547,6 +708,7 @@
           </ul>
         </article>
         <article class="card">
+          <span class="card-arrow" aria-hidden="true">&#8599;</span>
           <div class="card-num">06</div>
           <h3>Social</h3>
           <p>Not a follower count. A steady, credible presence that shows up when a prospect Googles your name, and content that runs on a schedule instead of eating your evenings and weekends.</p>
@@ -566,27 +728,27 @@
         <div class="steps">
           <div class="step first">
             <div class="step-week">Week 0</div>
-            <h3>Quote</h3>
+            <h3>Quote <span class="arr" aria-hidden="true">&#8599;</span></h3>
             <p>A 30-minute call, then a written scope and fixed price in your inbox within two business days.</p>
           </div>
           <div class="step">
             <div class="step-week">Week 1</div>
-            <h3>Content</h3>
+            <h3>Content <span class="arr" aria-hidden="true">&#8599;</span></h3>
             <p>We write the pages and collect photos, reviews, and service details from you in one clean pass.</p>
           </div>
           <div class="step">
             <div class="step-week">Week 2</div>
-            <h3>Build</h3>
+            <h3>Build <span class="arr" aria-hidden="true">&#8599;</span></h3>
             <p>You review a working site, not a picture of one. Two rounds of revisions are included in the price.</p>
           </div>
           <div class="step">
             <div class="step-week">Week 3</div>
-            <h3>Launch</h3>
+            <h3>Launch <span class="arr" aria-hidden="true">&#8599;</span></h3>
             <p>Tracking verified, ads switched on if you're running them, and a walkthrough of how to edit the site yourself.</p>
           </div>
           <div class="step step-retainer">
             <div class="step-week">Month 2+</div>
-            <h3>Retainer <span class="opt">(optional)</span></h3>
+            <h3>Retainer <span class="opt">(optional)</span> <span class="arr" aria-hidden="true">&#8599;</span></h3>
             <p>Ongoing SEO, ads, email, or social &mdash; scoped to what your business actually needs that month, priced accordingly, and cancellable any time.</p>
           </div>
         </div>
@@ -673,12 +835,41 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap row">
-      <div class="foot-brand">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="name">surgepointdigital.co</span>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand-block">
+          <div class="foot-brand-row">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="name">SurgePoint Digital</span>
+          </div>
+          <h2 class="foot-tagline">Ready to be the business that shows up first?</h2>
+          <a href="#quote" class="btn-cta">Get a quote <span class="arr" aria-hidden="true">&#8599;</span></a>
+        </div>
+        <nav class="foot-col" aria-label="Services">
+          <div class="foot-col-label">Services</div>
+          <a href="#services">Strategy</a>
+          <a href="#services">Websites</a>
+          <a href="#services">SEO</a>
+          <a href="#services">Ads</a>
+          <a href="#services">Email</a>
+          <a href="#services">Social</a>
+        </nav>
+        <div class="foot-col" aria-label="Contact and links">
+          <div class="foot-col-label">Contact</div>
+          <a href="tel:+14152650873">(415) 265-0873</a>
+          <div class="foot-static">Answering local calls, one project at a time.</div>
+          <div class="foot-rule"></div>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+        </div>
       </div>
-      <div class="foot-meta">&copy; <span id="year">2026</span> SurgePoint Digital &middot; Built for local business</div>
+      <div class="foot-wordmark" aria-hidden="true">
+        <div class="foot-wordmark-inner">surgepointdigital<span class="tld">.co</span></div>
+      </div>
+      <div class="foot-bottom">
+        <div>&copy; <span id="year">2026</span> SurgePoint Digital</div>
+        <div>Built for local business</div>
+      </div>
     </div>
   </footer>
 
