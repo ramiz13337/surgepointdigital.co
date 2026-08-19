@@ -426,6 +426,9 @@
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
       outline: 2px solid var(--accent); outline-offset: 3px;
     }
+
+    /* Netlify honeypot (hidden from real users) */
+    .hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   </style>
 </head>
 <body id="top">
@@ -604,7 +607,11 @@
             <div class="muted">Mon&ndash;Fri, 8am&ndash;6pm</div>
           </div>
         </div>
-        <form class="quote reveal d1" id="quote-form" novalidate>
+        <form class="quote reveal d1" id="quote-form" name="quote" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="quote" />
+          <p class="hp-field" aria-hidden="true">
+            <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
           <div class="field-row">
             <label class="field">
               <span>Name</span>
@@ -712,7 +719,7 @@
         });
       });
 
-      // Form submit (client-side confirmation; wire to backend when ready)
+      // Form submit → POST to Netlify Forms (keeps page state, shows inline status)
       var form = document.getElementById('quote-form');
       var status = document.getElementById('form-status');
       var submitBtn = document.getElementById('submit-btn');
@@ -723,7 +730,14 @@
           submitBtn.disabled = true;
           status.textContent = 'Sending…';
           status.classList.remove('ok');
-          setTimeout(function () {
+
+          var data = new URLSearchParams(new FormData(form)).toString();
+          fetch(form.getAttribute('action') || '/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: data
+          }).then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
             status.textContent = "Thanks — we'll reply within one business day.";
             status.classList.add('ok');
             form.reset();
@@ -731,8 +745,11 @@
             chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
             picksStatus.textContent = '';
             picksValue.value = '';
+          }).catch(function () {
+            status.textContent = "Couldn't send — email hello@surgepointdigital.co instead.";
+          }).finally(function () {
             submitBtn.disabled = false;
-          }, 700);
+          });
         });
       }
 
