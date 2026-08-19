@@ -26,23 +26,6 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "@id": "https://surgepointdigital.co/#founder",
-        "name": "Ron I.",
-        "jobTitle": "Founder",
-        "image": "https://surgepointdigital.co/ron.png",
-        "description": "Ten years running SEO, web development, paid ads, social, content strategy, and AI automation for local businesses and startups.",
-        "knowsAbout": [
-          "SEO",
-          "Web Development",
-          "Paid Advertising",
-          "Social Media Marketing",
-          "Content Strategy",
-          "AI Automation"
-        ],
-        "worksFor": { "@id": "https://surgepointdigital.co/#organization" }
-      },
-      {
         "@type": "Organization",
         "@id": "https://surgepointdigital.co/#organization",
         "name": "SurgePoint Digital",
@@ -51,7 +34,6 @@
         "telephone": "+1-555-018-4470",
         "description": "Digital marketing agency for local, owner-operated businesses. Websites, local SEO, and paid ad campaigns on fixed scope and fixed price.",
         "areaServed": "United States",
-        "founder": { "@id": "https://surgepointdigital.co/#founder" },
         "knowsAbout": [
           "Growth Strategy",
           "Website Design",
@@ -325,83 +307,24 @@
       .steps { grid-template-columns: 1fr; }
     }
 
-    /* About / founder */
-    .about {
-      display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: start;
-    }
-    .about-eyebrow {
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about h2 { margin-bottom: 20px; }
+    .about p { font-size: 17px; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px; }
+    .about p:last-child { margin-bottom: 0; }
+    .creds { border: 1px solid var(--rule); padding: 36px; }
+    .creds-label {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mute); margin-bottom: 20px;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute);
+      margin-bottom: 24px;
     }
-    .founder-name {
-      font-size: clamp(40px, 5vw, 60px); font-weight: 800;
-      letter-spacing: -0.035em; line-height: 1; margin: 0 0 12px;
-    }
-    .founder-role {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 13px; letter-spacing: 0.06em; color: var(--accent);
-      margin: 0 0 24px; text-transform: uppercase;
-    }
-    .about p {
-      font-size: 17px; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px;
-    }
-    .about p:last-of-type { margin-bottom: 0; }
-
-    .founder-card {
-      position: relative;
-      border: 1px solid var(--rule);
-      background: var(--bg);
-      padding: 14px 14px 0;
-    }
-    .founder-card .badge {
-      position: absolute; top: -1px; left: -1px;
-      width: 26px; height: 26px;
-      background: linear-gradient(135deg, var(--ink) 0 50%, var(--accent) 50% 100%);
-    }
-    .founder-photo {
-      display: block; width: 100%; height: auto;
-      filter: grayscale(100%) contrast(1.02);
-    }
-    .founder-meta {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 4px 14px;
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mute);
-    }
-    .founder-meta .who { color: var(--ink); }
-
-    .expertise {
-      margin-top: 36px;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-      background: var(--rule); border: 1px solid var(--rule);
-    }
-    .exp-item { background: var(--bg); padding: 18px 20px; }
-    .exp-num {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px; color: var(--accent); margin-bottom: 8px;
-    }
-    .exp-name { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
-
-    .creds-strip {
-      margin-top: 28px; padding-top: 20px;
-      border-top: 1px solid var(--rule);
-      display: flex; flex-wrap: wrap; gap: 10px 22px;
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 12px; color: var(--mute);
-    }
-    .creds-strip .cred-item { display: inline-flex; align-items: center; gap: 8px; }
-    .creds-strip .cred-item::before {
-      content: ''; width: 6px; height: 6px; background: var(--accent); display: inline-block;
-    }
-
+    .cred-list { display: grid; gap: 18px; }
+    .cred { display: flex; gap: 16px; align-items: baseline; }
+    .cred-dot { width: 8px; height: 8px; background: var(--accent); flex: none; margin-top: 6px; }
+    .cred-text { font-size: 16px; color: var(--ink); line-height: 1.4; }
     @media (max-width: 860px) {
       .about { grid-template-columns: 1fr; gap: 40px; }
-      .expertise { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .expertise { grid-template-columns: 1fr; }
+      .creds { padding: 28px 24px; }
     }
 
     /* Quote / contact */
@@ -654,35 +577,18 @@
     </section>
 
     <section id="about" class="wrap sec about">
-      <figure class="founder-card reveal">
-        <span class="badge" aria-hidden="true"></span>
-        <img class="founder-photo" src="/ron.png" alt="Ron I., founder of SurgePoint Digital" width="410" height="410" loading="lazy" decoding="async" />
-        <figcaption class="founder-meta">
-          <span class="who">Ron I. &middot; Founder</span>
-          <span>Since 2016</span>
-        </figcaption>
-      </figure>
-      <div class="reveal d1">
-        <div class="about-eyebrow">Meet the founder</div>
-        <h2 class="founder-name">Ron I.</h2>
-        <div class="founder-role">10 years in digital marketing</div>
-        <p>Ron built SurgePoint after a decade running SEO, web builds, paid campaigns, social, content strategy, and — more recently — AI automation for everything from bootstrapped local shops to venture-backed startups. He's seen enough agencies invoice for reports nobody reads to know exactly what a small business actually needs: fewer meetings, tighter scopes, and marketing that shows up on the phone bill.</p>
-        <p>Every account, domain, and ad profile we touch stays in your name. If you leave, everything goes with you.</p>
-
-        <div class="expertise" aria-label="Areas of expertise">
-          <div class="exp-item"><div class="exp-num">01</div><div class="exp-name">SEO</div></div>
-          <div class="exp-item"><div class="exp-num">02</div><div class="exp-name">Web development</div></div>
-          <div class="exp-item"><div class="exp-num">03</div><div class="exp-name">Paid ads</div></div>
-          <div class="exp-item"><div class="exp-num">04</div><div class="exp-name">Social media</div></div>
-          <div class="exp-item"><div class="exp-num">05</div><div class="exp-name">Content strategy</div></div>
-          <div class="exp-item"><div class="exp-num">06</div><div class="exp-name">AI automation</div></div>
-        </div>
-
-        <div class="creds-strip" aria-label="Credentials">
-          <span class="cred-item">Google Partner</span>
-          <span class="cred-item">Meta Blueprint</span>
-          <span class="cred-item">GA4 &amp; Tag Manager</span>
-          <span class="cred-item">10 yrs in-market</span>
+      <div class="reveal">
+        <h2 class="h2">Built for businesses that answer their own phone.</h2>
+        <p>SurgePoint works with owner-operated businesses across trades, clinics, restaurants, and professional services. Most projects land between $1,500 and $5,000, and most clients have been burned once already by an agency that sent reports instead of customers.</p>
+        <p>You keep ownership of every account, domain, and ad profile we touch. If you leave, everything goes with you.</p>
+      </div>
+      <div class="creds reveal d1">
+        <div class="creds-label">Credentials</div>
+        <div class="cred-list">
+          <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Google Partner &mdash; Search &amp; Performance Max certified</span></div>
+          <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Meta Blueprint certified media buyer</span></div>
+          <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Nine years managing local search and paid campaigns</span></div>
+          <div class="cred"><span class="cred-dot" aria-hidden="true"></span><span class="cred-text">Google Analytics 4 and Tag Manager certified</span></div>
         </div>
       </div>
     </section>
