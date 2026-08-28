@@ -2,3 +2,9 @@
 .netlify/
 node_modules/
 *.log
+
+# Proposal Engine: private prospect research and working files.
+# Deliberately NOT tracked -- this repo auto-publishes to surgepointdigital.co,
+# so anything committed here becomes a public URL. Only the rendered pages in
+# proposals/ are meant to ship. See proposal-engine/README.md.
+proposal-engine/
