@@ -339,6 +339,34 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .price .note{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--mute);
   margin-top:var(--s4);line-height:1.7}
 
+/* ================= closing band ================= */
+.close{position:relative;margin-top:var(--s6);background:var(--ink);color:var(--paper);
+  overflow:hidden;padding:var(--s7) 0}
+.close::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:150%;pointer-events:none;
+  background:radial-gradient(42% 50% at 22% 18%,rgba(217,31,17,.26),transparent 68%),
+             radial-gradient(36% 44% at 88% 82%,rgba(255,107,74,.13),transparent 70%)}
+.close .sheet{position:relative;z-index:1}
+.close h2{font-size:clamp(28px,6vw,46px);margin-bottom:var(--s4)}
+.close h2 em{font-style:normal;color:var(--hot)}
+.close .sub{color:#C6C5BE;font-size:17px;max-width:32em;margin-bottom:var(--s6)}
+.btns{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;
+  font-size:16px;padding:18px 32px;text-decoration:none;background:var(--red);color:#fff;
+  transition:background .22s ease,transform .22s ease,box-shadow .22s ease;
+  box-shadow:0 18px 36px -18px rgba(255,59,47,.9)}
+.btn:hover{background:var(--hot);transform:translateY(-2px);box-shadow:0 22px 44px -18px rgba(255,59,47,1)}
+.btn.ghost{background:transparent;color:var(--paper);border:1.5px solid #3A3A36;box-shadow:none}
+.btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+@media(max-width:520px){.btn{flex:1 1 100%;padding:18px 24px}}
+.close .alt{font-family:var(--mono);font-size:11.5px;color:var(--mute);margin-top:var(--s4);
+  letter-spacing:.04em}
+
+/* ================= footer ================= */
+footer{background:var(--ink);color:var(--faint);border-top:1px solid #232320;
+  padding:var(--s4) 0 max(var(--s5),env(safe-area-inset-bottom))}
+footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;
+  font-family:var(--mono);font-size:10px;letter-spacing:.05em;line-height:1.7}
+
 /* ================= motion: additive only ================= */
 @media(prefers-reduced-motion:no-preference){
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -363,10 +391,10 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 @media print{
   .prog,.head{display:none!important}
   body{padding:0;font-size:11pt;background:#fff}
-  .hero{background:#fff!important;color:#000!important}
-  .hero::before,.hero::after,.panel::before{display:none!important}
-  .lede{color:#333!important}
-  h1 em{color:#D91F11!important}
+  .hero,.close,footer{background:#fff!important;color:#000!important}
+  .hero::before,.hero::after,.close::before,.panel::before{display:none!important}
+  .lede,.close .sub{color:#333!important}
+  h1 em,.close h2 em{color:#D91F11!important}
   .panel{box-shadow:none;break-inside:avoid}
   section{break-inside:avoid}
   .price .amt{filter:none;color:transparent}
@@ -391,193 +419,151 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
   <div class="sheet">
     <div>
       <div class="badge">Private proposal · Aug 2026</div>
-      <h1>Your work is better than the internet knows<em>.</em></h1>
-      <p class="lede">Top 1% of every licensed contractor in California. NARI and NKBA. Thirteen clients who wrote you paragraphs, not sentences. And thirty six keywords on Google. A remodeler twelve miles up the road in Roseville ranks for sixteen thousand. <strong>Same market, same customers, 455 times the search footprint, and they don't spend a dollar on ads to get it.</strong> Here's the whole picture, real data.</p>
+      <h1>You show up for 36 searches. He shows up for 16,381<em>.</em></h1>
+      <p class="lede">I went through your site and pulled the numbers on everyone you're up against around Rocklin. One thing jumped out, and it's the only thing I want to talk about. It isn't your work, your pricing, or your reputation. <strong>It's that a remodeler in Roseville built a few hundred pages and you built eight.</strong> Here's what I found.</p>
     </div>
   </div>
 </div>
 
 <section class="sheet">
-  <div class="kick rv">The demand <b>/ 01</b></div>
-  <h2 class="rv">The state just legislated your busiest decade.</h2>
+  <div class="kick rv">What it's worth <b>/ 01</b></div>
+  <h2 class="rv">The free traffic in your market runs about $77,000 a month.</h2>
   <div class="nums rv">
     <div class="num">
-      <b>+56<small>%</small></b>
-      <div class="l">growth in Sacramento ADU permits from 2023 to 2025, still climbing every year</div>
-      <div class="c">Shovels.ai · CA building permit data</div>
+      <b>$77,499<small>/mo</small></b>
+      <div class="l">what GVD Renovations' Google traffic would cost them if they had to buy it as ads</div>
+      <div class="c">Semrush · Aug 2026</div>
     </div>
     <div class="num">
-      <b>72<small>%</small></b>
-      <div class="l">of every ADU permit issued in the United States last year was pulled in California</div>
-      <div class="c">Shovels.ai · 2025</div>
+      <b>$0</b>
+      <div class="l">what they actually spend on ads. Every visit comes free from pages they own</div>
+      <div class="c">Semrush · Aug 2026</div>
     </div>
     <div class="num">
-      <b>$41.5K</b>
-      <div class="l">average mid range Sacramento kitchen remodel, 18% above the national number</div>
-      <div class="c">2026 Sacramento cost guides</div>
+      <b>$661<small>/mo</small></b>
+      <div class="l">the same math run on your site. Same town, same customers, same jobs</div>
+      <div class="c">Semrush · Aug 2026</div>
     </div>
   </div>
   <div class="callout rv">
-    <b>You already build the exact thing the state just made easy.</b>
-    <p>California now forces a city to approve or deny a complete ADU application in <strong>60 days</strong>, or 30 if the plans are preapproved, and owners no longer have to live on site to rent one out. Sacramento County hands out free preapproved detached ADU plans. Additions and ADUs are already on your services page. The permitting friction that used to kill those jobs is gone, and every one of those homeowners starts on Google.</p>
+    <b>This is the part almost nobody gets to see.</b>
+    <p>You can watch a competitor's ads. You can't watch their search traffic, so it's easy to assume they're just outspending you. <strong>GVD isn't spending anything.</strong> Those 20,000 monthly visits come off pages sitting on their website, working while nobody touches them. That's the thing I'd want to build for you, and it's the only thing this proposal is about.</p>
   </div>
 </section>
 <section class="sheet">
-  <div class="kick rv">The gap <b>/ 02</b></div>
-  <h2 class="rv">One remodeler twelve miles away owns the search.</h2>
-  <p class="deck rv">GVD Renovations is in Roseville. You are in Rocklin. Same homeowners, same jobs. Here is the whole machine, stage by stage:</p>
+  <div class="kick rv">How he did it <b>/ 02</b></div>
+  <h2 class="rv">He didn't outsmart you. He out-built you.</h2>
+  <p class="deck rv">Three steps, and each one causes the next. Here's where you sit at every stage:</p>
   <div class="wide panel rv">
       <div class="phead">
         <div class="t">Wolff Construction vs GVD Renovations</div>
-        <div class="s">Semrush domain data · us database · pulled Aug 2026 · each stage scaled on its own</div>
+        <div class="s">Semrush · Aug 2026 · each step scaled on its own</div>
       </div>
-    <div class="bgroup">Stage 1 · pages Google can actually rank</div>
-    <div class="bar"><div class="n">GVD Renovations<span>~100 city pages × ~10 services</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">100+</div></div>
+    <div class="bgroup">Step 1 · pages on the site for Google to find</div>
+    <div class="bar"><div class="n">GVD Renovations<span>about 100 city pages, 10 services on each</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">100+</div></div>
     <div class="bar you"><div class="n">Wolff Construction<span>home, team, projects, process, testimonials, careers, contact</span></div><div class="track"><div class="fill" style="--w:8%"></div></div><div class="v">8</div></div>
-    <div class="bgroup">Stage 2 · keywords ranked · how many searches you appear for at all</div>
+    <div class="bgroup">Step 2 · searches you turn up in at all</div>
     <div class="bar"><div class="n">GVD Renovations</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">16,381</div></div>
     <div class="bar you"><div class="n">Wolff Construction</div><div class="track"><div class="fill" style="--w:1%"></div></div><div class="v">36</div></div>
-    <div class="bgroup">Stage 3 · organic visits per month · people Google actually sends</div>
-    <div class="bar"><div class="n">GVD Renovations<span>worth ~$77,499/mo in equivalent ad spend</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">20,275</div></div>
-    <div class="bar you"><div class="n">Wolff Construction<span>worth ~$661/mo</span></div><div class="track"><div class="fill" style="--w:1%"></div></div><div class="v">142</div></div>
-      <div class="psrc" style="padding-top:var(--s4)">Source: Semrush domain_rank, us database, Aug 2026 · page counts from site crawl</div>
+    <div class="bgroup">Step 3 · visits Google sends every month</div>
+    <div class="bar"><div class="n">GVD Renovations</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">20,275</div></div>
+    <div class="bar you"><div class="n">Wolff Construction</div><div class="track"><div class="fill" style="--w:1%"></div></div><div class="v">142</div></div>
+      <div class="psrc" style="padding-top:var(--s4)">Source: Semrush domain data, Aug 2026 · page counts from their site</div>
   </div>
   <div class="callout rv">
-    <b>It isn't clever. It's inventory.</b>
-    <p>Open <strong>gvdrenovationsinc.com/cities/rocklin-ca/</strong> and you will find a page titled "Rocklin Home Remodeling Company" that is targeting your own town. Their footer links about sixty more Northern California cities, and there are roughly a hundred of these pages, each covering ten services. That is the entire trick. Solid Construction and CG Construction are running the same template. Nobody has built the premium version of it, and nobody has built it for Granite Bay money.</p>
+    <b>Go look for yourself.</b>
+    <p>Type <strong>gvdrenovationsinc.com/cities/rocklin-ca</strong> into your browser. It's a page called "Rocklin Home Remodeling Company," pointed straight at your town. There are roughly a hundred of those, one per city, ten services on each. Solid Construction and CG Construction are running the same thing. None of them are doing it well, and none of them are doing it for the kind of client you build for.</p>
   </div>
 </section>
 <section class="sheet">
-  <div class="kick rv">Reputation check <b>/ 03</b></div>
-  <h2 class="rv">Thirteen people wrote you paragraphs. Google has never seen them.</h2>
+  <div class="kick rv">The map <b>/ 03</b></div>
+  <h2 class="rv">You have thirteen great reviews that Google has never seen.</h2>
+  <p class="deck rv">When someone searches for a remodeler nearby, Google puts three businesses on the map above everything else. How many reviews you have, and how good they are, is most of how it picks. Here's where yours live right now:</p>
   <div class="wide panel vs rv">
-    <div class="hrow"><div>Where</div><div>Reviews</div><div>Who can find them</div><div>Rating</div></div>
+    <div class="hrow"><div>Where they live</div><div>How many</div><div>Who can see them</div><div>Rating</div></div>
     <div class="row">
       <div class="who">GVD Renovations<span>Roseville</span></div>
-      <div class="d" data-label="Reviews">~921</div>
-      <div class="d" data-label="Who can find them">Google · Yelp · BBB</div>
+      <div class="d" data-label="How many">~921</div>
+      <div class="d" data-label="Who can see them">anyone who searches</div>
       <div class="d" data-label="Rating">4.9</div>
     </div>
     <div class="row you">
       <div class="who">Your testimonials page<span>wolffconstruction.com</span></div>
-      <div class="d" data-label="Reviews">13</div>
-      <div class="d" data-label="Who can find them">the 142 people/mo who get there</div>
-      <div class="d" data-label="Rating">no stars</div>
+      <div class="d" data-label="How many">13</div>
+      <div class="d" data-label="Who can see them">the ~142 people a month who get there</div>
+      <div class="d" data-label="Rating">none shown</div>
     </div>
     <div class="row">
       <div class="who">Your Houzz profile<span>houzz.com</span></div>
-      <div class="d" data-label="Reviews">·</div>
-      <div class="d" data-label="Who can find them">Houzz users only</div>
+      <div class="d" data-label="How many">·</div>
+      <div class="d" data-label="Who can see them">people already on Houzz</div>
       <div class="d" data-label="Rating">5.0</div>
     </div>
     <div class="row">
       <div class="who">Your BuildZoom profile<span>buildzoom.com</span></div>
-      <div class="d" data-label="Reviews">1</div>
-      <div class="d" data-label="Who can find them">almost nobody</div>
-      <div class="d" data-label="Rating">top 1% of CA</div>
+      <div class="d" data-label="How many">1</div>
+      <div class="d" data-label="Who can see them">essentially nobody</div>
+      <div class="d" data-label="Rating">top 1% in CA</div>
     </div>
   </div>
   <div class="callout rv">
-    <b>Real praise, wrong place.</b>
-    <p>Your clients did the hard part. They named your people, described the craftsmanship, and wrote at length. Then it got pasted onto a page with no star rating, no schema, and no link to a review platform, so <strong>none of it counts toward the map pack</strong>. When a Granite Bay homeowner searches "kitchen remodel near me," Google ranks the three businesses with the most credible review volume. You are sitting on the reviews. They're just not anywhere that counts.</p>
+    <b>The good news is you already did the hard part.</b>
+    <p>Those thirteen people wrote real paragraphs about your crew, by name. Getting that same praise onto your Google profile is <strong>a handful of text messages, not a project.</strong> It's the cheapest thing on this list and it moves the map faster than anything else I could do for you.</p>
   </div>
 </section>
 <section class="sheet">
-  <div class="kick rv">Sneak peek <b>/ 04</b></div>
-  <h2 class="rv">What the site could look like.</h2>
-  <p class="deck rv">Rough preview, not the final design. Your brand is already the most premium one in this market. This is what it looks like with a structure underneath it.</p>
-  <div class="wide panel rv">
-      <div class="phead">
-        <div class="t">wolffconstruction.com · concept</div>
-        <div class="s">Desktop + mobile · every service and every city gets its own page under this</div>
-      </div>
-    <div class="stage">
-      <div class="scroller">
-        <div class="browser" style="--mi:#2E2A25;--ma:#B08D57;--mb:#6B6560;--mt:#EFEAE1;--mc:#F8F6F2;--mr:#E9E4DA;--mg:#F5F2EC;--mq:#B9B2A6">
-          <div class="bbar"><i></i><i></i><i></i><div class="burl">wolffconstruction.com</div></div>
-          <div class="site">
-            <div class="snav">
-              <div class="slogo">WOLFF <em>CONSTRUCTION</em></div>
-              <div class="slinks"><span>Kitchens</span><span>Bathrooms</span><span>Additions & ADUs</span><span>Custom Homes</span><span>Projects</span></div>
-              <div class="scall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>(916) 205-3745</div>
-            </div>
-            <div class="shero">
-              <div class="stag">CSLB 1056036 · NARI + NKBA · ROCKLIN, CA</div>
-              <div class="sh1">Built with integrity.<br>Finished in <b>timeless detail.</b></div>
-              <p class="ssub">Luxury kitchens, whole home renovations, additions and ADUs across Rocklin, Roseville and Granite Bay.</p>
-              <div class="sbtns"><span class="sbtn">Start your project</span><span class="sbtn2">See the portfolio</span></div>
-              <div class="strust"><span><b>5.0★</b> Houzz</span><span><b>Top 1%</b> of CA contractors</span><span><b>NARI</b> + NKBA</span></div>
-            </div>
-            <div class="scards">
-              <div class="scard"><i></i><b>Luxury kitchens</b><p>Custom cabinetry, stone, and lighting design handled start to finish.</p></div>
-              <div class="scard"><i></i><b>Additions & ADUs</b><p>County preapproved plans, permitted in 30 to 60 days under the new law.</p></div>
-              <div class="scard"><i></i><b>Whole home renovation</b><p>One crew, one schedule, one person who answers the phone.</p></div>
-            </div>
-            <div class="sreviews">
-              <div><b>&ldquo;Don Erik is a perfectionist, and it shows in every corner.&rdquo;</b><span>already on your testimonials page</span></div>
-              <div class="stars">★★★★★</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="phone" style="--mi:#2E2A25;--ma:#B08D57;--mb:#6B6560;--mt:#EFEAE1;--mc:#F8F6F2;--mr:#E9E4DA;--mg:#F5F2EC;--mq:#B9B2A6">
-        <div class="pscreen">
-          <div class="pnotch"><i></i></div>
-          <div class="phero">
-            <div class="plogo">WOLFF <em>CO.</em></div>
-            <div class="ph1">Built with <b>integrity.</b></div>
-            <p class="psub">Kitchens, additions and ADUs in Rocklin, Roseville and Granite Bay.</p>
-          </div>
-          <div class="prow">
-            <div class="pitem">Luxury kitchens <span>&rarr;</span></div>
-            <div class="pitem">Additions & ADUs <span>&rarr;</span></div>
-            <div class="pitem">Custom homes <span>&rarr;</span></div>
-          </div>
-          <div class="pcall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>Book a walkthrough</div>
-        </div>
-      </div>
-    </div>
-    <div class="swipe">Swipe the desktop view &rarr;</div>
-      <div class="psrc" style="padding-top:var(--s4)">Concept only · the final look gets built with you</div>
-  </div>
-</section>
-<section class="sheet">
-  <div class="kick rv">The plan <b>/ 05</b></div>
-  <h2 class="rv">Close the gap. Five moves.</h2>
+  <div class="kick rv">The work <b>/ 04</b></div>
+  <h2 class="rv">What I'd actually do.</h2>
   <div class="steps">
     <div class="step rv"><div class="n">01</div><div>
-      <h3>Rebuild the site on a real structure</h3>
-      <p>Keep the brand exactly as it is, put an engine under it. A page for every service you sell, a page for every town you serve: Rocklin, Roseville, Granite Bay, Loomis, Lincoln, Folsom, El Dorado Hills. That is the same inventory GVD used to get to 16,381 keywords, built at your quality level instead of theirs.</p>
+      <h3>Build the pages that don't exist yet</h3>
+      <p>A page for every job you do and every town you do it in. Kitchens in Granite Bay. ADUs in Loomis. Whole home in Roseville. It sounds like a lot of pages because it is, but it's a one time build, and it's the single thing standing between your site and GVD's.</p>
     </div></div>
     <div class="step rv"><div class="n">02</div><div>
-      <h3>Move the reviews to where they count</h3>
-      <p>Thirteen clients already wrote the copy. One request to each of them, plus a standing ask at project close, and those raves land on Google and Houzz where the map pack can see them. This is the fastest lever on the list and it costs you nothing but the asks.</p>
+      <h3>Get your reviews onto Google</h3>
+      <p>Thirteen clients already wrote the words. One message to each of them, then a standing ask at the end of every job from here on. Nothing else on this list is this cheap or this fast.</p>
     </div></div>
     <div class="step rv"><div class="n">03</div><div>
-      <h3>Own the ADU question</h3>
-      <p>Nobody in this market has written the honest guide to the new 60 day approval rule, the county preapproved plans, or what an ADU actually costs in Placer County. Every one of those searches is a homeowner with a permit and a budget. It compounds every month it runs.</p>
+      <h3>Answer what people are already typing</h3>
+      <p>What a kitchen really costs here. How long an ADU takes. What goes wrong and how you handle it. Not because writing is clever, but because those are the actual searches and nobody local has answered them honestly.</p>
     </div></div>
     <div class="step rv"><div class="n">04</div><div>
-      <h3>Turn projects into proof</h3>
-      <p>You have three named projects and photography worth showing. Each one becomes a case study with the problem, the spec, the trades, and the finish. That is what a $120,000 kitchen client reads before calling, and it is the content that makes the city pages rank.</p>
+      <h3>Fix what's under the hood</h3>
+      <p>Page titles, load speed, how Google reads your project pages, and making sure your name, address and phone match everywhere they show up online. Unglamorous. It's also why some sites rank and identical ones don't.</p>
     </div></div>
     <div class="step rv"><div class="n">05</div><div>
-      <h3>Paid where the intent is highest</h3>
-      <p>Google Local Services and a tight search campaign on the high intent terms, so you show up while the organic work compounds. At a $41,500 average ticket the math on a qualified lead is not close.</p>
+      <h3>Show you what's working</h3>
+      <p>One page you can open whenever you want: what you rank for, what moved this month, and which calls came from search. If something isn't working I'd rather you see it yourself than take my word for it.</p>
     </div></div>
   </div>
   <div class="panel price rv">
-    <div class="pt">What we'd explore together</div>
-    <div class="row"><span>01 · Website rebuild (service + city structure)</span><span class="amt">$0,000</span></div>
-    <div class="row"><span>02 · Review engine (Google / Houzz)</span><span class="amt">$000/mo</span></div>
-    <div class="row"><span>03 · SEO + ADU content (monthly, ongoing)</span><span class="amt">$0,000/mo</span></div>
-    <div class="row"><span>04 · Project case studies</span><span class="amt">$000/mo</span></div>
-    <div class="row"><span>05 · Paid ads (Local Services + search)</span><span class="amt">$0,000/mo</span></div>
+    <div class="pt">What we'd talk through</div>
+    <div class="row"><span>01 · Setup: page build, structure, technical fixes</span><span class="amt">$0,000</span></div>
+    <div class="row"><span>02 · Monthly: new pages and content</span><span class="amt">$0,000/mo</span></div>
+    <div class="row"><span>03 · Monthly: reviews and Google profile</span><span class="amt">$000/mo</span></div>
     <div class="note">STRUCTURE TBD</div>
   </div>
 </section>
 
+<div class="close">
+  <div class="sheet">
+    <div>
+      <h2>That's the whole picture<em>.</em></h2>
+      <p class="sub">If any of it looks off to you, say so and I'll go dig again. If it looks right, the page build is where we'd start.</p>
+      <div class="btns"><a class="btn" href="sms:4152650873">Text Ron ↗</a><a class="btn ghost" href="tel:4152650873">Call 415-265-0873</a></div>
+      <div class="alt">Or just reply to the email this came from.</div>
+    </div>
+  </div>
+</div>
+
 </main>
+
+<footer>
+  <div class="sheet"><div class="bar wide">
+    <div>SurgePoint Digital · surgepointdigital.co</div>
+    <div>Prepared for Wolff Construction · Aug 2026 · Semrush + public data · not indexed</div>
+  </div></div>
+</footer>
 
 </body>
 </html>
