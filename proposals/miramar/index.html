@@ -1,337 +1,618 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#111110">
 <title>For Miramar Insurance &amp; DMV Registration · SurgePoint Digital</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#111110; --red:#D91F11; --hot:#FF3B2F; --paper:#FCFCFA; --stone:#EFEEE9;
-    --line:#E2E1DC; --gray:#45443F; --dim:#6B6B66;
-    --dline:#2A2A27; --dtext:#A8A79F;
+/* ================================================================
+   SurgePoint Digital · client proposal
+   No JavaScript. Every word is readable with CSS alone.
+   ================================================================ */
+
+/* ---- tokens ---- */
+:root{
+  --paper:#FCFCFA; --ink:#0D0D0C; --ink-2:#141413; --ink-3:#1C1C1A;
+  --gray:#45443F; --dim:#6B6B66; --mute:#8A8A83; --faint:#6E6E68;
+  --line:#E4E3DE; --line-2:#C9C8C1; --stone:#F1F0EC;
+  --dline:#26262300; --dline-1:#2A2A27;
+  --dtext:#A8A79F;
+  --red:#D91F11; --hot:#FF3B2F; --ember:#FF6B4A;
+
+  --sans:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* one spacing scale, used everywhere */
+  --s1:6px;
+  --s2:10px;
+  --s3:16px;
+  --s4:clamp(20px,2.6vw,26px);
+  --s5:clamp(28px,4vw,40px);
+  --s6:clamp(40px,6vw,60px);
+  --s7:clamp(54px,8vw,88px);    /* between sections */
+  --gut:clamp(20px,5vw,34px);
+  --col:min(700px,100%);
+  --wide:min(1080px,100%);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.62;letter-spacing:-.003em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+::selection{background:var(--red);color:#fff}
+img,svg{display:block;max-width:100%}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.038em;line-height:1.06;text-wrap:balance}
+
+/* ---- full-bleed grid: text stays narrow, panels breathe wider ---- */
+.sheet>*{width:calc(100% - 2*var(--gut));max-width:700px;margin-inline:auto}
+.sheet>.wide{max-width:1080px}
+.sheet>.full{width:100%;max-width:none}
+
+/* ================= scroll progress (CSS-only, opt-in) ================= */
+.prog{display:none}
+@supports (animation-timeline: scroll()){
+  .prog{display:block;position:fixed;left:0;right:0;top:0;height:2px;z-index:80;
+    background:transparent;pointer-events:none}
+  .prog i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);
+    background:linear-gradient(90deg,var(--red),var(--ember));
+    box-shadow:0 0 12px rgba(255,59,47,.7);
+    animation:sweep linear both;animation-timeline:scroll(root)}
+  @keyframes sweep{to{transform:scaleX(1)}}
+}
+
+/* ================= header ================= */
+.head{position:sticky;top:0;z-index:70;background:rgba(13,13,12,.82);
+  backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid #232320;color:var(--paper)}
+.head .bar{display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s3);min-height:62px}
+.mark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
+.mark i{width:20px;height:20px;flex:none;background:linear-gradient(135deg,var(--paper) 0 50%,var(--red) 50% 100%)}
+.mark b{font-size:14.5px;font-weight:800;letter-spacing:-.025em;white-space:nowrap}
+.forwho{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);text-align:right;line-height:1.55}
+@media(max-width:480px){.forwho{font-size:8.5px;letter-spacing:.1em}.mark b{font-size:13px}}
+
+/* ================= hero (dark) ================= */
+.hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;
+  padding:var(--s7) 0 var(--s6)}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;pointer-events:none;
+  background:radial-gradient(46% 52% at 78% 18%,rgba(217,31,17,.30),transparent 68%),
+             radial-gradient(38% 44% at 8% 88%,rgba(255,107,74,.11),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(80% 70% at 50% 0%,#000,transparent 78%);
+  mask-image:radial-gradient(80% 70% at 50% 0%,#000,transparent 78%)}
+.hero .sheet{position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:#FFD5CE;
+  border:1px solid rgba(255,59,47,.35);background:rgba(255,59,47,.10);
+  padding:8px 15px;border-radius:999px;margin-bottom:var(--s5)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hot);
+  box-shadow:0 0 10px var(--hot)}
+h1{font-size:clamp(40px,8.6vw,72px);font-weight:900;letter-spacing:-.045em;line-height:.98;
+  margin-bottom:var(--s5)}
+h1 em{font-style:normal;color:var(--hot);text-shadow:0 0 26px rgba(255,59,47,.5)}
+.lede{font-size:clamp(17px,2vw,20px);line-height:1.6;color:#C6C5BE;max-width:33em}
+.lede strong{color:var(--paper);font-weight:600}
+
+/* ================= sections ================= */
+section{padding:var(--s7) 0 0}
+section:last-of-type{padding-bottom:0}
+
+/* chapter label + heading + deck: one tight rhythm */
+.kick{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:var(--s3)}
+.kick b{font-weight:500;color:var(--line-2);font-size:9.5px}
+.kick::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
+.deck{color:var(--gray);font-size:17px;max-width:34em}
+/* spacing between the deck paragraph and whatever visual follows */
+.deck + .wide, .deck + .panel, h2 + .wide, h2 + .panel{margin-top:var(--s6)}
+
+/* ================= stat row ================= */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border-block:1px solid var(--line);margin-top:var(--s6)}
+.num{background:var(--paper);padding:var(--s4) var(--s4) var(--s5);position:relative;
+  transition:background .3s ease}
+.num::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--red);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.num:hover{background:var(--stone)}
+.num:hover::after{transform:scaleX(1)}
+.num b{display:block;font-size:clamp(32px,5.4vw,44px);font-weight:900;letter-spacing:-.05em;
+  line-height:1;margin-bottom:var(--s3)}
+.num b small{font-size:.4em;font-weight:700;letter-spacing:-.01em;color:var(--red);vertical-align:super}
+.num .l{font-size:14.5px;line-height:1.5;color:var(--gray)}
+.num .c{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--red);
+  margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line)}
+@media(max-width:760px){
+  .nums{grid-template-columns:1fr;gap:0}
+  .num{padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+  .num:last-child{border-bottom:0}
+  .num b{margin-bottom:var(--s2)}
+  .num .c{margin-top:var(--s3)}
+  .num::after{display:none}
+}
+
+/* ================= callout ================= */
+.callout{position:relative;background:var(--stone);padding:var(--s5);margin-top:var(--s5);
+  overflow:hidden}
+.callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.callout b{display:block;font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.25;
+  margin-bottom:var(--s2)}
+.callout p{font-size:15.5px;color:var(--gray)}
+.callout strong{color:var(--red);font-weight:700}
+
+/* ================= dark panels ================= */
+.panel{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;
+  box-shadow:0 40px 80px -46px rgba(13,13,12,.75)}
+.panel::before{content:"";position:absolute;inset:auto -25% -70% 30%;height:110%;pointer-events:none;
+  background:radial-gradient(50% 55% at 50% 50%,rgba(217,31,17,.16),transparent 72%)}
+.panel>*{position:relative}
+.phead{padding:var(--s5) var(--gut) 0}
+.phead .t{font-size:17px;font-weight:800;letter-spacing:-.025em;margin-bottom:var(--s1)}
+.phead .s{font-family:var(--mono);font-size:10.5px;line-height:1.6;color:var(--mute);letter-spacing:.02em}
+.psrc{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--faint);
+  padding:0 var(--gut) var(--s5)}
+
+/* ---- line chart ---- */
+.plot{position:relative;height:clamp(200px,34vw,300px);margin-top:var(--s5);padding-left:50px}
+.plot svg{width:100%;height:100%;overflow:visible}
+.yax{position:absolute;left:0;top:0;bottom:0;width:44px;pointer-events:none}
+.yax b{position:absolute;right:0;transform:translateY(-50%);font-family:var(--mono);
+  font-size:9.5px;font-weight:400;color:var(--faint);white-space:nowrap}
+.dot{position:absolute;right:0;border-radius:50%;transform:translate(50%,-50%);pointer-events:none}
+.dot.a{width:11px;height:11px;background:var(--hot);
+  box-shadow:0 0 0 4px rgba(255,59,47,.18),0 0 16px rgba(255,59,47,.95)}
+.dot.b{width:9px;height:9px;background:#C9C8C1}
+.plotwrap{padding:0 var(--gut)}
+.xax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;
+  color:var(--faint);padding:var(--s2) var(--gut) 0 calc(var(--gut) + 50px)}
+.legend{display:flex;gap:var(--s2) var(--s5);flex-wrap:wrap;padding:var(--s4) var(--gut) var(--s3)}
+.legend span{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;
+  color:var(--dtext)}
+.legend i{width:20px;height:3px;flex:none;border-radius:2px}
+
+/* ---- bar chart ---- */
+.bgroup{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);padding:var(--s5) var(--gut) var(--s2);border-bottom:1px solid var(--dline-1)}
+.bar{display:grid;grid-template-columns:152px 1fr 78px;gap:var(--s3);align-items:center;
+  padding:13px var(--gut);border-bottom:1px solid var(--dline-1)}
+.bar:last-of-type{border-bottom:0}
+.bar .n{font-size:14px;font-weight:600;line-height:1.3}
+.bar .n span{display:block;font-weight:400;font-size:11px;color:var(--mute);margin-top:2px}
+.bar .track{height:12px;background:#232320;border-radius:2px;overflow:hidden}
+.bar .fill{height:100%;width:var(--w);border-radius:2px;
+  background:linear-gradient(90deg,#FCFCFA,#B9B8B1)}
+.bar.you{background:#161614;box-shadow:inset 3px 0 0 var(--red)}
+.bar.you .fill{background:linear-gradient(90deg,var(--red),var(--ember));
+  box-shadow:0 0 20px rgba(255,59,47,.65)}
+.bar .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--dtext)}
+.bar.you .v{color:var(--hot);font-weight:500}
+@media(max-width:620px){
+  .bar{grid-template-columns:1fr auto;gap:var(--s1) var(--s3);padding-top:var(--s3);padding-bottom:var(--s3)}
+  .bar .n{grid-column:1}
+  .bar .v{grid-column:2;align-self:center}
+  .bar .track{grid-column:1/-1;height:10px;margin-top:2px}
+}
+
+/* ---- comparison ---- */
+.vs .hrow,.vs .row{display:grid;grid-template-columns:1.35fr .85fr .5fr 1fr;gap:var(--s3);
+  padding:var(--s3) var(--gut);align-items:baseline}
+.vs .hrow{border-bottom:2px solid var(--red);font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.vs .row{border-bottom:1px solid var(--dline-1)}
+.vs .row:last-child{border-bottom:0}
+.vs .who{font-size:14.5px;font-weight:700;line-height:1.3}
+.vs .who span{display:block;font-weight:400;font-size:11px;color:var(--mute);margin-top:2px}
+.vs .d{font-family:var(--mono);font-size:12.5px;color:var(--dtext)}
+.vs .row.you{background:#161614;box-shadow:inset 3px 0 0 var(--red)}
+.vs .row.you .d{color:var(--hot)}
+@media(max-width:660px){
+  .vs .hrow{display:none}
+  .vs .row{grid-template-columns:1fr;gap:0;padding-top:var(--s4);padding-bottom:var(--s4)}
+  .vs .who{margin-bottom:var(--s2)}
+  .vs .d{display:flex;justify-content:space-between;gap:var(--s3);padding:7px 0;
+    border-top:1px solid var(--dline-1)}
+  .vs .d::before{content:attr(data-label);color:var(--mute);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;align-self:center}
+}
+
+/* ================= site mockup ================= */
+.stage{display:grid;grid-template-columns:1fr 152px;gap:var(--s4);align-items:end;
+  padding:var(--s5) var(--gut) 0}
+.scroller{min-width:0}
+.swipe{display:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);padding:var(--s2) var(--gut) 0}
+@media(max-width:760px){
+  .stage{display:block}
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:var(--s2);
+    -webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);
+    mask-image:linear-gradient(90deg,#000 90%,transparent)}
+  .browser{min-width:520px}
+  .phone{width:186px;margin:var(--s5) auto 0}
+  .swipe{display:block}
+}
+.browser{background:#F6F4EF;overflow:hidden;container-type:inline-size;
+  box-shadow:0 22px 50px -20px rgba(0,0,0,.8)}
+.bbar{background:#E7E4DC;display:flex;align-items:center;gap:6px;padding:1.5cqw 2.2cqw}
+.bbar i{width:1.5cqw;height:1.5cqw;min-width:5px;min-height:5px;border-radius:50%;flex:none;background:#C9C8C1}
+.bbar i:nth-child(1){background:#FF5F57}
+.bbar i:nth-child(2){background:#FEBC2E}
+.bbar i:nth-child(3){background:#28C840}
+.burl{flex:1;background:#F6F4EF;border-radius:3px;font-family:var(--mono);font-size:8px;font-size:1.25cqw;
+  color:#9A9A93;padding:.7cqw 1.6cqw;margin-left:1.4cqw;white-space:nowrap;overflow:hidden}
+.site{background:#fff;color:#0E2A43}
+.snav{display:flex;justify-content:space-between;align-items:center;gap:2cqw;
+  padding:2.1cqw 2.8cqw;border-bottom:1px solid #EDEAE2}
+.slogo{font-weight:800;font-size:11px;font-size:2cqw;letter-spacing:-.02em;white-space:nowrap}
+.slogo em{font-style:normal;color:#F5A623}
+.slinks{display:flex;gap:1.9cqw;font-size:7px;font-size:1.35cqw;color:#5C6670;white-space:nowrap}
+.scall{display:inline-flex;align-items:center;gap:.9cqw;background:#0E2A43;color:#fff;font-size:8px;
+  font-size:1.45cqw;font-weight:700;padding:1.1cqw 1.9cqw;white-space:nowrap}
+.scall svg{width:1.5cqw;height:1.5cqw;min-width:6px;min-height:6px;fill:currentColor}
+.shero{padding:3.4cqw 2.8cqw 2.8cqw;background:linear-gradient(180deg,#fff,#F1F6FA)}
+.stag{display:inline-block;font-family:var(--mono);font-size:7px;font-size:1.25cqw;letter-spacing:.1em;
+  color:#0E2A43;background:#E4EEF6;padding:.8cqw 1.4cqw;margin-bottom:1.8cqw}
+.sh1{font-size:20px;font-size:3.55cqw;font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.2cqw}
+.sh1 b{color:#F5A623}
+.ssub{font-size:9px;font-size:1.6cqw;color:#5C6670;line-height:1.55;max-width:42cqw;margin-bottom:2.2cqw}
+.sbtns{display:flex;gap:1.8cqw;align-items:center}
+.sbtn{background:#F5A623;color:#0E2A43;font-size:9px;font-size:1.55cqw;font-weight:800;
+  padding:1.3cqw 2.4cqw;white-space:nowrap}
+.sbtn2{font-size:8px;font-size:1.45cqw;font-weight:700;border-bottom:1.5px solid #F5A623;
+  padding-bottom:.3cqw;white-space:nowrap}
+.strust{display:flex;gap:2.6cqw;margin-top:2.6cqw;flex-wrap:wrap;font-family:var(--mono);
+  font-size:7px;font-size:1.3cqw;color:#5C6670}
+.strust b{color:#0E2A43}
+.scards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw;padding:0 2.8cqw 2.8cqw}
+.scard{background:#F7F9FB;border:1px solid #EAF0F5;padding:1.8cqw 1.8cqw 2cqw}
+.scard i{display:block;width:3cqw;height:.6cqw;min-height:2px;background:#F5A623;margin-bottom:1.4cqw}
+.scard b{display:block;font-size:9px;font-size:1.6cqw;font-weight:800;margin-bottom:.7cqw}
+.scard p{font-size:7px;font-size:1.35cqw;color:#5C6670;line-height:1.5}
+.sreviews{display:flex;align-items:center;justify-content:space-between;gap:2cqw;
+  background:#0E2A43;color:#fff;padding:2cqw 2.8cqw}
+.sreviews b{font-size:10px;font-size:1.75cqw;font-weight:800;letter-spacing:-.015em}
+.sreviews span{display:block;font-family:var(--mono);font-size:7px;font-size:1.2cqw;color:#9FB4C7;margin-top:.6cqw}
+.stars{color:#F5A623;font-size:10px;font-size:1.8cqw;letter-spacing:.12em;white-space:nowrap}
+.phone{background:#0A0A09;border-radius:11%/5.5%;padding:3.5%;container-type:inline-size;
+  box-shadow:0 22px 46px -16px rgba(0,0,0,.85)}
+.pscreen{background:#fff;color:#0E2A43;border-radius:8%/4%;overflow:hidden}
+.pnotch{height:5cqw;display:flex;justify-content:center;align-items:center}
+.pnotch i{width:22cqw;height:2.6cqw;background:#0A0A09;border-radius:2cqw}
+.phero{padding:5cqw 6cqw 4cqw;background:linear-gradient(180deg,#fff,#F1F6FA)}
+.plogo{font-weight:800;font-size:5.2cqw;letter-spacing:-.02em;margin-bottom:4cqw}
+.plogo em{font-style:normal;color:#F5A623}
+.ph1{font-size:8.4cqw;font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:2.4cqw}
+.ph1 b{color:#F5A623}
+.psub{font-size:4.2cqw;color:#5C6670;line-height:1.5}
+.prow{display:grid;gap:2.4cqw;padding:4cqw 6cqw 0}
+.pitem{display:flex;justify-content:space-between;align-items:center;gap:2cqw;background:#F7F9FB;
+  border:1px solid #EAF0F5;font-size:4.3cqw;font-weight:700;padding:3cqw 3.4cqw}
+.pitem span{color:#F5A623;font-weight:800}
+.pcall{display:flex;align-items:center;justify-content:center;gap:1.6cqw;background:#F5A623;color:#0E2A43;
+  font-size:4.6cqw;font-weight:800;padding:3.4cqw;margin:4cqw 6cqw 6cqw}
+.pcall svg{width:4cqw;height:4cqw;fill:currentColor}
+
+/* ================= plan steps ================= */
+.steps{margin-top:var(--s6);border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:start;
+  padding:var(--s5) 0;border-bottom:1px solid var(--line);position:relative}
+.step::before{content:"";position:absolute;left:0;top:-1px;width:0;height:1px;background:var(--red);
+  transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.step:hover::before{width:100%}
+.step .n{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--red);
+  padding-top:5px;min-width:24px}
+.step h3{font-size:19px;font-weight:800;letter-spacing:-.028em;margin-bottom:var(--s2)}
+.step p{font-size:15.5px;color:var(--gray)}
+
+/* ================= pricing ================= */
+.price{margin-top:var(--s6);padding:var(--s5) var(--gut)}
+.price .pt{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
+  flex-wrap:wrap;font-size:18px;font-weight:800;letter-spacing:-.025em;margin-bottom:var(--s4)}
+.price .pt em{font-style:normal;font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.price .row{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);
+  padding:13px 0;font-size:15px;color:var(--dtext);border-bottom:1px solid var(--dline-1)}
+.price .row:last-of-type{border-bottom:0}
+.price .amt{font-family:var(--mono);font-size:13.5px;color:var(--paper);white-space:nowrap;
+  filter:blur(6px);opacity:.8;user-select:none}
+.price .note{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--mute);
+  margin-top:var(--s4);line-height:1.7}
+
+/* ================= closing band ================= */
+.close{position:relative;margin-top:var(--s6);background:var(--ink);color:var(--paper);
+  overflow:hidden;padding:var(--s7) 0}
+.close::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:150%;pointer-events:none;
+  background:radial-gradient(42% 50% at 22% 18%,rgba(217,31,17,.26),transparent 68%),
+             radial-gradient(36% 44% at 88% 82%,rgba(255,107,74,.13),transparent 70%)}
+.close .sheet{position:relative;z-index:1}
+.close h2{font-size:clamp(28px,6vw,46px);margin-bottom:var(--s4)}
+.close h2 em{font-style:normal;color:var(--hot)}
+.close .sub{color:#C6C5BE;font-size:17px;max-width:32em;margin-bottom:var(--s6)}
+.btns{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;
+  font-size:16px;padding:18px 32px;text-decoration:none;background:var(--red);color:#fff;
+  transition:background .22s ease,transform .22s ease,box-shadow .22s ease;
+  box-shadow:0 18px 36px -18px rgba(255,59,47,.9)}
+.btn:hover{background:var(--hot);transform:translateY(-2px);box-shadow:0 22px 44px -18px rgba(255,59,47,1)}
+.btn.ghost{background:transparent;color:var(--paper);border:1.5px solid #3A3A36;box-shadow:none}
+.btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+@media(max-width:520px){.btn{flex:1 1 100%;padding:18px 24px}}
+.close .alt{font-family:var(--mono);font-size:11.5px;color:var(--mute);margin-top:var(--s4);
+  letter-spacing:.04em}
+
+/* ================= footer ================= */
+footer{background:var(--ink);color:var(--faint);border-top:1px solid #232320;
+  padding:var(--s4) 0 max(var(--s5),env(safe-area-inset-bottom))}
+footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;
+  font-family:var(--mono);font-size:10px;letter-spacing:.05em;line-height:1.7}
+@media(max-width:760px){body{padding-bottom:68px}}
+
+/* ================= mobile call dock ================= */
+.dock{display:none}
+@media(max-width:760px){
+  .dock{display:flex;gap:var(--s2);position:fixed;left:0;right:0;bottom:0;z-index:75;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(13,13,12,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-top:1px solid #232320}
+  .dock a{flex:1;display:flex;align-items:center;justify-content:center;padding:14px 12px;
+    font-weight:700;font-size:15px;text-decoration:none}
+  .dock .p{background:var(--red);color:#fff}
+  .dock .s{background:#232320;color:var(--paper)}
+}
+
+/* ================= motion: additive only ================= */
+@media(prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes grow{from{width:0}to{width:var(--w)}}
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+
+  .badge,h1,.lede{animation:rise .8s cubic-bezier(.2,.75,.2,1) both}
+  h1{animation-delay:.08s}
+  .lede{animation-delay:.16s}
+  .bar .fill{animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both}
+  .line{stroke-dasharray:1;animation:draw 1.9s cubic-bezier(.35,.05,.2,1) both}
+
+  /* scroll-linked reveals only where the browser really supports them,
+     so an unsupported browser simply shows everything. */
+  @supports (animation-timeline: view()){
+    .rv{animation:rise .9s cubic-bezier(.2,.75,.2,1) both;
+      animation-timeline:view();animation-range:entry 0% entry 80%}
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    font-family:Archivo,Helvetica,sans-serif;background:var(--paper);color:var(--ink);
-    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
-  }
-  .rail{position:fixed;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:30}
-  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+}
 
-  header{padding:28px 0;border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .mark{display:flex;align-items:center;gap:10px}
-  .mark i{width:22px;height:22px;background:linear-gradient(135deg,var(--ink) 0 50%,var(--red) 50% 100%)}
-  .mark b{font-size:15px;font-weight:800;letter-spacing:-0.02em}
-  .for{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:right}
-
-  .hero{padding:64px 0 8px}
-  h1{font-size:clamp(38px,8vw,56px);font-weight:800;letter-spacing:-0.035em;line-height:1.02;margin-bottom:22px;text-wrap:balance}
-  h1 span{color:var(--red)}
-  .hero p{font-size:19px;color:var(--gray);max-width:34em}
-
-  section{padding:64px 0 0}
-  .kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
-  h2{font-size:clamp(24px,5vw,30px);font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:14px}
-  .sub{color:var(--gray);max-width:36em}
-
-  .nums{border-top:3px solid var(--ink);margin-top:36px}
-  .num{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
-  .num b{font-size:34px;font-weight:800;letter-spacing:-0.03em;line-height:1;white-space:nowrap}
-  .num b small{font-size:16px;font-weight:600}
-  .num div{text-align:right}
-  .num .l{font-size:15px;color:var(--gray)}
-  .num .c{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--red);margin-top:3px}
-
-  /* dark visual modules */
-  .chart{margin:44px 0 0;background:var(--ink);color:var(--paper);padding:28px 26px 22px;box-shadow:0 24px 60px -30px rgba(17,17,16,.55)}
-  .chart .t{font-weight:800;font-size:17px;letter-spacing:-0.01em;margin-bottom:3px}
-  .chart .s{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8A83;margin-bottom:20px}
-  .chart svg{width:100%;height:auto;display:block}
-  .legend{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap}
-  .legend span{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dtext)}
-  .legend i{width:16px;height:3px;display:inline-block}
-  .src{font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A83;margin-top:14px}
-
-  .bars{margin:44px 0 0;background:var(--ink);color:var(--paper);padding:28px 26px 22px;box-shadow:0 24px 60px -30px rgba(17,17,16,.55)}
-  .bars .t{font-weight:800;font-size:17px;letter-spacing:-0.01em;margin-bottom:3px}
-  .bars .s{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8A83;margin-bottom:10px}
-  .bargroup{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A8A83;padding:18px 0 8px;border-bottom:1px solid var(--dline)}
-  .bar{display:grid;grid-template-columns:150px 1fr 74px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--dline)}
-  .bar:last-child{border-bottom:none}
-  .bar .n{font-size:14px;font-weight:600;color:var(--paper)}
-  .bar .n span{display:block;font-weight:400;font-size:11.5px;color:#8A8A83}
-  .bar .track{height:14px;background:#26261F;position:relative}
-  .bar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#FCFCFA,#C9C8C1)}
-  .bar.you .fill{background:linear-gradient(90deg,var(--red),var(--hot));box-shadow:0 0 18px rgba(255,59,47,.55)}
-  .bar .v{font-family:'JetBrains Mono',monospace;font-size:12px;text-align:right;color:var(--dtext)}
-  .bar.you .v{color:var(--hot);font-weight:500}
-
-  .vs{margin:44px 0 0;background:var(--ink);color:var(--paper);box-shadow:0 24px 60px -30px rgba(17,17,16,.55)}
-  .vs .hrow{display:grid;grid-template-columns:1.3fr .8fr .6fr .9fr;gap:10px;padding:16px 24px;border-bottom:2px solid var(--red);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8A8A83}
-  .vs .row{display:grid;grid-template-columns:1.3fr .8fr .6fr .9fr;gap:10px;padding:15px 24px;border-bottom:1px solid var(--dline);align-items:baseline}
-  .vs .row:last-child{border-bottom:none}
-  .vs .who{font-weight:700;font-size:14.5px;color:var(--paper)}
-  .vs .who span{display:block;font-weight:400;font-size:11.5px;color:#8A8A83}
-  .vs .d{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--dtext)}
-  .vs .row.you{background:#1D1D1B;box-shadow:inset 4px 0 0 var(--red)}
-  .vs .row.you .d{color:var(--hot)}
-
-  .callout{background:var(--stone);padding:28px 30px;margin:40px 0 0}
-  .callout b{display:block;font-size:18px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px}
-  .callout p{font-size:15.5px;color:var(--gray)}
-  .callout strong{color:var(--red);font-weight:700}
-
-  /* website mockup preview */
-  .mock{margin:44px 0 0;background:var(--ink);padding:30px 26px 26px;box-shadow:0 24px 60px -30px rgba(17,17,16,.55)}
-  .mock .t{font-weight:800;font-size:17px;color:var(--paper);letter-spacing:-0.01em;margin-bottom:3px}
-  .mock .s{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8A83;margin-bottom:22px}
-  .devices{display:grid;grid-template-columns:1fr 132px;gap:20px;align-items:end}
-  /* browser frame */
-  .browser{background:#F6F4EF;overflow:hidden;box-shadow:0 16px 40px -16px rgba(0,0,0,.6)}
-  .bbar{background:#E7E4DC;display:flex;align-items:center;gap:8px;padding:8px 12px}
-  .bbar i{width:8px;height:8px;border-radius:50%;background:#C9C8C1}
-  .bbar i:first-child{background:#FF3B2F}
-  .burl{flex:1;background:#F6F4EF;font-family:'JetBrains Mono',monospace;font-size:8px;color:#6B6B66;padding:3px 8px;margin-left:6px}
-  .site{font-family:Archivo,sans-serif;background:#FFFFFF}
-  .snav{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #EDEAE2}
-  .slogo{font-weight:800;font-size:10px;color:#0E2A43;letter-spacing:-0.02em}
-  .slogo em{font-style:normal;color:#F5A623}
-  .slinks{display:flex;gap:8px;font-size:6.5px;color:#5C6670}
-  .scall{background:#0E2A43;color:#fff;font-size:7px;font-weight:700;padding:4px 8px}
-  .shero{padding:16px 14px 14px;background:linear-gradient(180deg,#FFFFFF,#F4F7FA)}
-  .stag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.1em;color:#0E2A43;background:#EAF1F7;padding:3px 6px;margin-bottom:7px}
-  .sh1{font-size:16px;font-weight:800;line-height:1.1;color:#0E2A43;letter-spacing:-0.02em;margin-bottom:5px}
-  .sh1 b{color:#F5A623}
-  .ssub{font-size:7.5px;color:#5C6670;line-height:1.5;max-width:200px;margin-bottom:8px}
-  .sbtns{display:flex;gap:6px;align-items:center}
-  .sbtn{background:#F5A623;color:#0E2A43;font-size:7.5px;font-weight:800;padding:5px 10px}
-  .sbtn2{font-size:7px;font-weight:700;color:#0E2A43;border-bottom:1.5px solid #F5A623;padding-bottom:1px}
-  .strust{display:flex;gap:10px;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:6px;color:#5C6670}
-  .strust b{color:#0E2A43}
-  .scards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 14px 14px}
-  .scard{background:#F7F9FB;border:1px solid #EDF1F5;padding:8px 8px 9px}
-  .scard b{display:block;font-size:7.5px;font-weight:800;color:#0E2A43;margin-bottom:3px}
-  .scard p{font-size:6px;color:#5C6670;line-height:1.45}
-  .scard i{display:block;width:14px;height:3px;background:#F5A623;margin-bottom:6px}
-  .sreviews{display:flex;align-items:center;justify-content:space-between;background:#0E2A43;color:#fff;padding:8px 14px}
-  .sreviews b{font-size:8px;font-weight:800}
-  .sreviews span{font-family:'JetBrains Mono',monospace;font-size:6px;color:#9FB4C7}
-  .stars{color:#F5A623;font-size:8px;letter-spacing:1px}
-  /* phone frame */
-  .phone{background:#0A0A09;border-radius:18px;padding:6px;box-shadow:0 16px 40px -14px rgba(0,0,0,.7)}
-  .pscreen{background:#fff;border-radius:13px;overflow:hidden}
-  .pnotch{height:10px;background:#fff;display:flex;justify-content:center;align-items:center}
-  .pnotch i{width:34px;height:4px;background:#0A0A09;border-radius:4px}
-  .phero{padding:10px 10px 8px;background:linear-gradient(180deg,#FFFFFF,#F4F7FA)}
-  .plogo{font-weight:800;font-size:7.5px;color:#0E2A43;margin-bottom:7px}
-  .plogo em{font-style:normal;color:#F5A623}
-  .ph1{font-size:10.5px;font-weight:800;line-height:1.12;color:#0E2A43;letter-spacing:-0.02em;margin-bottom:4px}
-  .ph1 b{color:#F5A623}
-  .psub{font-size:5.8px;color:#5C6670;line-height:1.5;margin-bottom:6px}
-  .prow{display:grid;gap:4px;padding:0 10px 8px}
-  .pitem{display:flex;justify-content:space-between;align-items:center;background:#F7F9FB;border:1px solid #EDF1F5;font-size:6px;font-weight:700;color:#0E2A43;padding:5px 7px}
-  .pitem span{color:#F5A623;font-weight:800}
-  .pcall{display:block;background:#F5A623;color:#0E2A43;text-align:center;font-size:7px;font-weight:800;padding:6px;margin:0 10px 10px}
-  .mock .cap{font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A83;margin-top:16px}
-  @media(max-width:560px){
-    .devices{grid-template-columns:1fr;justify-items:center}
-    .phone{width:150px}
-  }
-
-  .step{display:grid;grid-template-columns:36px 1fr;gap:16px;padding:26px 0;border-bottom:1px solid var(--line)}
-  .step .n{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--red);padding-top:5px}
-  .step h3{font-size:18px;font-weight:700;letter-spacing:-0.01em;margin-bottom:6px}
-  .step p{font-size:15.5px;color:var(--gray)}
-
-  .price{background:var(--ink);color:var(--paper);padding:36px 32px;margin:48px 0 0;box-shadow:0 24px 60px -30px rgba(17,17,16,.55)}
-  .price .pt{font-weight:800;font-size:17px;margin-bottom:14px}
-  .price .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;font-size:15px;color:var(--dtext);border-bottom:1px solid var(--dline)}
-  .price .row:last-of-type{border-bottom:none}
-  .price .row span:last-child{font-family:'JetBrains Mono',monospace;filter:blur(7px);user-select:none;color:var(--paper)}
-  .price .note{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8A83;margin-top:18px;letter-spacing:.06em}
-
-  .cta{padding:64px 0 72px}
-  .btn{display:inline-block;background:var(--red);color:var(--paper);font-weight:700;font-size:16px;padding:16px 30px;text-decoration:none}
-  .btn:hover{background:var(--ink)}
-  .cta .alt{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin-top:16px}
-  .cta .alt a{color:var(--red);text-decoration:none}
-
-  footer{border-top:1px solid var(--line);padding:22px 0 44px}
-  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
-
-  @media(max-width:560px){
-    .num b{font-size:28px}
-    .price{padding:28px 22px}
-    .bar{grid-template-columns:110px 1fr 64px}
-    .vs .hrow,.vs .row{grid-template-columns:1.2fr .9fr .9fr;font-size:12px;padding-left:18px;padding-right:18px}
-    .vs .hrow div:nth-child(4),.vs .row .d:nth-child(4){display:none}
-    .chart,.bars{padding:22px 18px 18px}
-  }
+/* ================= print ================= */
+@media print{
+  .prog,.dock,.head{display:none!important}
+  body{padding:0;font-size:11pt;background:#fff}
+  .hero,.close,footer{background:#fff!important;color:#000!important}
+  .hero::before,.hero::after,.close::before,.panel::before{display:none!important}
+  .lede,.close .sub{color:#333!important}
+  h1 em,.close h2 em{color:#D91F11!important}
+  .panel{box-shadow:none;break-inside:avoid}
+  section{break-inside:avoid}
+  .price .amt{filter:none;color:transparent}
+  *{animation:none!important}
+}
 </style>
 </head>
 <body>
-<div class="rail"></div>
 
-<header>
-  <div class="wrap">
-    <div class="mark"><i></i><b>SurgePoint Digital</b></div>
-    <div class="for">For Miramar Insurance<br>&amp; DMV Registration</div>
-  </div>
+<div class="prog" aria-hidden="true"><i></i></div>
+
+<header class="head">
+  <div class="sheet"><div class="bar wide">
+    <a class="mark" href="https://surgepointdigital.co/"><i></i><b>SurgePoint Digital</b></a>
+    <div class="forwho">For Miramar Insurance<br>&amp; DMV Registration</div>
+  </div></div>
 </header>
 
-<div class="wrap hero">
-  <h1>The market is moving. Your website is down<span>.</span></h1>
-  <p>San Diego's DMV services market is getting carved up online right now. One shop went from zero to owning it in 18 months. A new spot opened in April and copied the playbook. And there are companies dropping six figures a month on Google ads for California registrations. You've got a perfect 5.0 reputation and no website catching any of it. Here's the full picture, real data.</p>
+<main>
+
+<div class="hero">
+  <div class="sheet">
+    <div>
+      <div class="badge">Private proposal · Aug 2026</div>
+      <h1>The market is moving. Your website is down<em>.</em></h1>
+      <p class="lede">San Diego's DMV services market is getting carved up online right now. One shop went from zero to owning it in 18 months. A new spot opened in April and copied the playbook. And there are companies dropping six figures a month on Google ads for California registrations. <strong>You've got a perfect 5.0 reputation and no website catching any of it.</strong> Here's the full picture, real data.</p>
+    </div>
+  </div>
 </div>
 
-<section class="wrap">
-  <div class="kick">The demand</div>
-  <h2>Guaranteed by the state. And big money already knows it.</h2>
-  <div class="nums">
+<section class="sheet">
+  <div class="kick rv">The demand <b>/ 01</b></div>
+  <h2 class="rv">Guaranteed by the state. And big money already knows it.</h2>
+  <div class="nums rv">
     <div class="num">
       <b>3.0M<small>+</small></b>
-      <div><div class="l">vehicles registered in San Diego County, each one renews every year</div><div class="c">CA DMV county estimates</div></div>
+      <div class="l">vehicles registered in San Diego County, each one renews every year</div>
+      <div class="c">CA DMV county estimates</div>
     </div>
     <div class="num">
       <b>~$300K<small>/mo</small></b>
-      <div><div class="l">what NeedTags drops on Google ads for CA registration customers</div><div class="c">~240,000 paid visits/mo · Semrush</div></div>
+      <div class="l">what NeedTags drops on Google ads for CA registration customers</div>
+      <div class="c">~240,000 paid visits/mo · Semrush</div>
     </div>
     <div class="num">
       <b>46K<small>/mo</small></b>
-      <div><div class="l">free Google visits going to eTags, the biggest national player</div><div class="c">88,000 keywords ranked · Semrush</div></div>
+      <div class="l">free Google visits going to eTags, the biggest national player</div>
+      <div class="c">88,000 keywords ranked · Semrush</div>
     </div>
   </div>
-  <div class="callout">
+  <div class="callout rv">
     <b>Nobody spends $300K a month on a market that doesn't pay.</b>
     <p>NeedTags and eTags are online only. They can't do walk ins, VIN checks, or hand somebody a sticker in ten minutes. What they prove is that the demand is real and worth serious money. The local fight is a different game, and it's happening right now.</p>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="kick">The local race · live data</div>
-  <h2>One shop figured it out. One is fading. One just showed up.</h2>
-  <p class="sub">How many Google searches each San Diego shop shows up for, month by month, last three years:</p>
+<section class="sheet">
+  <div class="kick rv">The local race · live data <b>/ 02</b></div>
+  <h2 class="rv">One shop figured it out. One is fading. One just showed up.</h2>
+  <p class="deck rv">How many Google searches each San Diego shop shows up for, month by month, last three years:</p>
 
-  <div class="chart">
-    <div class="t">Who Google shows people, 2023 to today</div>
-    <div class="s">Keywords ranked · monthly · Aug 2023 to Jul 2026</div>
-    <svg viewBox="0 0 640 240" preserveAspectRatio="none" role="img" aria-label="Keyword trend: Tags Clinic rising from 0 to 5,634, The Tag Shop falling from about 5,000 to 1,720">
-      <line x1="0" y1="196" x2="640" y2="196" stroke="#3A3A36" stroke-width="1.5"/>
-      <line x1="0" y1="135" x2="640" y2="135" stroke="#26261F" stroke-width="1"/>
-      <line x1="0" y1="74" x2="640" y2="74" stroke="#26261F" stroke-width="1"/>
-      <line x1="0" y1="13" x2="640" y2="13" stroke="#26261F" stroke-width="1"/>
-      <text x="2" y="10" font-family="JetBrains Mono,monospace" font-size="10" fill="#8A8A83">6,000 keywords</text>
-      <polyline fill="none" stroke="#C9C8C1" stroke-width="2.5" points="0.0,90.9 18.3,75.1 36.6,74.5 54.9,79.5 73.1,70.6 91.4,71.7 109.7,69.8 128.0,69.3 146.3,65.9 164.6,73.3 182.9,79.5 201.1,69.9 219.4,56.6 237.7,44.4 256.0,45.1 274.3,34.6 292.6,45.4 310.9,47.3 329.1,55.1 347.4,88.5 365.7,100.4 384.0,123.3 402.3,123.6 420.6,126.2 438.9,134.4 457.1,132.7 475.4,134.3 493.7,131.0 512.0,128.3 530.3,122.2 548.6,118.6 566.9,127.7 585.1,139.7 603.4,140.0 621.7,140.0 640.0,143.3"/>
-      <polyline fill="none" stroke="#FF3B2F" stroke-width="3.5" style="filter:drop-shadow(0 0 6px rgba(255,59,47,.7))" points="0.0,196.0 18.3,195.0 36.6,193.9 54.9,194.3 73.1,193.1 91.4,192.4 109.7,192.9 128.0,191.2 146.3,191.0 164.6,191.0 182.9,191.7 201.1,190.1 219.4,188.1 237.7,188.3 256.0,188.9 274.3,188.8 292.6,190.1 310.9,191.2 329.1,191.4 347.4,191.0 365.7,182.9 384.0,156.1 402.3,119.9 420.6,63.7 438.9,101.7 457.1,100.3 475.4,99.5 493.7,83.7 512.0,80.9 530.3,73.8 548.6,26.7 566.9,14.5 585.1,69.1 603.4,55.5 621.7,29.8 640.0,23.2"/>
-      <circle cx="640" cy="23.2" r="5" fill="#FF3B2F" style="filter:drop-shadow(0 0 8px rgba(255,59,47,.9))"/>
-      <circle cx="640" cy="143.3" r="4" fill="#C9C8C1"/>
-      <text x="2" y="216" font-family="JetBrains Mono,monospace" font-size="10" fill="#8A8A83">Aug '23</text>
-      <text x="638" y="216" font-family="JetBrains Mono,monospace" font-size="10" fill="#8A8A83" text-anchor="end">Jul '26</text>
-    </svg>
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Who Google shows people, 2023 to today</div>
+      <div class="s">Keywords ranked · monthly · Aug 2023 to Jul 2026</div>
+    </div>
+    <div class="plotwrap">
+      <div class="plot">
+        <div class="yax">
+          <b style="top:6.2%">6,000</b>
+          <b style="top:35.2%">4,000</b>
+          <b style="top:64.3%">2,000</b>
+          <b style="top:93.3%">0</b>
+        </div>
+        <svg viewBox="0 0 640 210" preserveAspectRatio="none" role="img" aria-label="Keyword trend, August 2023 to July 2026: Tags Clinic climbs from zero to 5,634 keywords while The Tag Shop falls from about 5,000 to 1,720.">
+          <defs>
+            <linearGradient id="gA" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FF3B2F" stop-opacity=".46"/>
+              <stop offset="1" stop-color="#FF3B2F" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="gB" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#C9C8C1" stop-opacity=".20"/>
+              <stop offset="1" stop-color="#C9C8C1" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="13" x2="640" y2="13" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="74" x2="640" y2="74" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="135" x2="640" y2="135" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="196" x2="640" y2="196" stroke="#3A3A36" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <polygon fill="url(#gB)" points="0.0,90.9 18.3,75.1 36.6,74.5 54.9,79.5 73.1,70.6 91.4,71.7 109.7,69.8 128.0,69.3 146.3,65.9 164.6,73.3 182.9,79.5 201.1,69.9 219.4,56.6 237.7,44.4 256.0,45.1 274.3,34.6 292.6,45.4 310.9,47.3 329.1,55.1 347.4,88.5 365.7,100.4 384.0,123.3 402.3,123.6 420.6,126.2 438.9,134.4 457.1,132.7 475.4,134.3 493.7,131.0 512.0,128.3 530.3,122.2 548.6,118.6 566.9,127.7 585.1,139.7 603.4,140.0 621.7,140.0 640.0,143.3 640,196 0,196"/>
+          <polygon fill="url(#gA)" points="0.0,196.0 18.3,195.0 36.6,193.9 54.9,194.3 73.1,193.1 91.4,192.4 109.7,192.9 128.0,191.2 146.3,191.0 164.6,191.0 182.9,191.7 201.1,190.1 219.4,188.1 237.7,188.3 256.0,188.9 274.3,188.8 292.6,190.1 310.9,191.2 329.1,191.4 347.4,191.0 365.7,182.9 384.0,156.1 402.3,119.9 420.6,63.7 438.9,101.7 457.1,100.3 475.4,99.5 493.7,83.7 512.0,80.9 530.3,73.8 548.6,26.7 566.9,14.5 585.1,69.1 603.4,55.5 621.7,29.8 640.0,23.2 640,196 0,196"/>
+          <polyline class="line" pathLength="1" fill="none" stroke="#C9C8C1" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" points="0.0,90.9 18.3,75.1 36.6,74.5 54.9,79.5 73.1,70.6 91.4,71.7 109.7,69.8 128.0,69.3 146.3,65.9 164.6,73.3 182.9,79.5 201.1,69.9 219.4,56.6 237.7,44.4 256.0,45.1 274.3,34.6 292.6,45.4 310.9,47.3 329.1,55.1 347.4,88.5 365.7,100.4 384.0,123.3 402.3,123.6 420.6,126.2 438.9,134.4 457.1,132.7 475.4,134.3 493.7,131.0 512.0,128.3 530.3,122.2 548.6,118.6 566.9,127.7 585.1,139.7 603.4,140.0 621.7,140.0 640.0,143.3"/>
+          <polyline class="line" pathLength="1" fill="none" stroke="#FF3B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" style="filter:drop-shadow(0 0 7px rgba(255,59,47,.75))" points="0.0,196.0 18.3,195.0 36.6,193.9 54.9,194.3 73.1,193.1 91.4,192.4 109.7,192.9 128.0,191.2 146.3,191.0 164.6,191.0 182.9,191.7 201.1,190.1 219.4,188.1 237.7,188.3 256.0,188.9 274.3,188.8 292.6,190.1 310.9,191.2 329.1,191.4 347.4,191.0 365.7,182.9 384.0,156.1 402.3,119.9 420.6,63.7 438.9,101.7 457.1,100.3 475.4,99.5 493.7,83.7 512.0,80.9 530.3,73.8 548.6,26.7 566.9,14.5 585.1,69.1 603.4,55.5 621.7,29.8 640.0,23.2"/>
+        </svg>
+        <span class="dot a" style="top:11.0%"></span>
+        <span class="dot b" style="top:68.2%"></span>
+      </div>
+    </div>
+    <div class="xax"><span>Aug '23</span><span>Jul '26</span></div>
     <div class="legend">
       <span><i style="background:#FF3B2F"></i>Tags Clinic · 0 to 5,634 keywords</span>
       <span><i style="background:#C9C8C1"></i>The Tag Shop · ~5,000 down to 1,720</span>
     </div>
-    <div class="src">Source: Semrush domain analytics, pulled Aug 2026</div>
+    <div class="psrc">Source: Semrush domain analytics, pulled Aug 2026</div>
   </div>
 
-  <div class="callout">
+  <div class="callout rv">
     <b>How Tags Clinic did it. And why it's copyable.</b>
     <p>Starting mid 2025 they put up a page for every DMV form (REG 5, REG 101, REG 156...) and a blog answering every smog and out of state question people actually search. Boring pages, massive results. Meanwhile a brand new shop on El Cajon Blvd <strong>opened in April 2026 running the exact same playbook.</strong> The blueprint is out there. The window to run it in your part of town won't stay open.</p>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="kick">Where everyone stands</div>
-  <h2>Monthly visitors from Google, right now.</h2>
-  <div class="bars">
-    <div class="t">Who's getting the traffic</div>
-    <div class="s">Organic visits per month · Semrush · Aug 2026 · bars scaled within each group</div>
-    <div class="bargroup">National · online only · can't do walk ins or VIN checks</div>
-    <div class="bar"><div class="n">eTags</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="v">46,184</div></div>
-    <div class="bar"><div class="n">NeedTags<span>+ ~240K paid visits/mo</span></div><div class="track"><div class="fill" style="width:17%"></div></div><div class="v">7,975</div></div>
-    <div class="bar"><div class="n">CarRegistration</div><div class="track"><div class="fill" style="width:6%"></div></div><div class="v">2,713</div></div>
-    <div class="bargroup">San Diego · walk in shops · separate scale</div>
-    <div class="bar"><div class="n">The Tag Shop</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="v">1,276</div></div>
-    <div class="bar"><div class="n">Tags Clinic</div><div class="track"><div class="fill" style="width:67%"></div></div><div class="v">851</div></div>
-    <div class="bar you"><div class="n">You<span>website currently down</span></div><div class="track"><div class="fill" style="width:5%"></div></div><div class="v">~66</div></div>
-    <div class="bar"><div class="n">SD Auto Registration<span>opened Apr 2026</span></div><div class="track"><div class="fill" style="width:1%"></div></div><div class="v">9</div></div>
+<section class="sheet">
+  <div class="kick rv">Where everyone stands <b>/ 03</b></div>
+  <h2 class="rv">Monthly visitors from Google, right now.</h2>
+
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Who's getting the traffic</div>
+      <div class="s">Organic visits per month · Semrush · Aug 2026 · bars scaled within each group</div>
+    </div>
+    <div class="bgroup">National · online only · can't do walk ins or VIN checks</div>
+    <div class="bar"><div class="n">eTags</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">46,184</div></div>
+    <div class="bar"><div class="n">NeedTags<span>+ ~240K paid visits/mo</span></div><div class="track"><div class="fill" style="--w:17%"></div></div><div class="v">7,975</div></div>
+    <div class="bar"><div class="n">CarRegistration</div><div class="track"><div class="fill" style="--w:6%"></div></div><div class="v">2,713</div></div>
+    <div class="bgroup">San Diego · walk in shops · separate scale</div>
+    <div class="bar"><div class="n">The Tag Shop</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">1,276</div></div>
+    <div class="bar"><div class="n">Tags Clinic</div><div class="track"><div class="fill" style="--w:67%"></div></div><div class="v">851</div></div>
+    <div class="bar you"><div class="n">You<span>website currently down</span></div><div class="track"><div class="fill" style="--w:5%"></div></div><div class="v">~66</div></div>
+    <div class="bar"><div class="n">SD Auto Registration<span>opened Apr 2026</span></div><div class="track"><div class="fill" style="--w:1%"></div></div><div class="v">9</div></div>
+    <div class="psrc" style="padding-top:var(--s4)">Source: Semrush organic traffic estimates, Aug 2026</div>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="kick">Reputation check</div>
-  <h2>Your reviews are elite. There just aren't enough of them.</h2>
-  <div class="vs">
+<section class="sheet">
+  <div class="kick rv">Reputation check <b>/ 04</b></div>
+  <h2 class="rv">Your reviews are elite. There just aren't enough of them.</h2>
+
+  <div class="wide panel vs rv">
     <div class="hrow"><div>Shop</div><div>Google</div><div>Yelp</div><div>Open</div></div>
     <div class="row">
       <div class="who">Tags Clinic<span>City Heights</span></div>
-      <div class="d">5.0 · 2,415</div>
-      <div class="d">299</div>
-      <div class="d">7 days, to 7:30p</div>
+      <div class="d" data-label="Google">5.0 · 2,415</div>
+      <div class="d" data-label="Yelp">299</div>
+      <div class="d" data-label="Open">7 days, to 7:30p</div>
     </div>
     <div class="row">
       <div class="who">The Tag Shop<span>6414 University Ave</span></div>
-      <div class="d">4.7 · 586</div>
-      <div class="d">·</div>
-      <div class="d">7 days</div>
+      <div class="d" data-label="Google">4.7 · 586</div>
+      <div class="d" data-label="Yelp">·</div>
+      <div class="d" data-label="Open">7 days</div>
     </div>
     <div class="row you">
       <div class="who">You<span>7094 Miramar Rd</span></div>
-      <div class="d">5.0 · 71</div>
-      <div class="d">12</div>
-      <div class="d">Mon to Sat</div>
+      <div class="d" data-label="Google">5.0 · 71</div>
+      <div class="d" data-label="Yelp">12</div>
+      <div class="d" data-label="Open">Mon to Sat</div>
     </div>
     <div class="row">
       <div class="who">SD Auto Registration<span>new · El Cajon Blvd</span></div>
-      <div class="d">5.0 · 10</div>
-      <div class="d">·</div>
-      <div class="d">Mon to Sat</div>
+      <div class="d" data-label="Google">5.0 · 10</div>
+      <div class="d" data-label="Yelp">·</div>
+      <div class="d" data-label="Open">Mon to Sat</div>
     </div>
   </div>
-  <div class="callout">
+
+  <div class="callout rv">
     <b>One more thing you should know.</b>
     <p>There's a whole different business called <strong>"Miramar Registration Services"</strong> half a mile from you at 6780 Miramar Rd. Almost the same name, 4.9 stars, 36 reviews. When someone hears about you and Googles the name, some of them are walking into the wrong shop. A proper site and Google profile ends that.</p>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="kick">Sneak peek</div>
-  <h2>What your new site could look like.</h2>
-  <p class="sub">Rough preview, not the final design. Fast, clean, built to turn a Google search into a walk in. Your name, your colors, your reviews front and center.</p>
+<section class="sheet">
+  <div class="kick rv">Sneak peek <b>/ 05</b></div>
+  <h2 class="rv">What your new site could look like.</h2>
+  <p class="deck rv">Rough preview, not the final design. Fast, clean, built to turn a Google search into a walk in. Your name, your colors, your reviews front and center.</p>
 
-  <div class="mock">
-    <div class="t">miramarDMV.com · concept</div>
-    <div class="s">Desktop + mobile · every service gets its own page under this</div>
-    <div class="devices">
-      <div class="browser">
-        <div class="bbar"><i></i><i></i><i></i><div class="burl">miramardmv.com</div></div>
-        <div class="site">
-          <div class="snav">
-            <div class="slogo">MIRAMAR <em>DMV</em> &amp; INSURANCE</div>
-            <div class="slinks"><span>Services</span><span>Insurance</span><span>Mobile VIN</span><span>About</span></div>
-            <div class="scall">📞 (858) 397-2076</div>
-          </div>
-          <div class="shero">
-            <div class="stag">LICENSED CA DMV PARTNER · SAN DIEGO</div>
-            <div class="sh1">Skip the DMV.<br>In and out in <b>10 minutes.</b></div>
-            <div class="ssub">Registration renewals, title transfers, VIN checks and insurance. One roof, same day, no appointment.</div>
-            <div class="sbtns"><span class="sbtn">Get it done today</span><span class="sbtn2">See all services</span></div>
-            <div class="strust"><span><b>5.0★</b> Google</span><span><b>Same day</b> stickers</span><span><b>Walk ins</b> welcome</span></div>
-          </div>
-          <div class="scards">
-            <div class="scard"><i></i><b>Registration renewal</b><p>Expired or not. Walk out with your sticker today.</p></div>
-            <div class="scard"><i></i><b>Title transfers</b><p>Bought, sold or gifted. Done in minutes, in or out of state.</p></div>
-            <div class="scard"><i></i><b>Mobile VIN checks</b><p>We come to your home, office or dealership.</p></div>
-          </div>
-          <div class="sreviews">
-            <div><b>"Haven't stepped foot in a DMV since."</b><br><span>real Google review</span></div>
-            <div class="stars">★★★★★</div>
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">miramardmv.com · concept</div>
+      <div class="s">Desktop + mobile · every service gets its own page under this</div>
+    </div>
+    <div class="stage">
+      <div class="scroller">
+        <div class="browser">
+          <div class="bbar"><i></i><i></i><i></i><div class="burl">miramardmv.com</div></div>
+          <div class="site">
+            <div class="snav">
+              <div class="slogo">MIRAMAR <em>DMV</em> &amp; INSURANCE</div>
+              <div class="slinks"><span>Services</span><span>Insurance</span><span>Mobile VIN</span><span>About</span></div>
+              <div class="scall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>(858) 397-2076</div>
+            </div>
+            <div class="shero">
+              <div class="stag">LICENSED CA DMV PARTNER · SAN DIEGO</div>
+              <div class="sh1">Skip the DMV.<br>In and out in <b>10 minutes.</b></div>
+              <p class="ssub">Registration renewals, title transfers, VIN checks and insurance. One roof, same day, no appointment.</p>
+              <div class="sbtns"><span class="sbtn">Get it done today</span><span class="sbtn2">See all services</span></div>
+              <div class="strust"><span><b>5.0★</b> Google</span><span><b>Same day</b> stickers</span><span><b>Walk ins</b> welcome</span></div>
+            </div>
+            <div class="scards">
+              <div class="scard"><i></i><b>Registration renewal</b><p>Expired or not. Walk out with your sticker today.</p></div>
+              <div class="scard"><i></i><b>Title transfers</b><p>Bought, sold or gifted. Done in minutes, in or out of state.</p></div>
+              <div class="scard"><i></i><b>Mobile VIN checks</b><p>We come to your home, office or dealership.</p></div>
+            </div>
+            <div class="sreviews">
+              <div><b>&ldquo;Haven't stepped foot in a DMV since.&rdquo;</b><span>real Google review</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
           </div>
         </div>
       </div>
@@ -341,69 +622,87 @@
           <div class="phero">
             <div class="plogo">MIRAMAR <em>DMV</em></div>
             <div class="ph1">Skip the DMV.<br>Done in <b>10 min.</b></div>
-            <div class="psub">Same day renewals, titles, VIN checks + insurance.</div>
+            <p class="psub">Same day renewals, titles, VIN checks + insurance.</p>
           </div>
           <div class="prow">
-            <div class="pitem">Renew registration <span>→</span></div>
-            <div class="pitem">Transfer a title <span>→</span></div>
-            <div class="pitem">Mobile VIN check <span>→</span></div>
+            <div class="pitem">Renew registration <span>&rarr;</span></div>
+            <div class="pitem">Transfer a title <span>&rarr;</span></div>
+            <div class="pitem">Mobile VIN check <span>&rarr;</span></div>
           </div>
-          <div class="pcall">📞 Call now</div>
+          <div class="pcall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>Call now</div>
         </div>
       </div>
     </div>
-    <div class="cap">Concept only · final look gets built with you</div>
+    <div class="swipe">Swipe the desktop view &rarr;</div>
+    <div class="psrc" style="padding-top:var(--s4)">Concept only · the final look gets built with you</div>
   </div>
 </section>
 
-<section class="wrap">
-  <div class="kick">The plan</div>
-  <h2>Launch right. Five moves.</h2>
-  <div>
-    <div class="step"><div class="n">01</div><div>
+<section class="sheet">
+  <div class="kick rv">The plan <b>/ 06</b></div>
+  <h2 class="rv">Launch right. Five moves.</h2>
+
+  <div class="steps">
+    <div class="step rv"><div class="n">01</div><div>
       <h3>Website build (the foundation)</h3>
       <p>Not a one page site. A page for every service you do: renewals, title transfers, out of state, lost stickers, VIN checks, insurance. Plus the DMV forms library that took Tags Clinic from invisible to 5,600 keywords. Same blueprint, your side of town.</p>
     </div></div>
-    <div class="step"><div class="n">02</div><div>
+    <div class="step rv"><div class="n">02</div><div>
       <h3>Review engine (Yelp + Google)</h3>
       <p>People already love this shop, the reviews prove it. One text to every happy customer and you're stacking 10 to 15 new reviews a month. That's the single biggest lever for showing up on the map. Also fixes the name confusion up the street.</p>
     </div></div>
-    <div class="step"><div class="n">03</div><div>
+    <div class="step rv"><div class="n">03</div><div>
       <h3>SEO (monthly, ongoing)</h3>
       <p>Keep publishing what people search: expired tags, late fees, smog questions, out of state moves. This is how Tags Clinic went from 0 to 5,634 keywords in 18 months. It compounds every month it runs.</p>
     </div></div>
-    <div class="step"><div class="n">04</div><div>
+    <div class="step rv"><div class="n">04</div><div>
       <h3>Email / SMS campaigns (remarketing)</h3>
       <p>Registration renews every single year. One "your tags are due soon, we got you" text and last year's customer is this year's customer. Nobody in this market is doing it.</p>
     </div></div>
-    <div class="step"><div class="n">05</div><div>
+    <div class="step rv"><div class="n">05</div><div>
       <h3>Paid ads (Google + others)</h3>
       <p>NeedTags is proving these clicks are worth $300K a month, but they can't serve a walk in. We run ads on the high intent local searches and let them pay to educate the market for you.</p>
     </div></div>
   </div>
 
-  <div class="price">
-    <div class="pt">What we'd explore together</div>
-    <div class="row"><span>01 · Website build (foundation)</span><span>$0,000</span></div>
-    <div class="row"><span>02 · Review engine (Yelp / Google)</span><span>$000/mo</span></div>
-    <div class="row"><span>03 · SEO (monthly, ongoing)</span><span>$0,000/mo</span></div>
-    <div class="row"><span>04 · Email / SMS campaigns</span><span>$000/mo</span></div>
-    <div class="row"><span>05 · Paid ads (Google + others)</span><span>$0,000/mo</span></div>
-    <div class="note">STRUCTURE TBD · LET'S TALK IT THROUGH</div>
+  <div class="panel price rv">
+    <div class="pt"><span>What we'd explore together</span><em>Structure TBD</em></div>
+    <div class="row"><span>01 · Website build (foundation)</span><span class="amt">$0,000</span></div>
+    <div class="row"><span>02 · Review engine (Yelp / Google)</span><span class="amt">$000/mo</span></div>
+    <div class="row"><span>03 · SEO (monthly, ongoing)</span><span class="amt">$0,000/mo</span></div>
+    <div class="row"><span>04 · Email / SMS campaigns</span><span class="amt">$000/mo</span></div>
+    <div class="row"><span>05 · Paid ads (Google + others)</span><span class="amt">$0,000/mo</span></div>
+    <div class="note">LET'S TALK IT THROUGH · NOTHING TO SIGN TODAY</div>
   </div>
 </section>
 
-<div class="wrap cta">
-  <a class="btn" href="sms:4152650873">Text Ron ↗</a>
-  <div class="alt">or call <a href="tel:4152650873">415-265-0873</a></div>
+<div class="close">
+  <div class="sheet">
+    <div>
+      <h2>Every month this waits, somebody else takes the search<em>.</em></h2>
+      <p class="sub">You already have the hard part: a real shop, a real reputation, and customers who come back every year. The rest is plumbing.</p>
+      <div class="btns">
+        <a class="btn" href="sms:4152650873">Text Ron ↗</a>
+        <a class="btn ghost" href="tel:4152650873">Call 415-265-0873</a>
+      </div>
+      <div class="alt">Or just reply to the email this link came from.</div>
+    </div>
+  </div>
 </div>
 
+</main>
+
 <footer>
-  <div class="wrap">
+  <div class="sheet"><div class="bar wide">
     <div>SurgePoint Digital · surgepointdigital.co</div>
     <div>Prepared for Miramar Insurance &amp; DMV · Aug 2026 · Semrush + Google data · not indexed</div>
-  </div>
+  </div></div>
 </footer>
+
+<div class="dock">
+  <a class="p" href="sms:4152650873">Text Ron</a>
+  <a class="s" href="tel:4152650873">Call</a>
+</div>
 
 </body>
 </html>
