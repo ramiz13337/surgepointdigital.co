@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# /proposals/ is intentionally crawlable but not indexable.
+# Every page under it ships `X-Robots-Tag: noindex` (netlify.toml) plus a
+# <meta name="robots" content="noindex, nofollow"> tag. Blocking the path here
+# instead would stop crawlers from ever reading that directive.
+
 Sitemap: https://surgepointdigital.co/sitemap.xml

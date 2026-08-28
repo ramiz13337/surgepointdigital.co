@@ -10,6 +10,19 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Client proposals: keep this whole path out of every search index.
+# Deliberately NOT blocked in robots.txt -- a crawler has to be allowed to
+# fetch the page in order to see the noindex directive below.
+[[headers]]
+  for = "/proposals"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
+[[headers]]
+  for = "/proposals/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
 # HTML: never cache — always revalidate
 [[headers]]
   for = "/*.html"
