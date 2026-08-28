@@ -61,16 +61,22 @@ h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.038em;line-height:1.06;text-w
 .sheet>.wide{max-width:1080px}
 .sheet>.full{width:100%;max-width:none}
 
-/* ================= scroll progress (CSS-only, opt-in) ================= */
+/* ================= scroll progress (CSS-only, opt-in) =================
+   Desktop pointers only. On phones the collapsing URL bar resizes the
+   scroll range mid-scroll, so the fill jumps, and a fixed bar over the
+   sticky header's backdrop-filter tears while compositing. It is pure
+   decoration, so phones simply don't get it.                            */
 .prog{display:none}
 @supports (animation-timeline: scroll()){
-  .prog{display:block;position:fixed;left:0;right:0;top:0;height:2px;z-index:80;
-    background:transparent;pointer-events:none}
-  .prog i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);
-    background:linear-gradient(90deg,var(--red),var(--ember));
-    box-shadow:0 0 12px rgba(255,59,47,.7);
-    animation:sweep linear both;animation-timeline:scroll(root)}
-  @keyframes sweep{to{transform:scaleX(1)}}
+  @media (min-width:900px) and (hover:hover) and (pointer:fine){
+    .prog{display:block;position:fixed;left:0;right:0;top:0;height:2px;z-index:80;
+      background:transparent;pointer-events:none}
+    .prog i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);
+      background:linear-gradient(90deg,var(--red),var(--ember));
+      will-change:transform;
+      animation:sweep linear both;animation-timeline:scroll(root)}
+    @keyframes sweep{to{transform:scaleX(1)}}
+  }
 }
 
 /* ================= header ================= */
