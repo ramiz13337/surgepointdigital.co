@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FCFCFA">
+<title>Page not found · SurgePoint Digital</title>
+
+<!-- No JavaScript on this site, so the timed redirect is a meta refresh.
+     The draining bar below is a CSS animation set to the same 12s, and the
+     button lets anyone leave immediately rather than wait it out. -->
+<meta http-equiv="refresh" content="12;url=/">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFCFA; --ink:#0D0D0C; --gray:#45443F; --dim:#6B6B66;
+    --line:#E4E3DE; --line-2:#C9C8C1; --stone:#F1F0EC;
+    --red:#D91F11; --hot:#FF3B2F;
+    --sans:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;min-height:100svh;display:flex;align-items:center;justify-content:center;
+    padding:clamp(28px,7vw,56px) clamp(20px,5vw,34px);
+    background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;position:relative;overflow-x:hidden;
+  }
+  body::before{
+    /* no negative horizontal inset: it would widen the body past the viewport */
+    content:"";position:absolute;inset:-30% 0 auto 0;height:70%;pointer-events:none;
+    background:radial-gradient(64% 54% at 74% 24%,rgba(217,31,17,.10),transparent 72%);
+  }
+  body::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;
+    background-image:radial-gradient(var(--line-2) 1px,transparent 1px);
+    background-size:26px 26px;
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.45),transparent 60%);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.45),transparent 60%);
+  }
+  ::selection{background:var(--red);color:#fff}
+
+  .box{position:relative;z-index:1;width:100%;min-width:0;max-width:460px;text-align:center}
+
+  .mark{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);
+    margin-bottom:clamp(30px,7vw,44px)}
+  .mark i{width:24px;height:24px;flex:none;
+    background:linear-gradient(135deg,var(--ink) 0 50%,var(--red) 50% 100%)}
+  .mark b{font-size:16px;font-weight:800;letter-spacing:-.025em}
+
+  .code{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.22em;
+    color:var(--red);margin-bottom:16px}
+  h1{margin:0 0 14px;font-size:clamp(30px,8vw,42px);font-weight:900;
+    letter-spacing:-.04em;line-height:1.04;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--red)}
+  p{margin:0;color:var(--gray);font-size:16.5px;text-wrap:pretty}
+
+  .go{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    margin-top:clamp(26px,6vw,34px);background:var(--red);color:#fff;
+    font-weight:700;font-size:16px;padding:16px 30px;text-decoration:none;
+    box-shadow:0 16px 32px -18px rgba(217,31,17,.9);
+    transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+  .go:hover{background:var(--ink);transform:translateY(-2px);
+    box-shadow:0 20px 36px -18px rgba(13,13,12,.7)}
+  @media(max-width:420px){.go{width:100%;padding:17px 24px}}
+
+  /* countdown: the bar drains over the same 12s as the meta refresh */
+  .timer{margin-top:clamp(30px,7vw,40px);padding-top:clamp(20px,5vw,26px);
+    border-top:1px solid var(--line)}
+  .track{height:3px;background:var(--stone);overflow:hidden}
+  .track i{display:block;height:100%;width:100%;transform-origin:0 50%;
+    background:linear-gradient(90deg,var(--red),var(--hot));
+    animation:drain 12s linear forwards}
+  @keyframes drain{to{transform:scaleX(0)}}
+  .timer p{margin-top:13px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.08em;color:var(--dim)}
+
+  @media(prefers-reduced-motion:reduce){
+    .track i{animation:none;transform:scaleX(1)}
+    .go{transition:none}
+    .go:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+  <div class="box">
+    <a class="mark" href="/"><i></i><b>SurgePoint Digital</b></a>
+
+    <div class="code">Error 404</div>
+    <h1>This page doesn't exist<em>.</em></h1>
+    <p>The link may be broken, or the page may have moved. Nothing you did wrong.</p>
+
+    <a class="go" href="/">Go to the homepage &nearr;</a>
+
+    <div class="timer">
+      <div class="track" aria-hidden="true"><i></i></div>
+      <p>Taking you there automatically in 12 seconds</p>
+    </div>
+  </div>
+</body>
+</html>

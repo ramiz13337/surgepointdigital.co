@@ -490,20 +490,15 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   .node.star i{display:block;margin:6px 0 0}
 }
 
-/* ---------------- page blueprint wireframe ---------------- */
-.wire{--wi:#0E2A43;--wa:#F5A623;--wc:#F7F9FB;--wl:#EAF0F5;--wm:#8A94A0;
-  background:#fff;border:1px solid var(--wl);color:var(--wi);padding:18px;display:grid;gap:10px}
-.w{background:var(--wc);border:1px solid var(--wl);padding:13px 15px;font-size:13px;font-weight:700}
-.w small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;
-  color:var(--wm);margin-top:5px;letter-spacing:.02em;line-height:1.5}
-.w.big{background:var(--wi);border:none;color:#fff;font-size:17px;line-height:1.25;padding:17px 15px}
-.w.big b{color:var(--wa)}
-.w.big small{color:#9FB4C7}
-.w.cta{background:var(--wa);border:none;text-align:center}
-.w.cta small{color:#7A5A10}
-.wrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.wstars{color:var(--wa);letter-spacing:2px;margin-right:6px}
-@media(max-width:560px){.wrow{grid-template-columns:1fr}}
+/* ------------- service page mockup (reuses .browser from base.css) ------------- */
+.svsec{font-family:var(--mono);font-size:1.25cqw;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mb);padding:3.2cqw 2.8cqw 1.6cqw}
+.svfaq{display:grid;gap:1.2cqw;padding:0 2.8cqw 2.8cqw}
+.svq{display:flex;justify-content:space-between;align-items:center;gap:2cqw;
+  background:var(--mc);border:1px solid var(--mr);color:var(--mi);
+  font-size:1.5cqw;font-weight:600;padding:2.1cqw 2.3cqw}
+.svq i{font-style:normal;color:var(--ma);font-weight:800}
+.svbrowser{min-width:0}
 
 /* ---------------- checkout flow (container-scaled phones) ---------------- */
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
@@ -647,6 +642,47 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   .scols{grid-template-columns:1fr}
   .scol+.scol{border-left:none;border-top:1px solid var(--dline-1)}
 }
+
+/* ---------------- back end flow + orders table ---------------- */
+.bkpipe{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.bkstep{background:#1B1B19;border:1px solid var(--dline-1);padding:17px 18px}
+.bkstep .bkn{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--hot);margin-bottom:10px}
+.bkstep b{display:block;font-size:14.5px;line-height:1.3;color:var(--paper)}
+.bkstep p{font-size:12.5px;line-height:1.55;color:var(--dtext);margin-top:6px}
+@media(max-width:860px){.bkpipe{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.bkpipe{grid-template-columns:1fr}}
+
+.bkdb{margin-top:var(--s4);background:#fff;color:var(--ink);border:1px solid var(--line);overflow:hidden}
+.bkbar{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;
+  background:var(--stone);padding:12px 15px}
+.bkbar b{font-size:12.5px}
+.bkbar span{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--dim)}
+.bkscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bktable{width:100%;min-width:680px;border-collapse:collapse;font-size:11.5px;text-align:left}
+.bktable th{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:400;color:var(--dim);background:#FAFAF8;white-space:nowrap;
+  padding:10px 13px;border-bottom:1px solid var(--line)}
+.bktable td{padding:11px 13px;border-bottom:1px solid #F0EEE8;white-space:nowrap;color:var(--gray)}
+.bktable tr:last-child td{border-bottom:none}
+.bktable td b{color:var(--ink);font-weight:700}
+.bktable td.m{font-family:var(--mono);font-size:10.5px}
+.bkpill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.06em;
+  padding:5px 10px;border-radius:999px;white-space:nowrap}
+.bkpill.new{background:#FDECEA;color:var(--red)}
+.bkpill.wip{background:#FCF2DF;color:#8A5A08}
+.bkpill.done{background:#E7F4E9;color:#1F7A32}
+.bknote{font-family:var(--mono);font-size:9.5px;line-height:1.7;color:var(--dim);
+  background:#FAFAF8;border-top:1px solid var(--line);padding:11px 15px}
+.bkswipe{display:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mute);padding-top:var(--s2)}
+@media(max-width:760px){.bkswipe{display:block}}
+
+/* This mockup is meant to be read, not glanced at. base.css drops .browser to
+   520px on phones, which puts the nav and URL under 8px; widen it inside the
+   swipe rail so nothing is smaller than the report type. */
+@media(max-width:760px){
+  .scroller .browser{min-width:640px}
+}
 </style>
 </head>
 <body>
@@ -771,24 +807,50 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 <section class="sheet">
   <div class="kick rv">Page template <b>/ 04</b></div>
   <h2 class="rv">What each service page looks like.</h2>
-  <p class="deck rv">Same structure on every service page, in your brand. Built once and reused, so pages added later drop straight into the mold.</p>
+  <p class="deck rv">Every service page follows this shape, in your brand. Built once and reused, so the pages added later drop straight into the mold.</p>
 
   <div class="wide panel light rv">
     <div class="phead">
-      <div class="t">Service page blueprint</div>
-      <div class="s">shown: /registration-renewal · your colors, your name</div>
+      <div class="t">Service page mockup</div>
+      <div class="s">/registration-renewal · your colors, your name</div>
     </div>
     <div class="body">
-      <div class="wire">
-        <div class="w big">Renew your registration today.<br>Walk out with <b>the sticker.</b><small>headline matches the search · phone number in view</small></div>
-        <div class="wrow">
-          <div class="w">How it works · 1, 2, 3<small>walk in or pay online, processed, done</small></div>
-          <div class="w">What to bring<small>renewal notice or plate + ID</small></div>
+      <div class="scroller">
+        <div class="browser">
+          <div class="bbar"><i></i><i></i><i></i><div class="burl">miramardmv.com/registration-renewal</div></div>
+          <div class="site">
+            <div class="snav">
+              <div class="slogo">MIRAMAR <em>DMV</em> &amp; INSURANCE</div>
+              <div class="slinks"><span>Renewals</span><span>Titles</span><span>Mobile VIN</span><span>Fleet</span><span>Insurance</span></div>
+              <div class="scall">(858) 397-2076</div>
+            </div>
+            <div class="shero">
+              <div class="stag">REGISTRATION RENEWAL · SAN DIEGO</div>
+              <div class="sh1">Renew your registration today.<br>Walk out with <b>the sticker.</b></div>
+              <p class="ssub">Expired or not. Walk in, or pay online and we'll have it waiting. About ten minutes, and you never see a DMV line.</p>
+              <div class="sbtns"><span class="sbtn">Pay online</span><span class="sbtn2">Or call the shop</span></div>
+              <div class="strust"><span><b>5.0★</b> Google</span><span><b>Same day</b> stickers</span><span><b>Walk ins</b> welcome</span></div>
+            </div>
+            <div class="svsec">How it works</div>
+            <div class="scards">
+              <div class="scard"><i></i><b>1 · Bring it or send it</b><p>Your renewal notice, or just the plate and your ID.</p></div>
+              <div class="scard"><i></i><b>2 · We process it</b><p>Same day, on the spot, while you wait.</p></div>
+              <div class="scard"><i></i><b>3 · Sticker in hand</b><p>Pick it up at the shop or we mail it out.</p></div>
+            </div>
+            <div class="svsec">Common questions</div>
+            <div class="svfaq">
+              <div class="svq"><span>My tags expired months ago. Can you still help?</span><i>+</i></div>
+              <div class="svq"><span>I just moved here with out of state plates. What do I need?</span><i>+</i></div>
+              <div class="svq"><span>Do I need a smog check before I come in?</span><i>+</i></div>
+            </div>
+            <div class="sreviews">
+              <div><b>&ldquo;Haven't stepped foot in a DMV since.&rdquo;</b><span>real review from your Google profile</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
         </div>
-        <div class="w cta">Pay online · or call (858) 397-2076<small>both options, every page</small></div>
-        <div class="w"><span class="wstars">★★★★★</span>"Haven't stepped foot in a DMV since."<small>real reviews from your Google profile</small></div>
-        <div class="w">FAQ<small>expired? out of state plates? smog due? each answer ranks on its own</small></div>
       </div>
+      <div class="swipe">Swipe the page &rarr;</div>
     </div>
   </div>
 </section>
@@ -858,6 +920,62 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
       </div>
       <div class="swipe">Swipe through the four screens &rarr;</div>
     </div>
+  </div>
+
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">What happens on your side</div>
+      <div class="s">the same order, behind the counter</div>
+    </div>
+    <div class="body">
+      <div class="bkpipe">
+        <div class="bkstep">
+          <div class="bkn">01</div>
+          <b>Customer pays</b>
+          <p>The four screens above. Nothing for you to do yet.</p>
+        </div>
+        <div class="bkstep">
+          <div class="bkn">02</div>
+          <b>A row writes itself</b>
+          <p>Plate, name, phone, service, payment and time stamp land in your sheet automatically.</p>
+        </div>
+        <div class="bkstep">
+          <div class="bkn">03</div>
+          <b>The shop gets pinged</b>
+          <p>A text or an email the moment an order comes in, so nothing sits there unnoticed.</p>
+        </div>
+        <div class="bkstep">
+          <div class="bkn">04</div>
+          <b>You mark it ready</b>
+          <p>Change the status, the customer gets their text automatically. That is the whole job.</p>
+        </div>
+      </div>
+
+      <div class="bkdb">
+        <div class="bkbar"><b>Miramar DMV · Orders</b><span>GOOGLE SHEET · UPDATES LIVE</span></div>
+        <div class="bkscroll">
+          <table class="bktable">
+            <thead>
+              <tr><th>Order</th><th>Date</th><th>Plate</th><th>Customer</th><th>Phone</th><th>Service</th><th>Payment</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="m"><b>1042</b></td><td class="m">Sep 3</td><td class="m">8ABC123</td><td>J. Smith</td><td class="m">(619) 555 0140</td><td>Registration renewal</td><td class="m">Card ··42</td><td><span class="bkpill new">NEW</span></td></tr>
+              <tr><td class="m"><b>1041</b></td><td class="m">Sep 3</td><td class="m">7XYZ889</td><td>T. Nguyen</td><td class="m">(858) 555 0177</td><td>Title transfer</td><td class="m">Card ··18</td><td><span class="bkpill wip">IN PROGRESS</span></td></tr>
+              <tr><td class="m"><b>1040</b></td><td class="m">Sep 2</td><td class="m">9KLM220</td><td>A. Ramos</td><td class="m">(619) 555 0103</td><td>Registration renewal</td><td class="m">Card ··90</td><td><span class="bkpill done">READY</span></td></tr>
+              <tr><td class="m"><b>1039</b></td><td class="m">Sep 2</td><td class="m">fleet &times;6</td><td>Ortiz Plumbing</td><td class="m">(858) 555 0166</td><td>Fleet renewals</td><td class="m">Invoiced</td><td><span class="bkpill wip">IN PROGRESS</span></td></tr>
+              <tr><td class="m"><b>1038</b></td><td class="m">Sep 1</td><td class="m">5DEF117</td><td>M. Chen</td><td class="m">(760) 555 0125</td><td>Out of state</td><td class="m">Card ··31</td><td><span class="bkpill done">PICKED UP</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bknote">Sample rows. Every order is searchable by plate, name, phone or date.</div>
+      </div>
+      <div class="bkswipe">Swipe the table &rarr;</div>
+    </div>
+  </div>
+
+  <div class="callout rv">
+    <b>A sheet is the simplest version. It doesn't have to be the only one.</b>
+    <p>Google Sheets needs no new software, no logins for the crew, and it opens on any phone. If you would rather the orders land in <strong>the CRM you already run</strong>, they can go there instead, or into both. And because every row carries a plate and a date, next year's renewal reminders write themselves out of this same table.</p>
   </div>
 </section>
 
