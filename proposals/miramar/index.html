@@ -88,9 +88,9 @@ h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.038em;line-height:1.06;text-w
 .mark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
 .mark i{width:20px;height:20px;flex:none;background:linear-gradient(135deg,var(--paper) 0 50%,var(--red) 50% 100%)}
 .mark b{font-size:14.5px;font-weight:800;letter-spacing:-.025em;white-space:nowrap}
-.forwho{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+.forwho{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--mute);text-align:right;line-height:1.55}
-@media(max-width:480px){.forwho{font-size:8.5px;letter-spacing:.1em}.mark b{font-size:13px}}
+@media(max-width:480px){.forwho{font-size:9.5px;letter-spacing:.1em}.mark b{font-size:13px}}
 
 /* ================= hero (dark) ================= */
 .hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;
@@ -105,7 +105,7 @@ h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.038em;line-height:1.06;text-w
   -webkit-mask-image:radial-gradient(80% 70% at 50% 0%,#000,transparent 78%);
   mask-image:radial-gradient(80% 70% at 50% 0%,#000,transparent 78%)}
 .hero .sheet{position:relative;z-index:1}
-.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;text-transform:uppercase;color:#FFD5CE;
   border:1px solid rgba(255,59,47,.35);background:rgba(255,59,47,.10);
   padding:8px 15px;border-radius:999px;margin-bottom:var(--s5)}
@@ -122,9 +122,9 @@ section{padding:var(--s7) 0 0}
 section:last-of-type{padding-bottom:clamp(72px,14vw,160px)}
 
 /* chapter label + heading + deck: one tight rhythm */
-.kick{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:10px;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:var(--s3)}
-.kick b{font-weight:500;color:var(--line-2);font-size:9.5px}
+.kick{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:var(--s3)}
+.kick b{font-weight:500;color:var(--line-2);font-size:11px}
 .kick::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
 h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .deck{color:var(--gray);font-size:17px;max-width:34em}
@@ -144,7 +144,7 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
   line-height:1;margin-bottom:var(--s3)}
 .num b small{font-size:.4em;font-weight:700;letter-spacing:normal;color:var(--red);vertical-align:super;margin-left:.34em}
 .num .l{font-size:14.5px;line-height:1.5;color:var(--gray)}
-.num .c{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--red);
+.num .c{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--red);
   margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line)}
 @media(max-width:760px){
   .nums{grid-template-columns:1fr;gap:0}
@@ -172,8 +172,8 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .panel>*{position:relative}
 .phead{padding:var(--s5) var(--gut) 0}
 .phead .t{font-size:17px;font-weight:800;letter-spacing:-.025em;margin-bottom:var(--s1)}
-.phead .s{font-family:var(--mono);font-size:10.5px;line-height:1.6;color:var(--mute);letter-spacing:.02em}
-.psrc{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--faint);
+.phead .s{font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--mute);letter-spacing:.02em}
+.psrc{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--faint);
   padding:0 var(--gut) var(--s5)}
 
 /* ---- line chart ---- */
@@ -181,21 +181,21 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .plot svg{width:100%;height:100%;overflow:visible}
 .yax{position:absolute;left:0;top:0;bottom:0;width:44px;pointer-events:none}
 .yax b{position:absolute;right:0;transform:translateY(-50%);font-family:var(--mono);
-  font-size:9.5px;font-weight:400;color:var(--faint);white-space:nowrap}
+  font-size:10.5px;font-weight:400;color:var(--faint);white-space:nowrap}
 .dot{position:absolute;right:0;border-radius:50%;transform:translate(50%,-50%);pointer-events:none}
 .dot.a{width:11px;height:11px;background:var(--hot);
   box-shadow:0 0 0 4px rgba(255,59,47,.18),0 0 16px rgba(255,59,47,.95)}
 .dot.b{width:9px;height:9px;background:#C9C8C1}
 .plotwrap{padding:0 var(--gut)}
-.xax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;
+.xax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;
   color:var(--faint);padding:var(--s2) var(--gut) 0 calc(var(--gut) + 50px)}
 .legend{display:flex;gap:var(--s2) var(--s5);flex-wrap:wrap;padding:var(--s4) var(--gut) var(--s3)}
-.legend span{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;
+.legend span{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;
   color:var(--dtext)}
 .legend i{width:20px;height:3px;flex:none;border-radius:2px}
 
 /* ---- bar chart ---- */
-.bgroup{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+.bgroup{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--mute);padding:var(--s5) var(--gut) var(--s2);border-bottom:1px solid var(--dline-1)}
 .bar{display:grid;grid-template-columns:152px 1fr 78px;gap:var(--s3);align-items:center;
   padding:13px var(--gut);border-bottom:1px solid var(--dline-1)}
@@ -220,7 +220,7 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 /* ---- comparison ---- */
 .vs .hrow,.vs .row{display:grid;grid-template-columns:1.35fr .85fr .5fr 1fr;gap:var(--s3);
   padding:var(--s3) var(--gut);align-items:baseline}
-.vs .hrow{border-bottom:2px solid var(--red);font-family:var(--mono);font-size:9.5px;
+.vs .hrow{border-bottom:2px solid var(--red);font-family:var(--mono);font-size:10.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .vs .row{border-bottom:1px solid var(--dline-1)}
 .vs .row:last-child{border-bottom:0}
@@ -235,7 +235,7 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
   .vs .who{margin-bottom:var(--s2)}
   .vs .d{display:flex;justify-content:space-between;gap:var(--s3);padding:7px 0;
     border-top:1px solid var(--dline-1)}
-  .vs .d::before{content:attr(data-label);color:var(--mute);font-size:9.5px;letter-spacing:.14em;
+  .vs .d::before{content:attr(data-label);color:var(--mute);font-size:10.5px;letter-spacing:.14em;
     text-transform:uppercase;align-self:center}
 }
 
@@ -243,7 +243,7 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .stage{display:grid;grid-template-columns:1fr 152px;gap:var(--s4);align-items:end;
   padding:var(--s5) var(--gut) 0}
 .scroller{min-width:0}
-.swipe{display:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+.swipe{display:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--faint);padding:var(--s2) var(--gut) 0}
 @media(max-width:760px){
   .stage{display:block}
@@ -322,7 +322,7 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .step::before{content:"";position:absolute;left:0;top:-1px;width:0;height:1px;background:var(--red);
   transition:width .45s cubic-bezier(.2,.8,.2,1)}
 .step:hover::before{width:100%}
-.step .n{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--red);
+.step .n{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--red);
   padding-top:5px;min-width:24px}
 .step h3{font-size:19px;font-weight:800;letter-spacing:-.028em;margin-bottom:var(--s2)}
 .step p{font-size:15.5px;color:var(--gray)}
@@ -335,7 +335,7 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
 .price .row:last-of-type{border-bottom:0}
 .price .amt{font-family:var(--mono);font-size:13.5px;color:var(--paper);white-space:nowrap;
   filter:blur(6px);opacity:.8;user-select:none}
-.price .note{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--mute);
+.price .note{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mute);
   margin-top:var(--s4);line-height:1.7}
 
 /* ================= motion: additive only ================= */
@@ -356,6 +356,25 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
     .rv{animation:rise .9s cubic-bezier(.2,.75,.2,1) both;
       animation-timeline:view();animation-range:entry 0% entry 80%}
   }
+}
+
+/* ---- link down to the build-plan page ---- */
+.nextlink{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);
+  margin-top:var(--s6);padding:var(--s5) var(--s5);background:#fff;border:1px solid var(--line);
+  text-decoration:none;color:var(--ink);
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.nextlink:hover{border-color:var(--ink);transform:translateY(-2px);
+  box-shadow:0 20px 44px -28px rgba(17,17,16,.6)}
+.nextlink .k{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--red);margin-bottom:9px}
+.nextlink .t{font-size:clamp(20px,3.4vw,25px);font-weight:800;letter-spacing:-.03em;line-height:1.15}
+.nextlink .s{font-size:15px;color:var(--gray);margin-top:7px}
+.nextlink .a{flex:none;font-size:24px;line-height:1;color:var(--red);transition:transform .2s ease}
+.nextlink:hover .a{transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){
+  .nextlink,.nextlink .a{transition:none}
+  .nextlink:hover{transform:none}
+  .nextlink:hover .a{transform:none}
 }
 
 /* ================= print ================= */
@@ -635,6 +654,15 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
     <div class="row"><span>05 · Paid ads (Google + others)</span><span class="amt">$0,000/mo</span></div>
     <div class="note">STRUCTURE TBD</div>
   </div>
+
+  <a class="nextlink rv" href="/proposals/miramar/website">
+    <div>
+      <div class="k">Next</div>
+      <div class="t">The website plan</div>
+      <div class="s">What's on the site, how each page works, how checkout runs, and what happens after launch.</div>
+    </div>
+    <div class="a" aria-hidden="true">&rarr;</div>
+  </a>
 </section>
 
 </main>
