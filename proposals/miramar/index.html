@@ -358,25 +358,6 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
   }
 }
 
-/* ---- link down to the build-plan page ---- */
-.nextlink{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);
-  margin-top:var(--s6);padding:var(--s5) var(--s5);background:#fff;border:1px solid var(--line);
-  text-decoration:none;color:var(--ink);
-  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
-.nextlink:hover{border-color:var(--ink);transform:translateY(-2px);
-  box-shadow:0 20px 44px -28px rgba(17,17,16,.6)}
-.nextlink .k{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--red);margin-bottom:9px}
-.nextlink .t{font-size:clamp(20px,3.4vw,25px);font-weight:800;letter-spacing:-.03em;line-height:1.15}
-.nextlink .s{font-size:15px;color:var(--gray);margin-top:7px}
-.nextlink .a{flex:none;font-size:24px;line-height:1;color:var(--red);transition:transform .2s ease}
-.nextlink:hover .a{transform:translateX(4px)}
-@media(prefers-reduced-motion:reduce){
-  .nextlink,.nextlink .a{transition:none}
-  .nextlink:hover{transform:none}
-  .nextlink:hover .a{transform:none}
-}
-
 /* ================= print ================= */
 @media print{
   .prog,.head{display:none!important}
@@ -654,15 +635,6 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
     <div class="row"><span>05 · Paid ads (Google + others)</span><span class="amt">$0,000/mo</span></div>
     <div class="note">STRUCTURE TBD</div>
   </div>
-
-  <a class="nextlink rv" href="/proposals/miramar/website/">
-    <div>
-      <div class="k">Next</div>
-      <div class="t">The website plan</div>
-      <div class="s">What's on the site, how each page works, how checkout runs, and what happens after launch.</div>
-    </div>
-    <div class="a" aria-hidden="true">&rarr;</div>
-  </a>
 </section>
 
 </main>
