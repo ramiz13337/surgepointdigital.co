@@ -693,6 +693,18 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 .crumbs a:hover{color:var(--paper);border-bottom-color:var(--paper)}
 .crumbs span{color:#4A4A45}
 .crumbs b{font-weight:400;color:var(--mute)}
+
+/* ---------------- recommended stack ---------------- */
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
+.tool{background:#fff;border:1px solid var(--line);padding:18px 18px 16px}
+.tool em{font-style:normal;display:block;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:11px}
+.tool b{display:block;font-size:16px;letter-spacing:-.02em}
+.tool p{font-size:13px;line-height:1.55;color:var(--gray);margin-top:7px}
+.tool .cost{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--line);line-height:1.5}
+@media(max-width:900px){.tools{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -777,7 +789,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 <section class="sheet">
   <div class="kick rv">Structure <b>/ 03</b></div>
   <h2 class="rv">What's on the site: 11 pages.</h2>
-  <p class="deck rv">Google ranks pages, not businesses. Someone searching "title transfer san diego" needs to land on a title transfer page, not a homepage that mentions it somewhere. So every service gets its own page. Dashed boxes get added later, month by month.</p>
+  <p class="deck rv">Google ranks pages, not businesses. Someone searching "title transfer san diego" needs to land on a title transfer page, not a homepage that mentions it somewhere. So every service gets its own page. <strong>Renewals is the one that takes payment online.</strong> Title transfers and VIN verification are office visits, so those pages sell the trip in, not a checkout. Dashed boxes get added later, month by month.</p>
 
   <div class="wide panel rv">
     <div class="phead">
@@ -788,15 +800,19 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
       <div class="tree">
         <div class="node home">Home<em>the shop, the offer, reviews, map</em></div>
 
-        <div class="tlabel">Services</div>
+        <div class="tlabel">Services · the one that sells online</div>
         <div class="branch">
-          <div class="node money">Registration renewal<em>/registration-renewal · pay online</em></div>
-          <div class="node money">Title transfers<em>/title-transfer · bought, sold, gifted, inherited</em></div>
-          <div class="node money">Out of state registration<em>/out-of-state · new CA residents, 20 day window</em></div>
-          <div class="node star">Mobile VIN verification<i>NO LOCAL COMPETITION</i><em>/mobile-vin · homes, offices, dealerships</em></div>
-          <div class="node star">Fleet &amp; business renewals<i>B2B · RECURRING</i><em>/fleet · companies with vehicles, handled in batches</em></div>
+          <div class="node star">Registration renewal<i>PAY ONLINE</i><em>/registration-renewal · the page the whole site points at</em></div>
+        </div>
+
+        <div class="tlabel">Services · the ones that bring people in</div>
+        <div class="branch">
+          <div class="node money">Title transfers<em>/title-transfer · bought, sold, gifted, inherited · office visit</em></div>
+          <div class="node money">Out of state title transfers<em>/out-of-state-title-transfer · new CA residents, 20 day window · office visit</em></div>
+          <div class="node money">VIN verification<em>/vin-verification · office visit, or we come to you</em></div>
           <div class="node money">Replacement stickers &amp; cards<em>/replacements</em></div>
           <div class="node money">Auto insurance<em>/insurance · registration + insurance, one visit</em></div>
+          <div class="node star">Fleet &amp; business renewals<i>B2B · RECURRING</i><em>/fleet · companies with vehicles, handled in batches</em></div>
         </div>
 
         <div class="tlabel">Trust + logistics</div>
@@ -835,7 +851,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
           <div class="site">
             <div class="snav">
               <div class="slogo">MIRAMAR <em>DMV</em> &amp; INSURANCE</div>
-              <div class="slinks"><span>Renewals</span><span>Titles</span><span>Mobile VIN</span><span>Fleet</span><span>Insurance</span></div>
+              <div class="slinks"><span>Renewals</span><span>Title transfers</span><span>Out of state</span><span>VIN verification</span><span>Insurance</span></div>
               <div class="scall">(858) 397-2076</div>
             </div>
             <div class="shero">
@@ -872,7 +888,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 <section class="sheet">
   <div class="kick rv">Checkout <b>/ 05</b></div>
   <h2 class="rv">Paying online, screen by screen.</h2>
-  <p class="deck rv">V1 keeps it simple: renewals payable online, everything else routes to a call or a visit. Four screens, about a minute.</p>
+  <p class="deck rv">Renewals are the only thing that takes payment online. Title transfers, out of state transfers and VIN verification all need you to see the car or the paperwork, so those pages route to a call or a visit instead. Four screens, about a minute.</p>
 
   <div class="wide panel light rv">
     <div class="phead">
@@ -888,7 +904,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
               <div class="pht">What do you need?</div>
               <div class="pitem sel">Renew registration <span>&rarr;</span></div>
               <div class="pitem">Transfer a title <span>&rarr;</span></div>
-              <div class="pitem">Mobile VIN check <span>&rarr;</span></div>
+              <div class="pitem">VIN verification <span>&rarr;</span></div>
               <div class="pitem">Fleet services <span>&rarr;</span></div>
             </div>
           </div></div>
@@ -992,9 +1008,45 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
     </div>
   </div>
 
+
+  <div class="wide panel light rv">
+    <div class="phead">
+      <div class="t">The simplest version that works</div>
+      <div class="s">four pieces, nothing custom built, all of it replaceable later</div>
+    </div>
+    <div class="body">
+      <div class="tools">
+        <div class="tool">
+          <em>01 · Take the payment</em>
+          <b>Stripe</b>
+          <p>Card payments, automatic receipts, refunds when you need them. The same processor most of the internet runs on.</p>
+          <span class="cost">~2.9% + 30¢ per card<br>no monthly fee</span>
+        </div>
+        <div class="tool">
+          <em>02 · The checkout form</em>
+          <b>Fillout or Tally</b>
+          <p>A hosted form with Stripe already wired in. Plate, name, phone, service, pay. No developer, no app to maintain.</p>
+          <span class="cost">free tier covers this<br>~$29/mo if you outgrow it</span>
+        </div>
+        <div class="tool">
+          <em>03 · The record</em>
+          <b>Google Sheets</b>
+          <p>Every order lands as a row, exactly like the table above. Opens on any phone, no new logins for the crew, and you already know how to use it.</p>
+          <span class="cost">free with the account<br>you already have</span>
+        </div>
+        <div class="tool">
+          <em>04 · The reminder</em>
+          <b>Zapier + a texting number</b>
+          <p>Reads the date on each row and texts that customer eleven months later. Set up once, then it runs without you.</p>
+          <span class="cost">~$20/mo to start</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="callout rv">
     <b>A sheet is the simplest version. It doesn't have to be the only one.</b>
-    <p>Google Sheets needs no new software, no logins for the crew, and it opens on any phone. If you would rather the orders land in <strong>the CRM you already run</strong>, they can go there instead, or into both. And because every row carries a plate and a date, next year's renewal reminders write themselves out of this same table.</p>
+    <p>Start here because there is nothing to build and nothing to learn. If you would rather orders land in <strong>the CRM you already run</strong>, step 03 points there instead, or at both, and nothing else in the chain changes. Either way every row carries a plate, a service and a date, which is all next year's renewal reminders need.</p>
   </div>
 </section>
 
