@@ -695,7 +695,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 .crumbs b{font-weight:400;color:var(--mute)}
 
 /* ---------------- recommended stack ---------------- */
-.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
 .tool{background:#fff;border:1px solid var(--line);padding:18px 18px 16px}
 .tool em{font-style:normal;display:block;font-family:var(--mono);font-size:11px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:11px}
@@ -703,8 +703,12 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 .tool p{font-size:13px;line-height:1.55;color:var(--gray);margin-top:7px}
 .tool .cost{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);
   margin-top:12px;padding-top:10px;border-top:1px solid var(--line);line-height:1.5}
-@media(max-width:900px){.tools{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.tools{grid-template-columns:1fr}}
 @media(max-width:560px){.tools{grid-template-columns:1fr}}
+
+.tool.pick{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
+.tool .flag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--red);color:#fff;padding:4px 9px;margin-bottom:11px}
 </style>
 </head>
 <body>
@@ -809,7 +813,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
         <div class="branch">
           <div class="node money">Title transfers<em>/title-transfer · bought, sold, gifted, inherited · office visit</em></div>
           <div class="node money">Out of state title transfers<em>/out-of-state-title-transfer · new CA residents, 20 day window · office visit</em></div>
-          <div class="node money">VIN verification<em>/vin-verification · office visit, or we come to you</em></div>
+          <div class="node money">VIN verification<em>/vin-verification · walk in, done in the office</em></div>
           <div class="node money">Replacement stickers &amp; cards<em>/replacements</em></div>
           <div class="node money">Auto insurance<em>/insurance · registration + insurance, one visit</em></div>
           <div class="node star">Fleet &amp; business renewals<i>B2B · RECURRING</i><em>/fleet · companies with vehicles, handled in batches</em></div>
@@ -966,13 +970,13 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
         </div>
         <div class="bkstep">
           <div class="bkn">02</div>
-          <b>The payment processes</b>
-          <p>Card runs through the processor, funds settle to your account, and the receipt goes out on its own.</p>
+          <b>Stripe takes the card</b>
+          <p>The card clears through Stripe, the money settles into your account, and the receipt goes out on its own.</p>
         </div>
         <div class="bkstep">
           <div class="bkn">03</div>
           <b>A row writes itself</b>
-          <p>Plate, name, phone, service, payment and time stamp land in your sheet automatically.</p>
+          <p>Stripe hands the order straight to your sheet: plate, name, phone, service, payment and time stamp.</p>
         </div>
         <div class="bkstep">
           <div class="bkn">04</div>
@@ -1011,42 +1015,42 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 
   <div class="wide panel light rv">
     <div class="phead">
-      <div class="t">The simplest version that works</div>
-      <div class="s">four pieces, nothing custom built, all of it replaceable later</div>
+      <div class="t">Getting Stripe into the spreadsheet</div>
+      <div class="s">three ways · the checkout is identical, they only differ in how the row shows up</div>
     </div>
     <div class="body">
       <div class="tools">
-        <div class="tool">
-          <em>01 · Take the payment</em>
-          <b>Stripe</b>
-          <p>Card payments, automatic receipts, refunds when you need them. The same processor most of the internet runs on.</p>
-          <span class="cost">~2.9% + 30¢ per card<br>no monthly fee</span>
+        <div class="tool pick">
+          <span class="flag">Recommended</span>
+          <em>01 · Webhook</em>
+          <b>Stripe &rarr; Apps Script</b>
+          <p>A short script lives inside the sheet itself. Stripe posts every completed payment to it and the row appears the second the card clears. No third party in the middle, nothing to keep paying for.</p>
+          <span class="cost">free<br>set up once, about an hour</span>
         </div>
         <div class="tool">
-          <em>02 · The checkout form</em>
-          <b>Fillout or Tally</b>
-          <p>A hosted form with Stripe already wired in. Plate, name, phone, service, pay. No developer, no app to maintain.</p>
-          <span class="cost">free tier covers this<br>~$29/mo if you outgrow it</span>
+          <em>02 · No code connector</em>
+          <b>Make or Zapier</b>
+          <p>A connector watches Stripe and writes the row for you. Same result as the webhook, set up by clicking through a screen instead of pasting a script.</p>
+          <span class="cost">Make: free to ~1,000 orders/mo<br>Zapier: ~$20/mo</span>
         </div>
         <div class="tool">
-          <em>03 · The record</em>
-          <b>Google Sheets</b>
-          <p>Every order lands as a row, exactly like the table above. Opens on any phone, no new logins for the crew, and you already know how to use it.</p>
-          <span class="cost">free with the account<br>you already have</span>
-        </div>
-        <div class="tool">
-          <em>04 · The reminder</em>
-          <b>Zapier + a texting number</b>
-          <p>Reads the date on each row and texts that customer eleven months later. Set up once, then it runs without you.</p>
-          <span class="cost">~$20/mo to start</span>
+          <em>03 · No integration at all</em>
+          <b>Stripe export</b>
+          <p>Stripe already logs every payment with search and filters built in. Export to a spreadsheet whenever you want to run a campaign. Worth knowing this is a real option.</p>
+          <span class="cost">free<br>manual, fine under ~20 orders/mo</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="callout rv">
-    <b>A sheet is the simplest version. It doesn't have to be the only one.</b>
-    <p>Start here because there is nothing to build and nothing to learn. If you would rather orders land in <strong>the CRM you already run</strong>, step 03 points there instead, or at both, and nothing else in the chain changes. Either way every row carries a plate, a service and a date, which is all next year's renewal reminders need.</p>
+    <b>Where the plate and phone number come from.</b>
+    <p>Stripe's own checkout can collect a couple of extra fields on top of the card, so the plate and phone get captured at payment rather than in a separate form. Those come through on the same webhook as the payment. <strong>One link, one screen, one row.</strong> If it turns out we need more fields than Stripe allows, a hosted form in front of Stripe handles it and the rest of the chain is unchanged.</p>
+  </div>
+
+  <div class="callout rv">
+    <b>The sheet is the starting point, not the ceiling.</b>
+    <p>Start here because there is nothing to build and nothing to learn. If you would rather orders land in <strong>the CRM you already run</strong>, the webhook points there instead, or at both, and nothing else changes. Either way every row carries a plate, a service and a date, which is all next year's renewal reminders need.</p>
   </div>
 </section>
 
@@ -1064,7 +1068,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
       <div class="fleet">
         <div class="fcard"><em>01</em><b>Send the vehicle list once</b><p>Plates and due dates. A spreadsheet, a photo of the binder, whatever they have.</p></div>
         <div class="fcard"><em>02</em><b>Every expiration tracked</b><p>Renewals queued before due dates. No truck ever runs expired tags again.</p></div>
-        <div class="fcard"><em>03</em><b>Expedited, in batches</b><p>Stickers processed same day and delivered. Mobile VIN checks at their yard when needed.</p></div>
+        <div class="fcard"><em>03</em><b>Expedited, in batches</b><p>Stickers processed same day. One trip to you instead of fifteen trips to us.</p></div>
         <div class="fcard"><em>04</em><b>One contact, zero DMV time</b><p>Their office manager texts one number instead of managing fifteen deadlines.</p></div>
       </div>
       <div class="ftags">
@@ -1075,7 +1079,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 
   <div class="callout rv">
     <b>This page works both directions.</b>
-    <p>It catches "fleet registration san diego" searches, and it's the page to send after walking into a pest control office with a card. <strong>Inbound and outbound, same page.</strong> Pairs with mobile VIN: their trucks never leave the yard.</p>
+    <p>It catches "fleet registration san diego" searches, and it's the page to send after walking into a pest control office with a card. <strong>Inbound and outbound, same page.</strong> One contact, one invoice, and nobody in their office tracking fifteen due dates.</p>
   </div>
 </section>
 
@@ -1144,18 +1148,18 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
         <div class="rleg"><span><i style="background:#D91F11"></i>calls</span><span><i style="background:#111110"></i>online checkouts</span></div>
 
         <div class="rsec">CALLS BY PAGE</div>
-        <div class="rbar"><div class="n">/mobile-vin</div><div class="tr"><div class="fi" style="width:100%"></div></div><div class="v">41</div></div>
-        <div class="rbar"><div class="n">/registration-renewal</div><div class="tr"><div class="fi" style="width:93%"></div></div><div class="v">38</div></div>
+        <div class="rbar"><div class="n">/registration-renewal</div><div class="tr"><div class="fi" style="width:100%"></div></div><div class="v">41</div></div>
+        <div class="rbar"><div class="n">/vin-verification</div><div class="tr"><div class="fi" style="width:93%"></div></div><div class="v">38</div></div>
         <div class="rbar"><div class="n">/fleet</div><div class="tr"><div class="fi" style="width:54%"></div></div><div class="v">22</div></div>
         <div class="rbar"><div class="n">/title-transfer</div><div class="tr"><div class="fi" style="width:46%"></div></div><div class="v">19</div></div>
         <div class="rbar"><div class="n">/out-of-state</div><div class="tr"><div class="fi" style="width:32%"></div></div><div class="v">13</div></div>
 
         <div class="rsec">KEYWORD MOVES</div>
-        <div class="rrow"><b>mobile vin verification san diego</b><span class="up">#1 · held</span></div>
+        <div class="rrow"><b>registration renewal san diego</b><span class="up">#1 · held</span></div>
         <div class="rrow"><b>dmv services san diego</b><span class="up">#3 · up 5</span></div>
         <div class="rrow"><b>fleet registration san diego</b><span class="up">#4 · up 12</span></div>
         <div class="rrow"><b>title transfer san diego</b><span class="up">#6 · up 9</span></div>
-        <div class="rrow"><b>registration renewal near me</b><span class="up">#8 · up 3</span></div>
+        <div class="rrow"><b>vin verification near me</b><span class="up">#8 · up 3</span></div>
 
         <div class="rsec">WHERE VISITORS CAME FROM</div>
         <div class="rsrc">
