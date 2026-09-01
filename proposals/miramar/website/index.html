@@ -709,6 +709,26 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 .tool.pick{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
 .tool .flag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
   text-transform:uppercase;background:var(--red);color:#fff;padding:4px 9px;margin-bottom:11px}
+
+/* ---------------- what the outage cost ---------------- */
+.losst{width:100%;border-collapse:collapse}
+.losst th{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:400;color:var(--mute);text-align:right;padding:0 0 13px;
+  border-bottom:1px solid var(--dline-1);white-space:nowrap}
+.losst th:first-child{text-align:left}
+.losst td{font-family:var(--mono);font-size:13.5px;color:var(--dtext);text-align:right;
+  padding:12px 0;border-bottom:1px solid var(--dline-1)}
+.losst td:first-child{font-family:var(--sans);font-size:14.5px;font-weight:600;
+  color:var(--paper);text-align:left}
+.losst .gone{color:var(--hot)}
+.losst tr.tot td{border-bottom:none;border-top:2px solid var(--red);
+  padding-top:15px;font-weight:700;color:var(--paper)}
+.losst tr.tot td:first-child{font-weight:800}
+@media(max-width:520px){
+  .losst th{font-size:9.5px;letter-spacing:.08em}
+  .losst td{font-size:12.5px;padding:11px 0}
+  .losst td:first-child{font-size:13.5px}
+}
 </style>
 </head>
 <body>
@@ -756,7 +776,90 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">How it works <b>/ 02</b></div>
+  <div class="kick rv">What went down <b>/ 02</b></div>
+  <h2 class="rv">The site took 890 rankings down with it.</h2>
+  <p class="deck rv">Before it went offline the domain turned up for 894 searches. It is down to four, and not one of those is an organic position any more. This is what disappeared:</p>
+
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">miramarinsuranceservices.com · keywords ranked</div>
+      <div class="s">Semrush · monthly · Dec 2024 to Sep 2026</div>
+    </div>
+    <div class="plotwrap">
+      <div class="plot">
+        <div class="yax">
+            <b style="top:6.2%">900</b>
+            <b style="top:35.2%">600</b>
+            <b style="top:64.3%">300</b>
+            <b style="top:93.3%">0</b>
+        </div>
+        <svg viewBox="0 0 640 210" preserveAspectRatio="none" role="img" aria-label="Keywords ranked by miramarinsuranceservices.com: rising through 2025 to 894 in July, then falling to 4 by early 2026 and flat since.">
+          <defs>
+            <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FF3B2F" stop-opacity=".42"/>
+              <stop offset="1" stop-color="#FF3B2F" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="13" x2="640" y2="13" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="74" x2="640" y2="74" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="135" x2="640" y2="135" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="196" x2="640" y2="196" stroke="#3A3A36" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <polygon fill="url(#gl)" points="0.0,192.9 30.5,173.6 61.0,118.7 91.4,72.0 121.9,53.7 152.4,64.8 182.9,55.7 213.3,14.2 243.8,21.1 274.3,55.7 304.8,90.3 335.2,128.9 365.7,169.6 396.2,191.9 426.7,194.4 457.1,195.0 487.6,195.2 518.1,195.2 548.6,195.2 579.0,195.2 609.5,195.2 640.0,195.2 640,196 0,196"/>
+          <polyline class="line" pathLength="1" fill="none" stroke="#FF3B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" style="filter:drop-shadow(0 0 7px rgba(255,59,47,.75))" points="0.0,192.9 30.5,173.6 61.0,118.7 91.4,72.0 121.9,53.7 152.4,64.8 182.9,55.7 213.3,14.2 243.8,21.1 274.3,55.7 304.8,90.3 335.2,128.9 365.7,169.6 396.2,191.9 426.7,194.4 457.1,195.0 487.6,195.2 518.1,195.2 548.6,195.2 579.0,195.2 609.5,195.2 640.0,195.2"/>
+        </svg>
+        <span class="dot a" style="top:92.9%"></span>
+      </div>
+    </div>
+    <div class="xax"><span>Dec '24</span><span>Sep '26</span></div>
+    <div class="legend">
+      <span><i style="background:#FF3B2F"></i>Keywords ranked · 894 at peak in Jul 2025 · 4 today</span>
+    </div>
+    <div class="body" style="padding-top:var(--s3)">
+      <table class="losst">
+        <thead>
+          <tr><th>Where it ranked</th><th>Jul 2025</th><th>Today</th></tr>
+        </thead>
+        <tbody>
+              <tr><td>Top 3</td><td>4</td><td class="gone">0</td></tr>
+              <tr><td>Positions 4 to 10</td><td>12</td><td class="gone">0</td></tr>
+              <tr><td>Positions 11 to 20</td><td>63</td><td class="gone">0</td></tr>
+              <tr><td>Positions 21 to 50</td><td>340</td><td class="gone">0</td></tr>
+              <tr><td>Positions 51 to 100</td><td>334</td><td class="gone">0</td></tr>
+              <tr><td>AI Overviews</td><td>3</td><td class="gone">0</td></tr>
+              <tr><td>Other SERP features</td><td>138</td><td class="gone">4</td></tr>
+          <tr class="tot"><td>Total</td><td>894</td><td class="gone">4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="psrc">Source: Semrush domain overview and position distribution, pulled Sep 2026</div>
+  </div>
+
+  <div class="nums rv">
+    <div class="num">
+      <b>890</b>
+      <div class="l">rankings lost since the site went down, out of 894</div>
+      <div class="c">Jul 2025 to Sep 2026</div>
+    </div>
+    <div class="num">
+      <b>16</b>
+      <div class="l">of those sat on page one of Google, where people actually click</div>
+      <div class="c">4 in the top 3 · 12 in 4 to 10</div>
+    </div>
+    <div class="num">
+      <b>0</b>
+      <div class="l">organic positions the domain holds today, at any rank</div>
+      <div class="c">Semrush · Sep 2026</div>
+    </div>
+  </div>
+
+  <div class="callout rv">
+    <b>The links are still there. They are pointing at nothing.</b>
+    <p>277 other sites still link to this domain and Google still holds years of history on it. That is worth something, but only if there is a page at the other end, and it thins out the longer the site stays down. <strong>Rebuilding on the same domain keeps whatever is left of it.</strong> Every month it stays dark there is less to keep, and the shops that are up are taking those positions in the meantime.</p>
+  </div>
+</section>
+
+<section class="sheet">
+  <div class="kick rv">How it works <b>/ 03</b></div>
   <h2 class="rv">How the site turns a Google search into a customer.</h2>
   <p class="deck rv">People already search for this every day. The site's job is to show up, answer the question, and hand them a button.</p>
 
@@ -791,7 +894,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Structure <b>/ 03</b></div>
+  <div class="kick rv">Structure <b>/ 04</b></div>
   <h2 class="rv">What's on the site: 11 pages.</h2>
   <p class="deck rv">Google ranks pages, not businesses. Someone searching "title transfer san diego" needs to land on a title transfer page, not a homepage that mentions it somewhere. So every service gets its own page. <strong>Renewals is the one that takes payment online.</strong> Title transfers and VIN verification are office visits, so those pages sell the trip in, not a checkout. Dashed boxes get added later, month by month.</p>
 
@@ -839,7 +942,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Page template <b>/ 04</b></div>
+  <div class="kick rv">Page template <b>/ 05</b></div>
   <h2 class="rv">What each service page looks like.</h2>
   <p class="deck rv">Every service page follows this shape, in your brand. Built once and reused, so the pages added later drop straight into the mold.</p>
 
@@ -890,7 +993,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Checkout <b>/ 05</b></div>
+  <div class="kick rv">Checkout <b>/ 06</b></div>
   <h2 class="rv">Paying online, screen by screen.</h2>
   <p class="deck rv">Renewals are the only thing that takes payment online. Title transfers, out of state transfers and VIN verification all need you to see the car or the paperwork, so those pages route to a call or a visit instead. Four screens, about a minute.</p>
 
@@ -1055,7 +1158,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Fleets <b>/ 06</b></div>
+  <div class="kick rv">Fleets <b>/ 07</b></div>
   <h2 class="rv">The page for businesses with trucks.</h2>
   <p class="deck rv">Pest control, plumbing, HVAC, delivery, property management, dealer lots. A company with 15 trucks has 15 renewals a year and nobody whose job it is to handle them. That's a customer who signs up once and renews forever.</p>
 
@@ -1084,7 +1187,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">After launch <b>/ 07</b></div>
+  <div class="kick rv">After launch <b>/ 08</b></div>
   <h2 class="rv">What the monthly SEO program does.</h2>
   <p class="deck rv">Tags Clinic went from ranking for nothing to 5,634 keywords in 18 months doing exactly this, every month, without stopping. Three parts.</p>
 
@@ -1216,7 +1319,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Recap <b>/ 08</b></div>
+  <div class="kick rv">Recap <b>/ 09</b></div>
   <h2 class="rv">What's included.</h2>
 
   <div class="wide scope rv">
