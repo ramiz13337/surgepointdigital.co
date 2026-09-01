@@ -729,6 +729,75 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   .losst td{font-size:12.5px;padding:11px 0}
   .losst td:first-child{font-size:13.5px}
 }
+
+/* ---------------- fleet landing page extras ---------------- */
+.scards.four{grid-template-columns:repeat(4,1fr)}
+.svtags{display:flex;flex-wrap:wrap;gap:1.2cqw;padding:0 2.8cqw 3cqw}
+.svtags span{font-family:var(--mono);font-size:1.3cqw;color:var(--mb);
+  border:1px solid var(--mr);background:var(--mc);padding:1.1cqw 1.9cqw}
+.svform{display:grid;grid-template-columns:1fr 1fr auto;gap:1.5cqw;align-items:center;
+  background:var(--mg);padding:2.8cqw;margin:0 2.8cqw 3cqw}
+.svform .f{background:#fff;border:1px solid var(--mr);color:var(--mb);
+  font-size:1.55cqw;padding:1.9cqw 2.1cqw}
+.svform .go{background:var(--ma);color:var(--mi);font-size:1.55cqw;font-weight:800;
+  padding:1.9cqw 2.8cqw;white-space:nowrap;text-align:center}
+
+/* ---------------- recap: full black upsell band ---------------- */
+.recap{position:relative;margin-top:var(--s6);padding:var(--s7) 0 0;
+  background:var(--ink);color:var(--paper);overflow:hidden}
+.recap::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(90deg,rgba(252,252,250,.05) 1px,transparent 1px);
+  background-size:62px 62px}
+.recap::after{content:"\2197";position:absolute;right:-44px;bottom:170px;line-height:1;
+  font-family:var(--mono);font-size:clamp(140px,24vw,300px);color:rgba(252,252,250,.032);
+  pointer-events:none}
+.recap>*{position:relative;z-index:1}
+.recap .kick{color:var(--hot)}
+.recap .kick b{color:#57574F}
+.recap .kick::after{background:linear-gradient(90deg,#33332F,transparent)}
+.recap h2{color:var(--paper);font-size:clamp(30px,6vw,46px)}
+.recap .lead{color:#C6C5BE;font-size:clamp(17px,2.1vw,19px);max-width:34em;margin-top:var(--s3)}
+
+.recap .scope{background:transparent;box-shadow:none}
+.recap .shead{padding:0 0 var(--s4);border-bottom:1px solid #2A2A26}
+.recap .shead b{font-size:clamp(21px,2.9vw,27px)}
+.recap .shead span{font-size:13px}
+.recap .scols{grid-template-columns:1fr 1fr}
+.recap .scol{padding:var(--s6) var(--s5) var(--s6) 0}
+.recap .scol+.scol{border-left:1px solid #2A2A26;padding:var(--s6) 0 var(--s6) var(--s5)}
+.recap .scol .ct{font-size:12.5px;color:var(--hot);margin-bottom:var(--s4)}
+.recap .scol ul{gap:14px}
+.recap .scol li{font-size:16.5px;line-height:1.55;padding-left:21px;color:#C6C5BE}
+.recap .scol li b{color:var(--paper)}
+.recap .scol li::before{top:10px;width:8px;height:8px}
+@media(max-width:760px){
+  .recap .scols{grid-template-columns:1fr}
+  .recap .scol{padding:var(--s5) 0}
+  .recap .scol+.scol{border-left:none;border-top:1px solid #2A2A26;padding:var(--s5) 0}
+}
+
+.brandrow{display:flex;align-items:center;gap:12px;margin-top:var(--s6)}
+.brandrow i{width:28px;height:28px;flex:none;
+  background:linear-gradient(135deg,var(--paper) 0 50%,var(--red) 50% 100%)}
+.brandrow b{font-size:18px;font-weight:800;letter-spacing:-.025em}
+.wordmark{margin-top:var(--s5);border-top:1px solid #2A2A26;overflow:hidden}
+.wordmark b{display:block;padding-top:18px;font-weight:800;letter-spacing:-.05em;
+  line-height:1.06;white-space:nowrap;font-size:clamp(36px,8.6vw,112px)}
+.wordmark b i{font-style:normal;color:var(--red)}
+.footbottom{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);
+  flex-wrap:wrap;padding:var(--s4) 0 var(--s6);font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.05em;color:var(--faint)}
+
+/* The fleet page carries four cards plus a form, so it needs more room than the
+   service page before the type gets too small. Widen the rail and drop to 2x2. */
+@media(max-width:760px){
+  .scroller .browser{min-width:720px}
+}
+@container (max-width:760px){
+  .scards.four{grid-template-columns:repeat(2,1fr)}
+  .svform{grid-template-columns:1fr 1fr}
+  .svform .go{grid-column:1/-1}
+}
 </style>
 </head>
 <body>
@@ -1091,47 +1160,6 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
       <div class="bkswipe">Swipe the table &rarr;</div>
     </div>
   </div>
-
-
-  <div class="wide panel light rv">
-    <div class="phead">
-      <div class="t">Getting Stripe into the spreadsheet</div>
-      <div class="s">three ways · the checkout is identical, they only differ in how the row shows up</div>
-    </div>
-    <div class="body">
-      <div class="tools">
-        <div class="tool pick">
-          <span class="flag">Recommended</span>
-          <em>01 · Webhook</em>
-          <b>Stripe &rarr; Apps Script</b>
-          <p>A short script lives inside the sheet itself. Stripe posts every completed payment to it and the row appears the second the card clears. No third party in the middle, nothing to keep paying for.</p>
-          <span class="cost">free<br>set up once, about an hour</span>
-        </div>
-        <div class="tool">
-          <em>02 · No code connector</em>
-          <b>Make or Zapier</b>
-          <p>A connector watches Stripe and writes the row for you. Same result as the webhook, set up by clicking through a screen instead of pasting a script.</p>
-          <span class="cost">Make: free to ~1,000 orders/mo<br>Zapier: ~$20/mo</span>
-        </div>
-        <div class="tool">
-          <em>03 · No integration at all</em>
-          <b>Stripe export</b>
-          <p>Stripe already logs every payment with search and filters built in. Export to a spreadsheet whenever you want to run a campaign. Worth knowing this is a real option.</p>
-          <span class="cost">free<br>manual, fine under ~20 orders/mo</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout rv">
-    <b>Where the plate and phone number come from.</b>
-    <p>Stripe's own checkout can collect a couple of extra fields on top of the card, so the plate and phone get captured at payment rather than in a separate form. Those come through on the same webhook as the payment. <strong>One link, one screen, one row.</strong> If it turns out we need more fields than Stripe allows, a hosted form in front of Stripe handles it and the rest of the chain is unchanged.</p>
-  </div>
-
-  <div class="callout rv">
-    <b>The sheet is the starting point, not the ceiling.</b>
-    <p>Start here because there is nothing to build and nothing to learn. If you would rather orders land in <strong>the CRM you already run</strong>, the webhook points there instead, or at both, and nothing else changes. Either way every row carries a plate, a service and a date, which is all next year's renewal reminders need.</p>
-  </div>
 </section>
 
 <section class="sheet">
@@ -1141,19 +1169,51 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 
   <div class="wide panel light rv">
     <div class="phead">
-      <div class="t">How fleet service works</div>
-      <div class="s">the offer /fleet makes to a business owner</div>
+      <div class="t">miramardmv.com/fleet · concept</div>
+      <div class="s">the page a business owner lands on, built to sell a contract not a visit</div>
     </div>
     <div class="body">
-      <div class="fleet">
-        <div class="fcard"><em>01</em><b>Send the vehicle list once</b><p>Plates and due dates. A spreadsheet, a photo of the binder, whatever they have.</p></div>
-        <div class="fcard"><em>02</em><b>Every expiration tracked</b><p>Renewals queued before due dates. No truck ever runs expired tags again.</p></div>
-        <div class="fcard"><em>03</em><b>Expedited, in batches</b><p>Stickers processed same day. One trip to you instead of fifteen trips to us.</p></div>
-        <div class="fcard"><em>04</em><b>One contact, zero DMV time</b><p>Their office manager texts one number instead of managing fifteen deadlines.</p></div>
+      <div class="scroller">
+        <div class="browser">
+          <div class="bbar"><i></i><i></i><i></i><div class="burl">miramardmv.com/fleet</div></div>
+          <div class="site">
+            <div class="snav">
+              <div class="slogo">MIRAMAR <em>DMV</em> &amp; INSURANCE</div>
+              <div class="slinks"><span>Renewals</span><span>Title transfers</span><span>Out of state</span><span>VIN verification</span><span>Fleet</span></div>
+              <div class="scall">(858) 397-2076</div>
+            </div>
+            <div class="shero">
+              <div class="stag">FOR BUSINESSES WITH VEHICLES · SAN DIEGO</div>
+              <div class="sh1">Your trucks stop sitting<br>in the <b>DMV line.</b></div>
+              <p class="ssub">Send the list once. We track every expiration and process the renewals in batches, so nobody in your office is managing fifteen due dates.</p>
+              <div class="sbtns"><span class="sbtn">Get a fleet quote</span><span class="sbtn2">Or call the shop</span></div>
+              <div class="strust"><span><b>5.0★</b> Google</span><span><b>Same day</b> processing</span><span><b>One</b> invoice</span></div>
+            </div>
+            <div class="svsec">How it works</div>
+            <div class="scards four">
+              <div class="scard"><i></i><b>1 · Send the list</b><p>Plates and due dates. A spreadsheet, or a photo of the binder.</p></div>
+              <div class="scard"><i></i><b>2 · We track it</b><p>Every expiration queued before it comes due.</p></div>
+              <div class="scard"><i></i><b>3 · Done in batches</b><p>Processed same day and delivered to you.</p></div>
+              <div class="scard"><i></i><b>4 · One contact</b><p>Your office manager texts one number. That is it.</p></div>
+            </div>
+            <div class="svsec">Who we do this for</div>
+            <div class="svtags">
+              <span>Pest control</span><span>Plumbing</span><span>HVAC</span><span>Delivery</span><span>Landscaping</span><span>Property management</span><span>Dealer lots</span><span>Contractors</span>
+            </div>
+            <div class="svsec">Send your vehicle list</div>
+            <div class="svform">
+              <div class="f">Company name</div>
+              <div class="f">Phone</div>
+              <div class="go">Get a quote</div>
+            </div>
+            <div class="sreviews">
+              <div><b>&ldquo;Fourteen trucks, and I stopped thinking about registration entirely.&rdquo;</b><span>what this page is built to earn</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="ftags">
-        <em>PEST CONTROL</em><em>PLUMBING</em><em>HVAC</em><em>DELIVERY</em><em>PROPERTY MGMT</em><em>DEALER LOTS</em>
-      </div>
+      <div class="swipe">Swipe the page &rarr;</div>
     </div>
   </div>
 
@@ -1290,42 +1350,54 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   </div>
 
   <div class="callout rv">
-    <b>Most shops never get this.</b>
+    <b>You see exactly where the money came from.</b>
     <p>A monthly read on the business: where calls come from, which pages make the phone ring, what each competitor gained or lost, and what happens next because of it. <strong>The same competitor research that produced this plan, running for you every month.</strong></p>
   </div>
 </section>
 
-<section class="sheet">
-  <div class="kick rv">Recap <b>/ 09</b></div>
-  <h2 class="rv">What's included.</h2>
+<div class="recap">
+  <div class="sheet">
+    <div class="kick rv">Recap <b>/ 09</b></div>
+    <h2 class="rv">What's included.</h2>
+    <p class="lead rv">The website is step one and it ships on its own. The three programs after it each carry their own scope, and you green light them one at a time.</p>
+  </div>
 
-  <div class="wide scope rv">
-    <div class="shead"><b>Step 1 · The website</b><span>LIVE RIGHT AFTER YOUR SIGNOFF</span></div>
-    <div class="scols">
-      <div class="scol">
-        <div class="ct">In the build</div>
-        <ul>
-          <li><b>11 pages</b>, mapped above, in your brand</li>
-          <li><b>Fleet page</b> for business customers</li>
-          <li><b>Google profile</b> wired to the site</li>
-          <li><b>Local business markup</b> so Google knows exactly who and where you are</li>
-          <li><b>Fast on phones</b>, click to call on every screen</li>
-          <li><b>Review link</b> one tap from every page</li>
-          <li><b>Tracking</b> from day one, so month one has data</li>
-        </ul>
-      </div>
-      <div class="scol">
-        <div class="ct">After launch · 3 separate programs</div>
-        <ul>
-          <li><b>SEO:</b> market share pages, Google trust signals, monthly reporting</li>
-          <li><b>Email / SMS:</b> renewal reminders that bring last year's customers back</li>
-          <li><b>Review engine:</b> steady five star reviews, every one answered</li>
-          <li><b>Each is its own scope.</b> Site first, then you green light them one by one</li>
-        </ul>
+  <div class="sheet">
+    <div class="wide scope rv">
+      <div class="shead"><b>Step 1 · The website</b><span>LIVE RIGHT AFTER YOUR SIGNOFF</span></div>
+      <div class="scols">
+        <div class="scol">
+          <div class="ct">In the build</div>
+          <ul>
+            <li><b>11 pages</b>, mapped above, in your brand</li>
+            <li><b>Fleet page</b> for business customers</li>
+            <li><b>Google profile</b> wired to the site</li>
+            <li><b>Local business markup</b> so Google knows exactly who and where you are</li>
+            <li><b>Fast on phones</b>, click to call on every screen</li>
+            <li><b>Review link</b> one tap from every page</li>
+            <li><b>Tracking</b> from day one, so month one has data</li>
+          </ul>
+        </div>
+        <div class="scol">
+          <div class="ct">After launch · 3 separate programs</div>
+          <ul>
+            <li><b>SEO:</b> market share pages, Google trust signals, monthly reporting</li>
+            <li><b>Email / SMS:</b> renewal reminders that bring last year's customers back</li>
+            <li><b>Review engine:</b> steady five star reviews, every one answered</li>
+            <li><b>Each is its own scope.</b> Site first, then you green light them one by one</li>
+          </ul>
+        </div>
       </div>
     </div>
+
+    <div class="wide brandrow"><i></i><b>SurgePoint Digital</b></div>
+    <div class="wide wordmark"><b>surgepointdigital<i>.co</i></b></div>
+    <div class="wide footbottom">
+      <div>Website plan · Miramar Insurance &amp; DMV</div>
+      <div>Sep 2026 · not indexed</div>
+    </div>
   </div>
-</section>
+</div>
 
 </main>
 
