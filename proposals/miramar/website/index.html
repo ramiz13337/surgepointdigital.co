@@ -745,9 +745,6 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 /* ---------------- recap: full black upsell band ---------------- */
 .recap{position:relative;margin-top:var(--s6);padding:var(--s7) 0 0;
   background:var(--ink);color:var(--paper);overflow:hidden}
-.recap::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(90deg,rgba(252,252,250,.05) 1px,transparent 1px);
-  background-size:62px 62px}
 .recap::after{content:"\2197";position:absolute;right:-44px;bottom:170px;line-height:1;
   font-family:var(--mono);font-size:clamp(140px,24vw,300px);color:rgba(252,252,250,.032);
   pointer-events:none}
@@ -758,7 +755,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 .recap h2{color:var(--paper);font-size:clamp(30px,6vw,46px)}
 .recap .lead{color:#C6C5BE;font-size:clamp(17px,2.1vw,19px);max-width:34em;margin-top:var(--s3)}
 
-.recap .scope{background:transparent;box-shadow:none}
+.recap .scope{background:transparent;box-shadow:none;margin-top:clamp(60px,9vw,104px)}
 .recap .shead{padding:0 0 var(--s4);border-bottom:1px solid #2A2A26}
 .recap .shead b{font-size:clamp(21px,2.9vw,27px)}
 .recap .shead span{font-size:13px}
@@ -776,16 +773,12 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   .recap .scol+.scol{border-left:none;border-top:1px solid #2A2A26;padding:var(--s5) 0}
 }
 
-.brandrow{display:flex;align-items:center;gap:12px;margin-top:var(--s6)}
-.brandrow i{width:28px;height:28px;flex:none;
-  background:linear-gradient(135deg,var(--paper) 0 50%,var(--red) 50% 100%)}
-.brandrow b{font-size:18px;font-weight:800;letter-spacing:-.025em}
-.wordmark{margin-top:var(--s5);border-top:1px solid #2A2A26;overflow:hidden}
+.wordmark{margin-top:clamp(120px,18vw,230px);border-top:1px solid #2A2A26;overflow:hidden}
 .wordmark b{display:block;padding-top:18px;font-weight:800;letter-spacing:-.05em;
   line-height:1.06;white-space:nowrap;font-size:clamp(36px,8.6vw,112px)}
 .wordmark b i{font-style:normal;color:var(--red)}
 .footbottom{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);
-  flex-wrap:wrap;padding:var(--s4) 0 var(--s6);font-family:var(--mono);font-size:11.5px;
+  flex-wrap:wrap;padding:var(--s4) 0 var(--s7);font-family:var(--mono);font-size:11.5px;
   letter-spacing:.05em;color:var(--faint)}
 
 /* The fleet page carries four cards plus a form, so it needs more room than the
@@ -1390,7 +1383,6 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
       </div>
     </div>
 
-    <div class="wide brandrow"><i></i><b>SurgePoint Digital</b></div>
     <div class="wide wordmark"><b>surgepointdigital<i>.co</i></b></div>
     <div class="wide footbottom">
       <div>Website plan · Miramar Insurance &amp; DMV</div>
