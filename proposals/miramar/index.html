@@ -358,6 +358,38 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
   }
 }
 
+/* ---- closing scope band: matches the website plan footer ---- */
+.closeband{position:relative;margin-top:var(--s6);padding:var(--s7) 0 0;
+  background:var(--ink);color:var(--paper);overflow:hidden}
+.closeband::after{content:"\2197";position:absolute;right:-44px;bottom:170px;line-height:1;
+  font-family:var(--mono);font-size:clamp(140px,24vw,300px);color:rgba(252,252,250,.032);
+  pointer-events:none}
+.closeband>*{position:relative;z-index:1}
+.closeband .kick{color:var(--hot)}
+.closeband .kick b{color:#57574F}
+.closeband .kick::after{background:linear-gradient(90deg,#33332F,transparent)}
+.closeband h2{color:var(--paper);font-size:clamp(30px,6vw,46px)}
+.closeband .lead{color:#C6C5BE;font-size:clamp(17px,2.1vw,19px);max-width:34em;margin-top:var(--s3)}
+
+.scopelist{margin-top:clamp(60px,9vw,104px);border-top:1px solid #2A2A26}
+.scopelist .r{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s4);
+  padding:clamp(19px,2.9vw,27px) 0;border-bottom:1px solid #2A2A26}
+.scopelist .r .l{font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-.02em;
+  color:var(--paper);display:flex;align-items:baseline;gap:15px;min-width:0}
+.scopelist .r .l i{font-style:normal;font-family:var(--mono);font-size:12.5px;color:var(--hot);flex:none}
+.scopelist .amt{font-family:var(--mono);font-size:clamp(15px,2vw,18px);color:var(--paper);
+  filter:blur(7px);opacity:.8;user-select:none;white-space:nowrap}
+.scopelist .note{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--mute);
+  padding-top:var(--s5)}
+
+.wordmark{margin-top:clamp(120px,18vw,230px);border-top:1px solid #2A2A26;overflow:hidden}
+.wordmark b{display:block;padding-top:18px;font-weight:800;letter-spacing:-.05em;line-height:1.06;
+  white-space:nowrap;font-size:clamp(36px,8.6vw,112px)}
+.wordmark b i{font-style:normal;color:var(--red)}
+.footbottom{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);
+  flex-wrap:wrap;padding:var(--s4) 0 var(--s7);font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.05em;color:var(--faint)}
+
 /* ================= print ================= */
 @media print{
   .prog,.head{display:none!important}
@@ -626,16 +658,33 @@ h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
     </div></div>
   </div>
 
-  <div class="panel price rv">
-    <div class="pt">What we'd explore together</div>
-    <div class="row"><span>01 · Website build (foundation)</span><span class="amt">$0,000</span></div>
-    <div class="row"><span>02 · Review engine (Yelp / Google)</span><span class="amt">$000/mo</span></div>
-    <div class="row"><span>03 · SEO (monthly, ongoing)</span><span class="amt">$0,000/mo</span></div>
-    <div class="row"><span>04 · Email / SMS campaigns</span><span class="amt">$000/mo</span></div>
-    <div class="row"><span>05 · Paid ads (Google + others)</span><span class="amt">$0,000/mo</span></div>
-    <div class="note">STRUCTURE TBD</div>
-  </div>
 </section>
+
+<div class="closeband">
+  <div class="sheet">
+    <div class="kick rv">The scope <b>/ 07</b></div>
+    <h2 class="rv">What we'd explore together.</h2>
+    <p class="lead rv">Five moves, priced separately. The website is the one that has to happen first. Everything after it runs on its own scope and its own timeline, and you decide on each one when you get there.</p>
+  </div>
+
+  <div class="sheet">
+    <div class="wide scopelist rv">
+      <div class="r"><span class="l"><i>01</i>Website build (foundation)</span><span class="amt">$0,000</span></div>
+      <div class="r"><span class="l"><i>02</i>Review engine (Yelp / Google)</span><span class="amt">$000/mo</span></div>
+      <div class="r"><span class="l"><i>03</i>SEO (monthly, ongoing)</span><span class="amt">$0,000/mo</span></div>
+      <div class="r"><span class="l"><i>04</i>Email / SMS campaigns</span><span class="amt">$000/mo</span></div>
+      <div class="r"><span class="l"><i>05</i>Paid ads (Google + others)</span><span class="amt">$0,000/mo</span></div>
+      <div class="note">STRUCTURE TBD · NOTHING PRICED UNTIL WE TALK</div>
+    </div>
+
+    <div class="wide wordmark"><b>surgepointdigital<i>.co</i></b></div>
+    <div class="wide footbottom">
+      <div>Prepared for Miramar Insurance &amp; DMV</div>
+      <div>Aug 2026 · Semrush + Google data · not indexed</div>
+    </div>
+  </div>
+</div>
+
 
 </main>
 
