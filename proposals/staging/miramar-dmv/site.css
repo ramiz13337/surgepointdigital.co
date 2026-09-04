@@ -413,11 +413,18 @@ footer .blurb{font-size:15.5px;margin-top:var(--s4);max-width:30em;line-height:1
 .backlink:hover{color:var(--navy)}
 .checkout .head .btn{display:none}
 
-/* ---- long-form service copy ---- */
-.prose h2{margin-bottom:var(--s4)}
-.prose p{font-size:17.5px;line-height:1.75;color:var(--body);margin-bottom:var(--s4)}
-.prose p:last-child{margin-bottom:0}
+/* ---- long-form service copy: heading left, text right, never a block ---- */
+.prose{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--s6) var(--s7);align-items:start}
+.prose .ph{position:sticky;top:96px}
+.prose h2{font-size:clamp(24px,3vw,32px);margin-bottom:0}
+.prose .col p{font-size:17px;line-height:1.7;color:var(--body);margin-bottom:var(--s4);
+  max-width:34em}
+.prose .col p:first-child{font-size:19.5px;line-height:1.6;color:var(--ink);font-weight:500;
+  padding-bottom:var(--s4);border-bottom:1px solid var(--line);margin-bottom:var(--s4)}
+.prose .col p:last-child{margin-bottom:0}
 .prose b,.prose strong{color:var(--ink);font-weight:700}
-.prose a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:3px}
-.prose a:hover{color:var(--amber-d)}
-.prose h3{font-size:21px;margin:var(--s5) 0 var(--s3)}
+@media(max-width:900px){
+  .prose{grid-template-columns:1fr;gap:var(--s4)}
+  .prose .ph{position:static}
+  .prose .col p:first-child{font-size:18.5px}
+}
