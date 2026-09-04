@@ -412,3 +412,12 @@ footer .blurb{font-size:15.5px;margin-top:var(--s4);max-width:30em;line-height:1
   color:var(--muted);text-decoration:none;margin-bottom:var(--s4)}
 .backlink:hover{color:var(--navy)}
 .checkout .head .btn{display:none}
+
+/* ---- long-form service copy ---- */
+.prose h2{margin-bottom:var(--s4)}
+.prose p{font-size:17.5px;line-height:1.75;color:var(--body);margin-bottom:var(--s4)}
+.prose p:last-child{margin-bottom:0}
+.prose b,.prose strong{color:var(--ink);font-weight:700}
+.prose a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.prose a:hover{color:var(--amber-d)}
+.prose h3{font-size:21px;margin:var(--s5) 0 var(--s3)}
