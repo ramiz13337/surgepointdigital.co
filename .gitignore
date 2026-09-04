@@ -9,6 +9,3 @@ node_modules/
 # proposals/ are meant to ship. See proposal-engine/README.md.
 proposal-engine/
 
-# Staging site preview: built but NOT published.
-# Delete these two lines to ship it to /proposals/staging/.
-proposals/staging/
