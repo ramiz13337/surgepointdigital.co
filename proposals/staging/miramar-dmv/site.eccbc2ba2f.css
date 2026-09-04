@@ -413,18 +413,36 @@ footer .blurb{font-size:15.5px;margin-top:var(--s4);max-width:30em;line-height:1
 .backlink:hover{color:var(--navy)}
 .checkout .head .btn{display:none}
 
-/* ---- long-form service copy: heading left, text right, never a block ---- */
-.prose{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--s6) var(--s7);align-items:start}
-.prose .ph{position:sticky;top:96px}
-.prose h2{font-size:clamp(24px,3vw,32px);margin-bottom:0}
-.prose .col p{font-size:17px;line-height:1.7;color:var(--body);margin-bottom:var(--s4);
-  max-width:34em}
-.prose .col p:first-child{font-size:19.5px;line-height:1.6;color:var(--ink);font-weight:500;
+/* ---- long-form service copy: lead visible, the rest folded away ---- */
+.prose{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--s5) var(--s7);align-items:start}
+.prose h2{font-size:clamp(23px,2.7vw,30px);margin-bottom:0}
+.prose .col{max-width:36em}
+.prose p{font-size:17px;line-height:1.75;color:var(--body);margin:0 0 var(--s4)}
+.prose p:last-child{margin-bottom:0}
+.prose p.lead{font-size:19.5px;line-height:1.6;color:var(--ink);font-weight:500;
   padding-bottom:var(--s4);border-bottom:1px solid var(--line);margin-bottom:var(--s4)}
-.prose .col p:last-child{margin-bottom:0}
 .prose b,.prose strong{color:var(--ink);font-weight:700}
+
+.more{margin-top:var(--s4)}
+.more summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--disp);font-weight:700;font-size:15.5px;color:var(--navy);
+  padding:11px 18px;border:1.5px solid var(--line-2);border-radius:999px;
+  transition:border-color .16s ease,background .16s ease}
+.more summary::-webkit-details-marker{display:none}
+.more summary:hover{border-color:var(--navy);background:#fff}
+.more summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);
+  transition:transform .18s ease}
+.more[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+.more[open] summary span::before{content:"Show less";}
+.more[open] summary span{font-size:0}
+.more[open] summary span::before{font-size:15.5px}
+.more p{margin-top:var(--s4)}
+.more p:first-of-type{margin-top:var(--s5)}
+
 @media(max-width:900px){
   .prose{grid-template-columns:1fr;gap:var(--s4)}
-  .prose .ph{position:static}
-  .prose .col p:first-child{font-size:18.5px}
+  .prose .col{max-width:none}
+  .prose p.lead{font-size:18.5px}
+}
 }
