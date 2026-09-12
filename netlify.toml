@@ -49,3 +49,11 @@
   for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# The Miramar site moved to its own domain. Anyone holding the old preview
+# link lands on the real thing instead of a 404.
+[[redirects]]
+  from = "/proposals/staging/miramar-dmv/*"
+  to = "https://www.miramarinsuranceservices.com/:splat"
+  status = 301
+  force = true
