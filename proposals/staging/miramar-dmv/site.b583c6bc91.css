@@ -40,7 +40,8 @@ body{
 img,svg{display:block;max-width:100%}
 p{margin:0}
 a{color:inherit}
-h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.032em;line-height:1.1}
+h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:800;text-transform:uppercase;
+  letter-spacing:-.012em;line-height:1.12}
 ::selection{background:var(--amber);color:var(--navy)}
 
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
@@ -98,11 +99,12 @@ footer .logo .bar{background:linear-gradient(180deg,#fff 0 52%,var(--amber) 52% 
 .nav{background:#fff;border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;gap:1px;overflow-x:auto;scrollbar-width:none}
 .nav .wrap::-webkit-scrollbar{display:none}
-.nav a{flex:none;font-size:14.5px;font-weight:600;color:var(--body);text-decoration:none;
+.nav a{flex:none;font-size:13.5px;font-weight:700;letter-spacing:.055em;text-transform:uppercase;
+  color:var(--body);text-decoration:none;
   padding:11px 14px;border-bottom:3px solid transparent;white-space:nowrap;transition:.16s ease}
 .nav a:hover{color:var(--navy);background:var(--mist)}
 .nav a[aria-current="page"]{color:var(--navy);border-bottom-color:var(--amber)}
-@media(max-width:760px){.nav a{padding:10px 11px;font-size:14px}}
+@media(max-width:760px){.nav a{padding:10px 11px;font-size:12.5px;letter-spacing:.04em}}
 
 /* ================= buttons ================= */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--disp);
@@ -130,7 +132,7 @@ footer .logo .bar{background:linear-gradient(180deg,#fff 0 52%,var(--amber) 52% 
 .hero.home::after{content:"";position:absolute;inset:auto 0 -1px 0;height:70px;
   background:linear-gradient(180deg,transparent,rgba(255,255,255,.06))}
 .hero.slim{padding:var(--s6) 0 var(--s5)}
-.hero.slim h1{margin-bottom:0;font-size:clamp(28px,4.4vw,40px)}
+.hero.slim h1{margin-bottom:0;font-size:clamp(26px,4vw,38px)}
 .hsplit{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s5);align-items:center;position:relative;z-index:1}
 @media(max-width:980px){.hsplit{grid-template-columns:1fr;gap:var(--s6)}}
 
@@ -178,7 +180,8 @@ h1 em{font-style:normal;color:var(--amber)}
 .rcard .paid svg{width:22px;height:22px;fill:var(--green);flex:none}
 .rcard .paid div{font-size:14.5px;color:#15421F;line-height:1.45}
 .rcard .paid b{display:block;font-weight:700;font-size:15px}
-.rcard .strip{background:var(--amber);color:var(--navy-3);text-align:center;font-family:var(--disp);
+.rcard .strip{display:block;text-decoration:none;transition:background .18s ease;
+  background:var(--amber);color:var(--navy-3);text-align:center;font-family:var(--disp);
   font-weight:800;font-size:15.5px;padding:15px}
 
 /* ================= sections ================= */
@@ -186,7 +189,7 @@ section{padding:var(--s7) 0}
 .sec-mist{background:var(--mist)}
 .sec-navy{background:var(--navy);color:#fff}
 .sec-navy .sub{color:#BCD0E2}
-h2{font-size:clamp(28px,3.9vw,42px);margin-bottom:var(--s3)}
+h2{font-size:clamp(25px,3.5vw,38px);letter-spacing:-.014em;margin-bottom:var(--s3)}
 .sub{color:var(--body);font-size:18px;max-width:40em;line-height:1.62}
 .sec-head{margin-bottom:var(--s6);max-width:44em}
 .sec-head.mid{margin-inline:auto;text-align:center}
@@ -241,7 +244,7 @@ a.card:hover{border-color:var(--navy-4);transform:translateY(-3px);box-shadow:va
 .card .ic svg{width:25px;height:25px;fill:var(--navy)}
 a.card:hover .ic{background:var(--amber);}
 a.card:hover .ic svg{fill:var(--navy-3)}
-.card h3{font-size:20px;margin-bottom:9px}
+.card h3{font-size:17.5px;letter-spacing:.005em;margin-bottom:9px}
 .card p{font-size:15.5px;color:var(--body);line-height:1.55}
 .card .go{margin-top:auto;padding-top:var(--s4);font-family:var(--disp);font-size:14.5px;
   font-weight:700;color:var(--navy)}
@@ -282,7 +285,7 @@ table.fees td.amt{font-family:var(--disp);font-size:17px;font-weight:800;text-al
 .faq details{background:#fff;border:1px solid var(--line);border-radius:var(--r);transition:.2s ease}
 .faq details[open]{border-color:var(--navy-4);box-shadow:var(--sh)}
 .faq summary{cursor:pointer;list-style:none;padding:20px var(--s5);font-family:var(--disp);
-  font-weight:700;font-size:17.5px;display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+  font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"";flex:none;width:26px;height:26px;border-radius:50%;
   background:var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230B2A45'%3E%3Cpath d='M11 5h2v14h-2z'/%3E%3Cpath d='M5 11h14v2H5z'/%3E%3C/svg%3E") center/14px no-repeat}
@@ -306,7 +309,7 @@ table.fees td.amt{font-family:var(--disp);font-size:17px;font-weight:800;text-al
   linear-gradient(150deg,var(--navy-2),var(--navy-3));
   color:#fff;border-radius:16px;padding:var(--s6) var(--s6);
   display:flex;align-items:center;justify-content:space-between;gap:var(--s5);flex-wrap:wrap}
-.band h2{margin-bottom:9px;font-size:clamp(26px,3.3vw,36px)}
+.band h2{margin-bottom:9px;font-size:clamp(23px,3vw,32px)}
 .band p{color:#BCD0E2;font-size:17px;max-width:38em}
 .band .cta-row{margin-top:0;flex:none}
 @media(max-width:860px){.band{flex-direction:column;align-items:flex-start}}
@@ -425,7 +428,7 @@ footer .blurb{font-size:15.5px;margin-top:var(--s4);max-width:30em;line-height:1
 
 /* ---- long-form service copy: lead visible, the rest folded away ---- */
 .prose{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--s5) var(--s7);align-items:start}
-.prose h2{font-size:clamp(23px,2.7vw,30px);margin-bottom:0}
+.prose h2{font-size:clamp(21px,2.5vw,28px);margin-bottom:0}
 .prose .col{max-width:36em}
 .prose p{font-size:17px;line-height:1.75;color:var(--body);margin:0 0 var(--s4)}
 .prose p:last-child{margin-bottom:0}
