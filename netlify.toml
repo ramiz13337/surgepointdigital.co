@@ -54,6 +54,6 @@
 # link lands on the real thing instead of a 404.
 [[redirects]]
   from = "/proposals/staging/miramar-dmv/*"
-  to = "https://www.miramarinsuranceservices.com/:splat"
+  to = "https://miramardmvservices.com/:splat"
   status = 301
   force = true
