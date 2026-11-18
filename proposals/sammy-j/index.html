@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#111110">
+<title>For Sammy J Auto Sales · SurgePoint Digital</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   SurgePoint Digital · client proposal
+   No JavaScript. Every word is readable with CSS alone.
+   ================================================================ */
+
+/* ---- tokens ---- */
+:root{
+  --paper:#FCFCFA; --ink:#0D0D0C; --ink-2:#141413; --ink-3:#1C1C1A;
+  --gray:#45443F; --dim:#6B6B66; --mute:#8A8A83; --faint:#6E6E68;
+  --line:#E4E3DE; --line-2:#C9C8C1; --stone:#F1F0EC;
+  --dline:#26262300; --dline-1:#2A2A27;
+  --dtext:#A8A79F;
+  --red:#D91F11; --hot:#FF3B2F; --ember:#FF6B4A;
+
+  --sans:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* one spacing scale, used everywhere */
+  --s1:6px;
+  --s2:10px;
+  --s3:16px;
+  --s4:clamp(20px,2.6vw,26px);
+  --s5:clamp(28px,4vw,40px);
+  --s6:clamp(40px,6vw,60px);
+  --s7:clamp(54px,8vw,88px);    /* between sections */
+  --gut:clamp(20px,5vw,34px);
+  --col:min(700px,100%);
+  --wide:min(1080px,100%);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.62;letter-spacing:-.003em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+::selection{background:var(--red);color:#fff}
+img,svg{display:block;max-width:100%}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.038em;line-height:1.06;text-wrap:balance}
+
+/* ---- full-bleed grid: text stays narrow, panels breathe wider ---- */
+.sheet>*{width:calc(100% - 2*var(--gut));max-width:700px;margin-inline:auto}
+.sheet>.wide{max-width:1080px}
+.sheet>.full{width:100%;max-width:none}
+
+/* ================= scroll progress (CSS-only, opt-in) =================
+   Desktop pointers only. On phones the collapsing URL bar resizes the
+   scroll range mid-scroll, so the fill jumps, and a fixed bar over the
+   sticky header's backdrop-filter tears while compositing. It is pure
+   decoration, so phones simply don't get it.                            */
+.prog{display:none}
+@supports (animation-timeline: scroll()){
+  @media (min-width:900px) and (hover:hover) and (pointer:fine){
+    .prog{display:block;position:fixed;left:0;right:0;top:0;height:2px;z-index:80;
+      background:transparent;pointer-events:none}
+    .prog i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);
+      background:linear-gradient(90deg,var(--red),var(--ember));
+      will-change:transform;
+      animation:sweep linear both;animation-timeline:scroll(root)}
+    @keyframes sweep{to{transform:scaleX(1)}}
+  }
+}
+
+/* ================= header ================= */
+.head{position:sticky;top:0;z-index:70;background:rgba(13,13,12,.82);
+  backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid #232320;color:var(--paper)}
+.head .bar{display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s3);min-height:62px}
+.mark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
+.mark i{width:20px;height:20px;flex:none;background:linear-gradient(135deg,var(--paper) 0 50%,var(--red) 50% 100%)}
+.mark b{font-size:14.5px;font-weight:800;letter-spacing:-.025em;white-space:nowrap}
+.forwho{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);text-align:right;line-height:1.55}
+@media(max-width:480px){.forwho{font-size:9.5px;letter-spacing:.1em}.mark b{font-size:13px}}
+
+/* ================= hero (dark) ================= */
+.hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;
+  padding:var(--s7) 0 var(--s6)}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;pointer-events:none;
+  background:radial-gradient(46% 52% at 78% 18%,rgba(217,31,17,.30),transparent 68%),
+             radial-gradient(38% 44% at 8% 88%,rgba(255,107,74,.11),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(80% 70% at 50% 0%,#000,transparent 78%);
+  mask-image:radial-gradient(80% 70% at 50% 0%,#000,transparent 78%)}
+.hero .sheet{position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:#FFD5CE;
+  border:1px solid rgba(255,59,47,.35);background:rgba(255,59,47,.10);
+  padding:8px 15px;border-radius:999px;margin-bottom:var(--s5)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hot);
+  box-shadow:0 0 10px var(--hot)}
+h1{font-size:clamp(40px,8.6vw,72px);font-weight:900;letter-spacing:-.045em;line-height:.98;
+  margin-bottom:var(--s5)}
+h1 em{font-style:normal;color:var(--hot);text-shadow:0 0 26px rgba(255,59,47,.5)}
+.lede{font-size:clamp(17px,2vw,20px);line-height:1.6;color:#C6C5BE;max-width:33em}
+.lede strong{color:var(--paper);font-weight:600}
+
+/* ================= sections ================= */
+section{padding:var(--s7) 0 0}
+section:last-of-type{padding-bottom:clamp(72px,14vw,160px)}
+
+/* chapter label + heading + deck: one tight rhythm */
+.kick{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:var(--s3)}
+.kick b{font-weight:500;color:var(--line-2);font-size:11px}
+.kick::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+h2{font-size:clamp(27px,5.4vw,42px);margin-bottom:var(--s3)}
+.deck{color:var(--gray);font-size:17px;max-width:34em}
+/* spacing between the deck paragraph and whatever visual follows */
+.deck + .wide, .deck + .panel, h2 + .wide, h2 + .panel{margin-top:var(--s6)}
+
+/* ================= stat row ================= */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border-block:1px solid var(--line);margin-top:var(--s6)}
+.num{background:var(--paper);padding:var(--s4) var(--s4) var(--s5);position:relative;
+  transition:background .3s ease}
+.num::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--red);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.num:hover{background:var(--stone)}
+.num:hover::after{transform:scaleX(1)}
+.num b{display:block;font-size:clamp(32px,5.4vw,44px);font-weight:900;letter-spacing:-.05em;
+  line-height:1;margin-bottom:var(--s3)}
+.num b small{font-size:.4em;font-weight:700;letter-spacing:normal;color:var(--red);vertical-align:super;margin-left:.34em}
+.num .l{font-size:14.5px;line-height:1.5;color:var(--gray)}
+.num .c{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--red);
+  margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line)}
+@media(max-width:760px){
+  .nums{grid-template-columns:1fr;gap:0}
+  .num{padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+  .num:last-child{border-bottom:0}
+  .num b{margin-bottom:var(--s2)}
+  .num .c{margin-top:var(--s3)}
+  .num::after{display:none}
+}
+
+/* ================= callout ================= */
+.callout{position:relative;background:var(--stone);padding:var(--s5);margin-top:var(--s5);
+  overflow:hidden}
+.callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.callout b{display:block;font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.25;
+  margin-bottom:var(--s2)}
+.callout p{font-size:15.5px;color:var(--gray)}
+.callout strong{color:var(--red);font-weight:700}
+
+/* ================= dark panels ================= */
+.panel{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;
+  box-shadow:0 40px 80px -46px rgba(13,13,12,.75)}
+.panel::before{content:"";position:absolute;inset:auto -25% -70% 30%;height:110%;pointer-events:none;
+  background:radial-gradient(50% 55% at 50% 50%,rgba(217,31,17,.16),transparent 72%)}
+.panel>*{position:relative}
+.phead{padding:var(--s5) var(--gut) 0}
+.phead .t{font-size:17px;font-weight:800;letter-spacing:-.025em;margin-bottom:var(--s1)}
+.phead .s{font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--mute);letter-spacing:.02em}
+.psrc{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--faint);
+  padding:0 var(--gut) var(--s5)}
+
+/* ---- line chart ---- */
+.plot{position:relative;height:clamp(200px,34vw,300px);margin-top:var(--s5);padding-left:50px}
+.plot svg{width:100%;height:100%;overflow:visible}
+.yax{position:absolute;left:0;top:0;bottom:0;width:44px;pointer-events:none}
+.yax b{position:absolute;right:0;transform:translateY(-50%);font-family:var(--mono);
+  font-size:10.5px;font-weight:400;color:var(--faint);white-space:nowrap}
+.dot{position:absolute;right:0;border-radius:50%;transform:translate(50%,-50%);pointer-events:none}
+.dot.a{width:11px;height:11px;background:var(--hot);
+  box-shadow:0 0 0 4px rgba(255,59,47,.18),0 0 16px rgba(255,59,47,.95)}
+.dot.b{width:9px;height:9px;background:#C9C8C1}
+.plotwrap{padding:0 var(--gut)}
+.xax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;
+  color:var(--faint);padding:var(--s2) var(--gut) 0 calc(var(--gut) + 50px)}
+.legend{display:flex;gap:var(--s2) var(--s5);flex-wrap:wrap;padding:var(--s4) var(--gut) var(--s3)}
+.legend span{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;
+  color:var(--dtext)}
+.legend i{width:20px;height:3px;flex:none;border-radius:2px}
+
+/* ---- bar chart ---- */
+.bgroup{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);padding:var(--s5) var(--gut) var(--s2);border-bottom:1px solid var(--dline-1)}
+.bar{display:grid;grid-template-columns:152px 1fr 78px;gap:var(--s3);align-items:center;
+  padding:13px var(--gut);border-bottom:1px solid var(--dline-1)}
+.bar:last-of-type{border-bottom:0}
+.bar .n{font-size:14px;font-weight:600;line-height:1.3}
+.bar .n span{display:block;font-weight:400;font-size:11px;color:var(--mute);margin-top:2px}
+.bar .track{height:12px;background:#232320;border-radius:2px;overflow:hidden}
+.bar .fill{height:100%;width:var(--w);border-radius:2px;
+  background:linear-gradient(90deg,#FCFCFA,#B9B8B1)}
+.bar.you{background:#161614;box-shadow:inset 3px 0 0 var(--red)}
+.bar.you .fill{background:linear-gradient(90deg,var(--red),var(--ember));
+  box-shadow:0 0 20px rgba(255,59,47,.65)}
+.bar .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--dtext)}
+.bar.you .v{color:var(--hot);font-weight:500}
+@media(max-width:620px){
+  .bar{grid-template-columns:1fr auto;gap:var(--s1) var(--s3);padding-top:var(--s3);padding-bottom:var(--s3)}
+  .bar .n{grid-column:1}
+  .bar .v{grid-column:2;align-self:center}
+  .bar .track{grid-column:1/-1;height:10px;margin-top:2px}
+}
+
+/* ---- comparison ---- */
+.vs .hrow,.vs .row{display:grid;grid-template-columns:1.35fr .85fr .5fr 1fr;gap:var(--s3);
+  padding:var(--s3) var(--gut);align-items:baseline}
+.vs .hrow{border-bottom:2px solid var(--red);font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.vs .row{border-bottom:1px solid var(--dline-1)}
+.vs .row:last-child{border-bottom:0}
+.vs .who{font-size:14.5px;font-weight:700;line-height:1.3}
+.vs .who span{display:block;font-weight:400;font-size:11px;color:var(--mute);margin-top:2px}
+.vs .d{font-family:var(--mono);font-size:12.5px;color:var(--dtext)}
+.vs .row.you{background:#161614;box-shadow:inset 3px 0 0 var(--red)}
+.vs .row.you .d{color:var(--hot)}
+@media(max-width:660px){
+  .vs .hrow{display:none}
+  .vs .row{grid-template-columns:1fr;gap:0;padding-top:var(--s4);padding-bottom:var(--s4)}
+  .vs .who{margin-bottom:var(--s2)}
+  .vs .d{display:flex;justify-content:space-between;gap:var(--s3);padding:7px 0;
+    border-top:1px solid var(--dline-1)}
+  .vs .d::before{content:attr(data-label);color:var(--mute);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;align-self:center}
+}
+
+/* ================= site mockup ================= */
+.stage{display:grid;grid-template-columns:1fr 152px;gap:var(--s4);align-items:end;
+  padding:var(--s5) var(--gut) 0}
+.scroller{min-width:0}
+.swipe{display:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);padding:var(--s2) var(--gut) 0}
+@media(max-width:760px){
+  .stage{display:block}
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:var(--s2);
+    -webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);
+    mask-image:linear-gradient(90deg,#000 90%,transparent)}
+  .browser{min-width:520px}
+  .phone{width:186px;margin:var(--s5) auto 0}
+  .swipe{display:block}
+}
+.browser,.phone{--mi:#0E2A43;--ma:#F5A623;--mb:#5C6670;--mt:#E4EEF6;--mc:#F7F9FB;--mr:#EAF0F5;--mg:#F1F6FA;--mq:#9FB4C7}
+.browser{background:#F6F4EF;overflow:hidden;container-type:inline-size;
+  box-shadow:0 22px 50px -20px rgba(0,0,0,.8)}
+.bbar{background:#E7E4DC;display:flex;align-items:center;gap:6px;padding:1.5cqw 2.2cqw}
+.bbar i{width:1.5cqw;height:1.5cqw;min-width:5px;min-height:5px;border-radius:50%;flex:none;background:#C9C8C1}
+.bbar i:nth-child(1){background:#FF5F57}
+.bbar i:nth-child(2){background:#FEBC2E}
+.bbar i:nth-child(3){background:#28C840}
+.burl{flex:1;background:#F6F4EF;border-radius:3px;font-family:var(--mono);font-size:8px;font-size:1.25cqw;
+  color:#9A9A93;padding:.7cqw 1.6cqw;margin-left:1.4cqw;white-space:nowrap;overflow:hidden}
+.site{background:#fff;color:var(--mi)}
+.snav{display:flex;justify-content:space-between;align-items:center;gap:2cqw;
+  padding:2.1cqw 2.8cqw;border-bottom:1px solid #EDEAE2}
+.slogo{font-weight:800;font-size:11px;font-size:2cqw;letter-spacing:-.02em;white-space:nowrap}
+.slogo em{font-style:normal;color:var(--ma)}
+.slinks{display:flex;gap:1.9cqw;font-size:7px;font-size:1.35cqw;color:var(--mb);white-space:nowrap}
+.scall{display:inline-flex;align-items:center;gap:.9cqw;background:var(--mi);color:#fff;font-size:8px;
+  font-size:1.45cqw;font-weight:700;padding:1.1cqw 1.9cqw;white-space:nowrap}
+.scall svg{width:1.5cqw;height:1.5cqw;min-width:6px;min-height:6px;fill:currentColor}
+.shero{padding:3.4cqw 2.8cqw 2.8cqw;background:linear-gradient(180deg,#fff,var(--mg))}
+.stag{display:inline-block;font-family:var(--mono);font-size:7px;font-size:1.25cqw;letter-spacing:.1em;
+  color:var(--mi);background:var(--mt);padding:.8cqw 1.4cqw;margin-bottom:1.8cqw}
+.sh1{font-size:20px;font-size:3.55cqw;font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.2cqw}
+.sh1 b{color:var(--ma)}
+.ssub{font-size:9px;font-size:1.6cqw;color:var(--mb);line-height:1.55;max-width:42cqw;margin-bottom:2.2cqw}
+.sbtns{display:flex;gap:1.8cqw;align-items:center}
+.sbtn{background:var(--ma);color:var(--mi);font-size:9px;font-size:1.55cqw;font-weight:800;
+  padding:1.3cqw 2.4cqw;white-space:nowrap}
+.sbtn2{font-size:8px;font-size:1.45cqw;font-weight:700;border-bottom:1.5px solid var(--ma);
+  padding-bottom:.3cqw;white-space:nowrap}
+.strust{display:flex;gap:2.6cqw;margin-top:2.6cqw;flex-wrap:wrap;font-family:var(--mono);
+  font-size:7px;font-size:1.3cqw;color:var(--mb)}
+.strust b{color:var(--mi)}
+.scards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw;padding:0 2.8cqw 2.8cqw}
+.scard{background:var(--mc);border:1px solid var(--mr);padding:1.8cqw 1.8cqw 2cqw}
+.scard i{display:block;width:3cqw;height:.6cqw;min-height:2px;background:var(--ma);margin-bottom:1.4cqw}
+.scard b{display:block;font-size:9px;font-size:1.6cqw;font-weight:800;margin-bottom:.7cqw}
+.scard p{font-size:7px;font-size:1.35cqw;color:var(--mb);line-height:1.5}
+.sreviews{display:flex;align-items:center;justify-content:space-between;gap:2cqw;
+  background:var(--mi);color:#fff;padding:2cqw 2.8cqw}
+.sreviews b{font-size:10px;font-size:1.75cqw;font-weight:800;letter-spacing:-.015em}
+.sreviews span{display:block;font-family:var(--mono);font-size:7px;font-size:1.2cqw;color:var(--mq);margin-top:.6cqw}
+.stars{color:var(--ma);font-size:10px;font-size:1.8cqw;letter-spacing:.12em;white-space:nowrap}
+.phone{background:#0A0A09;border-radius:11%/5.5%;padding:3.5%;container-type:inline-size;
+  box-shadow:0 22px 46px -16px rgba(0,0,0,.85)}
+.pscreen{background:#fff;color:var(--mi);border-radius:8%/4%;overflow:hidden}
+.pnotch{height:5cqw;display:flex;justify-content:center;align-items:center}
+.pnotch i{width:22cqw;height:2.6cqw;background:#0A0A09;border-radius:2cqw}
+.phero{padding:5cqw 6cqw 4cqw;background:linear-gradient(180deg,#fff,var(--mg))}
+.plogo{font-weight:800;font-size:5.2cqw;letter-spacing:-.02em;margin-bottom:4cqw}
+.plogo em{font-style:normal;color:var(--ma)}
+.ph1{font-size:8.4cqw;font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:2.4cqw}
+.ph1 b{color:var(--ma)}
+.psub{font-size:4.2cqw;color:var(--mb);line-height:1.5}
+.prow{display:grid;gap:2.4cqw;padding:4cqw 6cqw 0}
+.pitem{display:flex;justify-content:space-between;align-items:center;gap:2cqw;background:var(--mc);
+  border:1px solid var(--mr);font-size:4.3cqw;font-weight:700;padding:3cqw 3.4cqw}
+.pitem span{color:var(--ma);font-weight:800}
+.pcall{display:flex;align-items:center;justify-content:center;gap:1.6cqw;background:var(--ma);color:var(--mi);
+  font-size:4.6cqw;font-weight:800;padding:3.4cqw;margin:4cqw 6cqw 6cqw}
+.pcall svg{width:4cqw;height:4cqw;fill:currentColor}
+
+/* ================= plan steps ================= */
+.steps{margin-top:var(--s6);border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:start;
+  padding:var(--s5) 0;border-bottom:1px solid var(--line);position:relative}
+.step::before{content:"";position:absolute;left:0;top:-1px;width:0;height:1px;background:var(--red);
+  transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.step:hover::before{width:100%}
+.step .n{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--red);
+  padding-top:5px;min-width:24px}
+.step h3{font-size:19px;font-weight:800;letter-spacing:-.028em;margin-bottom:var(--s2)}
+.step p{font-size:15.5px;color:var(--gray)}
+
+/* ================= pricing ================= */
+.price{margin-top:var(--s6);padding:var(--s5) var(--gut)}
+.price .pt{font-size:18px;font-weight:800;letter-spacing:-.025em;margin-bottom:var(--s4)}
+.price .row{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);
+  padding:13px 0;font-size:15px;color:var(--dtext);border-bottom:1px solid var(--dline-1)}
+.price .row:last-of-type{border-bottom:0}
+.price .amt{font-family:var(--mono);font-size:13.5px;color:var(--paper);white-space:nowrap;
+  filter:blur(6px);opacity:.8;user-select:none}
+.price .note{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mute);
+  margin-top:var(--s4);line-height:1.7}
+
+/* ================= closing band ================= */
+.close{position:relative;margin-top:var(--s6);background:var(--ink);color:var(--paper);
+  overflow:hidden;padding:var(--s7) 0}
+.close::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:150%;pointer-events:none;
+  background:radial-gradient(42% 50% at 22% 18%,rgba(217,31,17,.26),transparent 68%),
+             radial-gradient(36% 44% at 88% 82%,rgba(255,107,74,.13),transparent 70%)}
+.close .sheet{position:relative;z-index:1}
+.close h2{font-size:clamp(28px,6vw,46px);margin-bottom:var(--s4)}
+.close h2 em{font-style:normal;color:var(--hot)}
+.close .sub{color:#C6C5BE;font-size:17px;max-width:32em;margin-bottom:var(--s6)}
+.btns{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;
+  font-size:16px;padding:18px 32px;text-decoration:none;background:var(--red);color:#fff;
+  transition:background .22s ease,transform .22s ease,box-shadow .22s ease;
+  box-shadow:0 18px 36px -18px rgba(255,59,47,.9)}
+.btn:hover{background:var(--hot);transform:translateY(-2px);box-shadow:0 22px 44px -18px rgba(255,59,47,1)}
+.btn.ghost{background:transparent;color:var(--paper);border:1.5px solid #3A3A36;box-shadow:none}
+.btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+@media(max-width:520px){.btn{flex:1 1 100%;padding:18px 24px}}
+.close .alt{font-family:var(--mono);font-size:11.5px;color:var(--mute);margin-top:var(--s4);
+  letter-spacing:.04em}
+
+/* ================= footer ================= */
+footer{background:var(--ink);color:var(--faint);border-top:1px solid #232320;
+  padding:var(--s4) 0 max(var(--s5),env(safe-area-inset-bottom))}
+footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;line-height:1.7}
+
+/* ================= motion: additive only ================= */
+@media(prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes grow{from{width:0}to{width:var(--w)}}
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+
+  .badge,h1,.lede{animation:rise .8s cubic-bezier(.2,.75,.2,1) both}
+  h1{animation-delay:.08s}
+  .lede{animation-delay:.16s}
+  .bar .fill{animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both}
+  .line{stroke-dasharray:1;animation:draw 1.9s cubic-bezier(.35,.05,.2,1) both}
+
+  /* scroll-linked reveals only where the browser really supports them,
+     so an unsupported browser simply shows everything. */
+  @supports (animation-timeline: view()){
+    .rv{animation:rise .9s cubic-bezier(.2,.75,.2,1) both;
+      animation-timeline:view();animation-range:entry 0% entry 80%}
+  }
+}
+
+/* ================= print ================= */
+@media print{
+  .prog,.head{display:none!important}
+  body{padding:0;font-size:11pt;background:#fff}
+  .hero,.close,footer{background:#fff!important;color:#000!important}
+  .hero::before,.hero::after,.close::before,.panel::before{display:none!important}
+  .lede,.close .sub{color:#333!important}
+  h1 em,.close h2 em{color:#D91F11!important}
+  .panel{box-shadow:none;break-inside:avoid}
+  section{break-inside:avoid}
+  .price .amt{filter:none;color:transparent}
+  *{animation:none!important}
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RLND9SY3KR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RLND9SY3KR');
+</script>
+</head>
+<body>
+
+<div class="prog" aria-hidden="true"><i></i></div>
+
+<header class="head">
+  <div class="sheet"><div class="bar wide">
+    <a class="mark" href="https://surgepointdigital.co/"><i></i><b>SurgePoint Digital</b></a>
+    <div class="forwho">For Sammy J<br>Auto Sales</div>
+  </div></div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="sheet">
+    <div>
+      <div class="badge">Private audit · Nov 2026</div>
+      <h1>Six dealers built a page. You sent your homepage<em>.</em></h1>
+      <p class="lede">I pulled Google for &ldquo;used cars san diego bad credit&rdquo; this morning — the search your whole business is built for. Six dealers rank above you, and every one of them got there with a page made for that exact search. You&rsquo;re seventh, with your homepage, whose headline starts with the word &ldquo;About.&rdquo; <strong>You&rsquo;re not losing to bigger dealers. You&rsquo;re losing to people who made one page.</strong> Here&rsquo;s the full read — search, email and ads — with the numbers behind each.</p>
+    </div>
+  </div>
+</div>
+
+<section class="sheet">
+  <div class="kick rv">The demand <b>/ 01</b></div>
+  <h2 class="rv">One in five used car loans is subprime. That share is going up.</h2>
+  <div class="nums rv">
+    <div class="num">
+      <b>22.47<small>%</small></b>
+      <div class="l">of used car loans in America went to subprime borrowers — the highest share since 2021</div>
+      <div class="c">Experian, State of the Automotive Finance Market, Q4 2025</div>
+    </div>
+    <div class="num">
+      <b>$14.63</b>
+      <div class="l">what the top bidder pays for one click on &ldquo;buy here pay here san diego&rdquo;</div>
+      <div class="c">Google Ads, San Diego · competition index 100 of 100</div>
+    </div>
+    <div class="num">
+      <b>5,870<small>/mo</small></b>
+      <div class="l">San Diego searches across the five core used-car terms</div>
+      <div class="c">Google Ads keyword volumes, San Diego · Nov 2026</div>
+    </div>
+  </div>
+  <div class="callout rv">
+    <b>Nobody pays $14.63 a click for a customer who doesn&rsquo;t buy.</b>
+    <p>Your customer is the one part of the car market that&rsquo;s growing, and it&rsquo;s growing because of credit conditions rather than fashion. The dealers around you already know — that&rsquo;s why the bidding on those searches is maxed out. The demand isn&rsquo;t the question. The question is what Google has to show when somebody searches for it.</p>
+  </div>
+</section>
+<section class="sheet">
+  <div class="kick rv">The gap · search <b>/ 02</b></div>
+  <h2 class="rv">Everyone above you built a page on purpose.</h2>
+  <p class="deck rv">Google results for <strong>&ldquo;used cars san diego bad credit&rdquo;</strong>, pulled 17 November 2026:</p>
+  <div class="wide panel vs rv">
+    <div class="hrow"><div>Who</div><div>Rank</div><div>The page Google ranks</div></div>
+    <div class="row">
+      <div class="who">Karz Plus<span>National City</span></div>
+      <div class="d" data-label="Rank">1</div>
+      <div class="d" data-label="The page Google ranks">/bad-credit-auto-loans</div>
+    </div>
+    <div class="row">
+      <div class="who">Toyota Chula Vista</div>
+      <div class="d" data-label="Rank">2</div>
+      <div class="d" data-label="The page Google ranks">/bad-credit-financing</div>
+    </div>
+    <div class="row">
+      <div class="who">Pacific Honda</div>
+      <div class="d" data-label="Rank">3</div>
+      <div class="d" data-label="The page Google ranks">/freshstart</div>
+    </div>
+    <div class="row">
+      <div class="who">Siry Auto</div>
+      <div class="d" data-label="Rank">4</div>
+      <div class="d" data-label="The page Google ranks">/bad-credit-car-loans-in-san-diego</div>
+    </div>
+    <div class="row">
+      <div class="who">DriveTime<span>national</span></div>
+      <div class="d" data-label="Rank">5</div>
+      <div class="d" data-label="The page Google ranks">/articles/no-credit</div>
+    </div>
+    <div class="row">
+      <div class="who">Bob Stall Chevrolet</div>
+      <div class="d" data-label="Rank">6</div>
+      <div class="d" data-label="The page Google ranks">/bad-credit-loans-in-san-diego</div>
+    </div>
+    <div class="row you">
+      <div class="who">You<span>4182 El Cajon Blvd</span></div>
+      <div class="d" data-label="Rank">7</div>
+      <div class="d" data-label="The page Google ranks">your homepage</div>
+    </div>
+    <div class="row">
+      <div class="who">Yelp<span>a list you&rsquo;re not on</span></div>
+      <div class="d" data-label="Rank">8</div>
+      <div class="d" data-label="The page Google ranks">Top 10 Bad Credit Used Car Sales</div>
+    </div>
+    <div class="row">
+      <div class="who">Prime Auto Imports</div>
+      <div class="d" data-label="Rank">9</div>
+      <div class="d" data-label="The page Google ranks">/buy-here-pay-here</div>
+    </div>
+  </div>
+  <div class="callout rv">
+    <b>Now look at the headline on the page Google is ranking.</b>
+    <p>Your homepage heading — the single line Google weighs most — reads <strong>&ldquo;About Sammy J Auto Sales: Top Dealer for Bad Credit &amp; No Credit in San Diego.&rdquo;</strong> That&rsquo;s an about-us sentence doing the job of a landing page, and it still beat three franchise dealers. That&rsquo;s the part worth noticing. You&rsquo;re at #7 with the wrong page. The fix isn&rsquo;t a rebuild, it&rsquo;s the page you never made — and the same is true for buy-here-pay-here, where four versions of the search have you at #11, #15, #19 and #23 off that same homepage.</p>
+  </div>
+</section>
+<section class="sheet">
+  <div class="kick rv">What&rsquo;s actually happening <b>/ 03</b></div>
+  <h2 class="rv">Your website gets smaller every time you sell a car.</h2>
+  <p class="deck rv">How many Google searches sammyjautosales.com shows up for, month by month:</p>
+  <div class="wide panel rv">
+      <div class="phead">
+        <div class="t">Keywords ranked · sammyjautosales.com</div>
+        <div class="s">Monthly · April 2024 to November 2026</div>
+      </div>
+    <div class="plotwrap">
+      <div class="plot">
+        <div class="yax">
+            <b style="top:6.2%">200</b>
+            <b style="top:35.2%">133</b>
+            <b style="top:64.3%">67</b>
+            <b style="top:93.3%">0</b>
+        </div>
+        <svg viewBox="0 0 640 210" preserveAspectRatio="none" role="img" aria-label="Keyword trend April 2024 to November 2026: sammyjautosales.com falls from a peak of 189 keywords to 34.">
+          <defs>
+            <linearGradient id="g0" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FF3B2F" stop-opacity="0.46"/>
+              <stop offset="1" stop-color="#FF3B2F" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="13" x2="640" y2="13" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="74" x2="640" y2="74" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="135" x2="640" y2="135" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="196" x2="640" y2="196" stroke="#3A3A36" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <polygon fill="url(#g0)" points="0.0,45.0 20.6,35.9 41.3,30.4 61.9,23.1 82.6,30.4 103.2,54.2 123.9,23.1 144.5,81.6 165.2,46.9 185.8,48.7 206.5,113.6 227.1,114.6 247.7,115.5 268.4,119.1 289.0,116.4 309.7,115.5 330.3,98.1 351.0,63.3 371.6,62.4 392.3,70.6 412.9,86.2 433.5,87.1 454.2,99.0 474.8,99.0 495.5,138.4 516.1,147.5 536.8,142.0 557.4,148.4 578.1,152.1 598.7,154.8 619.4,162.1 640.0,164.9 640,196 0,196"/>
+          <polyline class="line" pathLength="1" fill="none" stroke="#FF3B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" style="filter:drop-shadow(0 0 7px rgba(255,59,47,.75))" points="0.0,45.0 20.6,35.9 41.3,30.4 61.9,23.1 82.6,30.4 103.2,54.2 123.9,23.1 144.5,81.6 165.2,46.9 185.8,48.7 206.5,113.6 227.1,114.6 247.7,115.5 268.4,119.1 289.0,116.4 309.7,115.5 330.3,98.1 351.0,63.3 371.6,62.4 392.3,70.6 412.9,86.2 433.5,87.1 454.2,99.0 474.8,99.0 495.5,138.4 516.1,147.5 536.8,142.0 557.4,148.4 578.1,152.1 598.7,154.8 619.4,162.1 640.0,164.9"/>
+        </svg>
+        <span class="dot a" style="top:78.5%"></span>
+      </div>
+    </div>
+    <div class="xax"><span>Apr &rsquo;24</span><span>Nov &rsquo;26</span></div>
+    <div class="legend">
+        <span><i style="background:#FF3B2F"></i>sammyjautosales.com · 189 down to 34</span>
+    </div>
+      <div class="psrc">Source: DataForSEO Labs historical rankings, pulled 17 Nov 2026</div>
+  </div>
+  <div class="callout rv">
+    <b>This is what a dealer-platform website does to you.</b>
+    <p>Your only real pages are car listings. One of them — a 2015 Audi Q3 — ranks #14 for &ldquo;2015 audi q3 for sale.&rdquo; That&rsquo;s a good page. It dies the day the Audi sells, and the ranking goes with it. Google logged <strong>48 keywords lost last month alone.</strong> You&rsquo;re down 82% from your 2024 peak, and it isn&rsquo;t because you got worse at selling cars. It&rsquo;s because nothing on the site is permanent. Pages that don&rsquo;t sell are the only thing that stops this.</p>
+  </div>
+</section>
+<section class="sheet">
+  <div class="kick rv">What it&rsquo;s worth <b>/ 04</b></div>
+  <h2 class="rv">Auto City gets $5,077 of traffic a month. For free.</h2>
+  <div class="wide panel rv">
+      <div class="phead">
+        <div class="t">Where everyone stands</div>
+        <div class="s">Organic visits per month · DataForSEO · Nov 2026 · bars scaled within each group</div>
+      </div>
+    <div class="bgroup">San Diego used car dealers · monthly visitors from Google</div>
+    <div class="bar"><div class="n">Auto City<span>El Cajon</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">2,848</div></div>
+    <div class="bar"><div class="n">Karz Plus</div><div class="track"><div class="fill" style="--w:22%"></div></div><div class="v">616</div></div>
+    <div class="bar"><div class="n">Bahia Auto Sales</div><div class="track"><div class="fill" style="--w:16%"></div></div><div class="v">459</div></div>
+    <div class="bar"><div class="n">Prime Auto Imports</div><div class="track"><div class="fill" style="--w:7%"></div></div><div class="v">207</div></div>
+    <div class="bar"><div class="n">West Coast Auto Finance</div><div class="track"><div class="fill" style="--w:6%"></div></div><div class="v">166</div></div>
+    <div class="bar"><div class="n">La Mesa Pre-Owned<span>3 miles up El Cajon Blvd</span></div><div class="track"><div class="fill" style="--w:4%"></div></div><div class="v">118</div></div>
+    <div class="bar you"><div class="n">You</div><div class="track"><div class="fill" style="--w:3%"></div></div><div class="v">84</div></div>
+    <div class="bgroup">What that same traffic would cost to rent on Google Ads · separate scale</div>
+    <div class="bar"><div class="n">Auto City</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">$5,077/mo</div></div>
+    <div class="bar"><div class="n">Karz Plus</div><div class="track"><div class="fill" style="--w:35%"></div></div><div class="v">$1,791/mo</div></div>
+    <div class="bar you"><div class="n">You</div><div class="track"><div class="fill" style="--w:6%"></div></div><div class="v">$286/mo</div></div>
+      <div class="psrc" style="padding-top:var(--s4)">Source: DataForSEO organic traffic and paid-equivalent value estimates, Nov 2026</div>
+  </div>
+  <div class="callout rv">
+    <b>The annoying part: it isn&rsquo;t their inventory.</b>
+    <p>Auto City&rsquo;s best pages are articles. <strong>/honda-accord-vs-toyota-camry</strong> ranks #1 and catches roughly 9,600 searches a month by itself. <strong>/2017-toyota-camry-review</strong> is #3 for &ldquo;2017 camry&rdquo; — 8,100 a month. <strong>/change-engine-oil</strong> sits at #9 for a term with 110,000 monthly searches. A used car lot in El Cajon is out-ranking every dealer in the county by answering car questions. It&rsquo;s boring, it&rsquo;s sitting there in public, and nobody in the bad-credit market is doing it.</p>
+  </div>
+</section>
+<section class="sheet">
+  <div class="kick rv">Reputation · the email play <b>/ 05</b></div>
+  <h2 class="rv">You have 44 five-star reviews and nobody is asking for more.</h2>
+  <p class="deck rv">Google reviews across the dealers you compete with:</p>
+  <div class="wide panel vs rv">
+    <div class="hrow"><div>Dealer</div><div>Google reviews</div><div>Rating</div></div>
+    <div class="row">
+      <div class="who">Auto City</div>
+      <div class="d" data-label="Google reviews">1,400</div>
+      <div class="d" data-label="Rating">4.7</div>
+    </div>
+    <div class="row">
+      <div class="who">Bahia Auto Sales</div>
+      <div class="d" data-label="Google reviews">688</div>
+      <div class="d" data-label="Rating">4.8</div>
+    </div>
+    <div class="row">
+      <div class="who">Karz Plus</div>
+      <div class="d" data-label="Google reviews">333</div>
+      <div class="d" data-label="Rating">4.1</div>
+    </div>
+    <div class="row">
+      <div class="who">La Mesa Pre-Owned<span>3 miles up El Cajon Blvd</span></div>
+      <div class="d" data-label="Google reviews">285</div>
+      <div class="d" data-label="Rating">4.5</div>
+    </div>
+    <div class="row">
+      <div class="who">Siry Auto</div>
+      <div class="d" data-label="Google reviews">262</div>
+      <div class="d" data-label="Rating">4.9</div>
+    </div>
+    <div class="row">
+      <div class="who">Prime Auto Imports</div>
+      <div class="d" data-label="Google reviews">93</div>
+      <div class="d" data-label="Rating">4.4</div>
+    </div>
+    <div class="row you">
+      <div class="who">You<span>4182 El Cajon Blvd</span></div>
+      <div class="d" data-label="Google reviews">55</div>
+      <div class="d" data-label="Rating">4.3</div>
+    </div>
+  </div>
+  <div class="callout rv">
+    <b>Your 4.3 isn&rsquo;t a quality problem. It&rsquo;s a volume problem.</b>
+    <p>Your breakdown is 44 five-stars, two fours, one three — and eight ones. Forty-six of your 55 reviews are four stars or better, but with a total that small those eight set your average. At ten to fifteen new reviews a month they stop mattering inside a quarter. Google&rsquo;s own read of your profile already says what people praise: &ldquo;car buying experience&rdquo; eleven times, &ldquo;kind staff&rdquo; four, &ldquo;inspection&rdquo; three. <strong>On Yelp you have six reviews and a 3.5.</strong> That&rsquo;s the one I&rsquo;d fix before spending a dollar on Yelp ads.</p>
+  </div>
+</section>
+<section class="sheet">
+  <div class="kick rv">Sneak peek <b>/ 06</b></div>
+  <h2 class="rv">The page you don&rsquo;t have.</h2>
+  <p class="deck rv">Your colours, your customers&rsquo; words, built for the one search you&rsquo;re already #7 for:</p>
+  <div class="wide panel rv">
+      <div class="phead">
+        <div class="t">Concept · /bad-credit-car-loans-san-diego</div>
+        <div class="s">Not a redesign — the page that&rsquo;s missing</div>
+      </div>
+    <div class="stage">
+      <div class="scroller">
+        <div class="browser" style="--mi:#16161A;--ma:#D4AF37;--mb:#5A5A55;--mt:#F7F0DC;--mc:#FFFFFF;--mr:#ECE6D6;--mg:#FAF7EF;--mq:#A89F86">
+          <div class="bbar"><i></i><i></i><i></i><div class="burl">sammyjautosales.com/bad-credit-car-loans-san-diego</div></div>
+          <div class="site">
+            <div class="snav">
+              <div class="slogo">SAMMY J</div>
+              <div class="slinks"><span>Inventory</span><span>Bad Credit</span><span>First Car</span><span>Trade In</span><span>Rentals</span></div>
+              <div class="scall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>(619) 350-2259</div>
+            </div>
+            <div class="shero">
+              <div class="stag">Approved where the bank said no</div>
+              <div class="sh1">Bad credit. No credit. First car. You still drive today.</div>
+              <p class="ssub">A family lot on El Cajon Blvd that gets people financed when the bank won&rsquo;t. Forty-four five-star customers and counting.</p>
+              <div class="sbtns"><span class="sbtn">See what you qualify for</span><span class="sbtn2">Browse inventory</span></div>
+              <div class="strust"><span><b>4.3★</b> on Google</span><span><b>Mon–Sat</b> 10a–6:30p</span><span><b>Trade-ins</b> welcome</span></div>
+            </div>
+            <div class="scards">
+              <div class="scard"><i></i><b>Bad credit</b><p>Repos, late payments, collections. We work with lenders who look past the score.</p></div>
+              <div class="scard"><i></i><b>No credit</b><p>First car and no history. In most cases you won&rsquo;t need a cosigner.</p></div>
+              <div class="scard"><i></i><b>First-time buyers</b><p>What to bring, what you&rsquo;ll put down, what you&rsquo;ll pay monthly. Before you come in.</p></div>
+            </div>
+            <div class="sreviews">
+              <div><b>&ldquo;Very fast service. In and out with no hassles.&rdquo;</b><span>Yelp review · Sammy J Auto Sales</span></div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone" style="--mi:#16161A;--ma:#D4AF37;--mb:#5A5A55;--mt:#F7F0DC;--mc:#FFFFFF;--mr:#ECE6D6;--mg:#FAF7EF;--mq:#A89F86">
+        <div class="pscreen">
+          <div class="pnotch"><i></i></div>
+          <div class="phero">
+            <div class="plogo">SAMMY J</div>
+            <div class="ph1">Can you get approved?</div>
+            <p class="psub">Three questions. No credit check to find out.</p>
+          </div>
+          <div class="prow">
+            <div class="pitem">Bad credit approvals <span>&rarr;</span></div>
+            <div class="pitem">No credit / first car <span>&rarr;</span></div>
+            <div class="pitem">Trade in your car <span>&rarr;</span></div>
+            <div class="pitem">Rent instead of buy <span>&rarr;</span></div>
+          </div>
+          <div class="pcall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>Call (619) 350-2259</div>
+        </div>
+      </div>
+    </div>
+    <div class="swipe">Swipe the desktop view &rarr;</div>
+      <div class="psrc" style="padding-top:var(--s4)">Concept only, built from your current brand colours and your own review copy.</div>
+  </div>
+</section>
+<section class="sheet">
+  <div class="kick rv">The plan <b>/ 07</b></div>
+  <h2 class="rv">Three plays, in the order they pay.</h2>
+  <div class="steps">
+    <div class="step rv"><div class="n">01</div><div>
+      <h3>Search — build the pages that already almost rank</h3>
+      <p>Five pages first, for the searches where you&rsquo;re already close off the homepage alone: bad credit, no credit, buy here pay here, first-time buyer, trade-in. You&rsquo;re at #6 and #7 for two of them with no page at all — that&rsquo;s about as close to a sure thing as this work gets. Then the Auto City move: reviews and comparisons of the cars you actually stock, so the site stops shrinking every time inventory turns over.</p>
+    </div></div>
+    <div class="step rv"><div class="n">02</div><div>
+      <h3>Search — fix the two things quietly costing you</h3>
+      <p>Your website says (619) 350-2259. Your Google profile says (619) 230-5075. Google reads consistency across listings as a signal for who to show on the map, and right now you&rsquo;re giving it two answers. Second: you&rsquo;re an LLC with &ldquo;Rental&rdquo; in the name, you have a car-rental category on your Google profile, and the word &ldquo;rental&rdquo; appears nowhere on your website. That&rsquo;s a second revenue line with no front door.</p>
+    </div></div>
+    <div class="step rv"><div class="n">03</div><div>
+      <h3>Email — harvest the list you already have</h3>
+      <p>Three sequences. A text after every delivery asking for the review, which is what turns 55 into 200 and makes the eight one-stars stop mattering. Everybody who filled out pre-approval and didn&rsquo;t buy — the most qualified list you own, currently going nowhere. And the twelve-month check-in: somebody who&rsquo;s made a year of on-time payments has moved up a credit tier and can refinance or trade up, and you&rsquo;re the dealer who said yes when nobody else would. Nobody in this market runs that.</p>
+    </div></div>
+    <div class="step rv"><div class="n">04</div><div>
+      <h3>Google Ads — buy the cheap clicks, not the expensive ones</h3>
+      <p>Everyone fights over &ldquo;buy here pay here san diego&rdquo; and bids it to $14.63 for 110 searches a month. &ldquo;Used cars san diego&rdquo; is 3,600 searches at $2.91. Same customer, a third of the click price, twenty times the pool — you do the qualifying in the ad copy and on the landing page instead of in the bid. One exception worth taking: &ldquo;first time car buyer program&rdquo; is high intent and genuinely underbid at competition 43 of 100.</p>
+    </div></div>
+    <div class="step rv"><div class="n">05</div><div>
+      <h3>Yelp — reviews first, then ads</h3>
+      <p>Yelp&rsquo;s own &ldquo;Top 10 Bad Credit Used Car Sales in San Diego&rdquo; list ranks #8 on Google for your best search, and you&rsquo;re not on it. But with six reviews and a 3.5, paying to send traffic to that profile is paying to show people your weakest page. Reviews first. Then Yelp ads put you inside your competitors&rsquo; profiles, which is the cheapest conquest buy in this market.</p>
+    </div></div>
+  </div>
+  <div class="panel price rv">
+    <div class="pt">What we&rsquo;d explore together</div>
+    <div class="row"><span>01 · Pages build + technical fixes</span><span class="amt">$0,000</span></div>
+    <div class="row"><span>02 · SEO (monthly, ongoing)</span><span class="amt">$0,000/mo</span></div>
+    <div class="row"><span>03 · Review engine (Google + Yelp)</span><span class="amt">$000/mo</span></div>
+    <div class="row"><span>04 · Email / SMS sequences</span><span class="amt">$000/mo</span></div>
+    <div class="row"><span>05 · Google Ads management</span><span class="amt">$0,000/mo</span></div>
+    <div class="row"><span>06 · Yelp Ads (after reviews)</span><span class="amt">$000/mo</span></div>
+    <div class="note">STRUCTURE TBD</div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="sheet">
+    <div>
+      <h2>That&rsquo;s the whole picture<em>.</em></h2>
+      <p class="sub">None of this is unusual. A dealer platform hands you an inventory feed and calls it a website, and the footprint shrinks every time you sell a car. Your reviews say people like buying from you. The three plays close in the order above — pages first, because the email and the ads both need somewhere to land.</p>
+      <div class="btns"><a class="btn" href="sms:4152650873">Text Ron ↗</a><a class="btn ghost" href="tel:4152650873">Call 415-265-0873</a></div>
+      <div class="alt">Text or call when you want to go through the numbers.</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="sheet"><div class="bar wide">
+    <div>SurgePoint Digital · surgepointdigital.co</div>
+    <div>Prepared for Sammy J Auto Sales · Nov 2026 · DataForSEO, Google Ads and Experian data · not indexed</div>
+  </div></div>
+</footer>
+
+</body>
+</html>
