@@ -7,7 +7,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#111110">
-<title>The build plan · Sammy J Auto Sales · SurgePoint Digital</title>
+<title>The plan · Sammy J Auto Sales · SurgePoint Digital</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -401,10 +401,10 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   *{animation:none!important}
 }
 
-/* ===================== Sammy J build plan — page-local CSS =====================
-   Every class here is sj-prefixed. base.css owns .panel/.node/.bar/.row/.prog/
-   .close/.w and a few dozen more; prefixing sidesteps the whole namespace.
-   No fixed positioning, nothing hidden on narrow screens.                      */
+/* ===================== Sammy J plan — page-local CSS =====================
+   Every class is sj-prefixed. base.css owns .panel/.node/.bar/.row/.prog/
+   .close/.w/.who/.d and more; prefixing sidesteps the whole namespace.
+   No fixed positioning. Nothing hidden on narrow screens.                 */
 
 .sjcrumbs{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:var(--s4);flex-wrap:wrap}
@@ -416,29 +416,39 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
   font-size:15.5px;color:var(--gray)}
 .sjnote b{color:var(--ink);font-weight:700}
 
-/* ---------- timeline ---------- */
-.sjtline{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s2);margin-top:var(--s5)}
-.sjtl{border-top:2px solid var(--line);padding-top:var(--s3)}
-.sjtl.on{border-top-color:var(--red)}
-.sjtl b{display:block;font-size:15px;font-weight:800;letter-spacing:-.02em}
-.sjtl.on b{color:var(--red)}
-.sjtl span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--mute);margin-top:4px}
-.sjtrio{display:flex;flex-direction:column;gap:5px}
-.sjtrio i{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
-  color:var(--gray);background:var(--stone);padding:4px 7px}
-@media(max-width:760px){
-  .sjtline{grid-template-columns:1fr 1fr;gap:var(--s3)}
-  .sjtrio{flex-direction:row;flex-wrap:wrap}
+.sjh3{font-size:clamp(20px,3.2vw,26px);font-weight:800;letter-spacing:-.03em;
+  margin:var(--s7) 0 0}
+
+/* ---------- dark rank list (inside .panel) ---------- */
+.sjrank{margin-top:var(--s5)}
+.sjr{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1.25fr);
+  gap:var(--s3);align-items:baseline;padding:14px var(--gut);
+  border-bottom:1px solid var(--dline-1)}
+.sjr:last-child{border-bottom:0}
+.sjr>b{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--faint)}
+.sjr .sjwho{font-size:14.5px;font-weight:700;line-height:1.3;color:var(--paper)}
+.sjr .sjpg{font-size:13.5px;color:var(--dtext);line-height:1.4}
+.sjr.sjyou{background:#161614;box-shadow:inset 3px 0 0 var(--red)}
+.sjr.sjyou>b,.sjr.sjyou .sjpg{color:var(--hot)}
+@media(max-width:600px){
+  .sjr{grid-template-columns:34px 1fr;row-gap:3px}
+  .sjr .sjpg{grid-column:2}
 }
 
-/* ---------- site tree ---------- */
+/* ---------- questions panel ---------- */
+.sjqs{display:grid;gap:1px;margin-top:var(--s5);background:var(--dline-1)}
+.sjqs span{background:var(--ink);padding:15px var(--gut);font-size:15px;color:var(--paper);
+  line-height:1.45;position:relative}
+.sjqs span::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);
+  opacity:.5}
+
+/* ---------- what gets built ---------- */
 .sjtree{margin-top:var(--s5);border-top:1px solid var(--line)}
-.sjrow{display:grid;grid-template-columns:minmax(0,1.5fr) auto minmax(0,1.6fr);
+.sjrow{display:grid;grid-template-columns:minmax(0,1.4fr) auto minmax(0,1.7fr);
   gap:var(--s3);align-items:baseline;padding:var(--s3) 0;border-bottom:1px solid var(--line)}
-.sjrow .sjurl{font-family:var(--mono);font-size:13px;color:var(--ink);word-break:break-word}
-.sjrow.sjnew .sjurl{color:var(--red);font-weight:500}
-.sjrow .sjwhy{font-size:14px;color:var(--gray)}
+.sjrow .sjurl{font-size:15px;font-weight:700;letter-spacing:-.015em;color:var(--ink)}
+.sjrow.sjnew .sjurl{color:var(--red)}
+.sjrow .sjwhy{font-size:14.5px;color:var(--gray);line-height:1.5}
 .sjpill{justify-self:start;font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;
   text-transform:uppercase;padding:3px 7px;white-space:nowrap;
   background:var(--stone);color:var(--dim)}
@@ -457,52 +467,30 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 .sjblk.sjhot{border-left-color:var(--red);background:#F7EFEE}
 .sjblk .sjn{font-family:var(--mono);font-size:11px;color:var(--red);padding-top:3px}
 .sjblk h4{font-size:15.5px;font-weight:800;letter-spacing:-.02em;margin:0 0 3px}
-.sjblk p{font-size:14.5px;color:var(--gray);margin:0}
-.sjblk code{font-family:var(--mono);font-size:12.5px;background:#E6E5E0;padding:1px 5px}
+.sjblk p{font-size:14.5px;color:var(--gray);margin:0;line-height:1.55}
 
-/* ---------- sequence cards ---------- */
+/* ---------- message sequence cards ---------- */
 .sjseq{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s5)}
 .sjcard{border:1px solid var(--line);padding:var(--s4);display:flex;flex-direction:column}
 .sjcard>b{font-size:16px;font-weight:800;letter-spacing:-.025em;margin-bottom:var(--s1)}
-.sjcard .sjwho{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+.sjcard .sjwho2{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--red);margin-bottom:var(--s3)}
-.sjcard p{font-size:14.5px;color:var(--gray);margin:0 0 var(--s3)}
+.sjcard p{font-size:14.5px;color:var(--gray);margin:0 0 var(--s3);line-height:1.55}
 .sjsteps{margin-top:auto;display:grid;gap:5px;border-top:1px solid var(--line);padding-top:var(--s3)}
 .sjsteps span{font-family:var(--mono);font-size:11.5px;color:var(--dim);
-  display:grid;grid-template-columns:auto 1fr;gap:9px}
+  display:grid;grid-template-columns:62px 1fr;gap:9px}
 .sjsteps i{font-style:normal;color:var(--red)}
 @media(max-width:860px){.sjseq{grid-template-columns:1fr}}
-
-/* ---------- two-column split ---------- */
-.sjsplit{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);margin-top:var(--s5)}
-.sjsplit>div{min-width:0}
-.sjhead{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--red);padding-bottom:var(--s2);border-bottom:2px solid var(--red);margin-bottom:var(--s4)}
-@media(max-width:800px){.sjsplit{grid-template-columns:1fr;gap:var(--s6)}}
-
-/* ---------- compact data table ---------- */
-.sjtab{width:100%;border-collapse:collapse;margin-top:var(--s4);font-size:14px}
-.sjtab th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--mute);font-weight:400;
-  padding:0 var(--s3) var(--s2) 0;border-bottom:1px solid var(--line)}
-.sjtab td{padding:var(--s2) var(--s3) var(--s2) 0;border-bottom:1px solid var(--line);
-  color:var(--gray);vertical-align:top}
-.sjtab td:first-child{color:var(--ink);font-weight:600}
-.sjtab .sjmono{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
-.sjtabwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
 /* ---------- recap ---------- */
 .sjrecap{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5);margin-top:var(--s5)}
 .sjrecap h4{font-size:16px;font-weight:800;letter-spacing:-.025em;margin:0 0 var(--s3);
   padding-bottom:var(--s2);border-bottom:1px solid var(--line)}
 .sjrecap ul{margin:0;padding:0;list-style:none;display:grid;gap:var(--s2)}
-.sjrecap li{font-size:14.5px;color:var(--gray);display:grid;grid-template-columns:auto 1fr;gap:10px}
+.sjrecap li{font-size:14.5px;color:var(--gray);display:grid;grid-template-columns:auto 1fr;gap:10px;
+  line-height:1.5}
 .sjrecap li::before{content:"";width:6px;height:6px;background:var(--red);margin-top:7px}
 @media(max-width:700px){.sjrecap{grid-template-columns:1fr;gap:var(--s5)}}
-
-.sjend{margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line);
-  font-size:15.5px;color:var(--gray)}
-.sjend b{color:var(--ink)}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLND9SY3KR"></script>
@@ -521,7 +509,7 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
 <header class="head">
   <div class="sheet"><div class="bar wide">
     <a class="mark" href="https://surgepointdigital.co/"><i></i><b>SurgePoint Digital</b></a>
-    <div class="forwho">The build plan<br>Sammy J Auto Sales</div>
+    <div class="forwho">The plan<br>Sammy J Auto Sales</div>
   </div></div>
 </header>
 
@@ -532,310 +520,392 @@ footer .bar{display:flex;justify-content:space-between;gap:var(--s2);flex-wrap:w
       <nav class="sjcrumbs" aria-label="Breadcrumb">
         <a href="/proposals/sammy-j/">The audit</a>
         <span aria-hidden="true">&rarr;</span>
-        <b aria-current="page">The build plan</b>
+        <b aria-current="page">The plan</b>
       </nav>
-      <div class="badge">Build plan &middot; Nov 2026</div>
-      <h1>The build plan<em>.</em></h1>
-      <p class="lede">What gets built, in what order, and what each piece is for. <strong>The pages ship first, on their own.</strong> Email needs somewhere to link and ads need somewhere to land &mdash; right now there is nowhere to send anybody except a homepage that opens with the word &ldquo;About.&rdquo;</p>
+      <div class="badge">The plan &middot; Nov 2026</div>
+      <h1>Three things to fix<em>.</em></h1>
+      <p class="lede">In the order I&rsquo;d fix them, with what each one is costing you right now. <strong>No jargon.</strong> Where something needs explaining, I explain it.</p>
     </div>
   </div>
 </div>
 
 <section class="sheet">
-  <div class="kick rv">The order <b>/ 01</b></div>
-  <h2 class="rv">Pages first. Email and ads after.</h2>
+  <div class="kick rv">Where you are <b>/ 01</b></div>
+  <h2 class="rv">Your website is getting smaller.</h2>
+  <p class="deck rv">Google keeps a list of every search your website turns up for. More searches on the list, more people find you. Here is your list, month by month:</p>
 
-  <div class="sjtline rv">
-    <div class="sjtl on"><b>Planning</b><span>Now</span></div>
-    <div class="sjtl"><b>Build</b><span>Pages + fixes</span></div>
-    <div class="sjtl"><b>Review</b><span>You sign off</span></div>
-    <div class="sjtl"><b>Live</b><span>Right after</span></div>
-    <div class="sjtl">
-      <div class="sjtrio"><i>SEO monthly</i><i>Email / SMS</i><i>Google + Yelp</i></div>
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Searches your website turns up for</div>
+      <div class="s">sammyjautosales.com &middot; every month since April 2024</div>
     </div>
-  </div>
-
-  <p class="sjnote rv"><b>Why this order:</b> you are already #6 and #7 for &ldquo;bad credit auto dealers san diego&rdquo; and &ldquo;san diego car dealerships bad credit&rdquo; with no page for either. Building those pages is the cheapest win on the table, and it is the thing the other two programs depend on. After launch each program is a fixed scope you decide on separately &mdash; nothing here is a bundle you have to take whole.</p>
-</section>
-
-<section class="sheet">
-  <div class="kick rv">Structure <b>/ 02</b></div>
-  <h2 class="rv">Nine pages. Six of them don&rsquo;t exist yet.</h2>
-  <p class="deck rv">Today the site is a dealer template wrapped around an inventory feed. Every page that ranks is a car that will eventually sell. Here is what goes on it instead:</p>
-
-  <div class="wide sjtree rv">
-    <div class="sjrow sjnew">
-      <div class="sjurl">/bad-credit-car-loans-san-diego</div>
-      <span class="sjpill sjp-new">New</span>
-      <div class="sjwhy">The money page. You rank #7 for this search today using the homepage.</div>
+    <div class="plotwrap">
+      <div class="plot">
+        <div class="yax">
+            <b style="top:6.2%">200</b>
+            <b style="top:35.2%">133</b>
+            <b style="top:64.3%">67</b>
+            <b style="top:93.3%">0</b>
+        </div>
+        <svg viewBox="0 0 640 210" preserveAspectRatio="none" role="img" aria-label="Searches sammyjautosales.com turns up for, April 2024 to November 2026: falls from a peak of 189 to 34.">
+          <defs>
+            <linearGradient id="g0" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FF3B2F" stop-opacity="0.46"/>
+              <stop offset="1" stop-color="#FF3B2F" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="13" x2="640" y2="13" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="74" x2="640" y2="74" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="135" x2="640" y2="135" stroke="#26261F" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="196" x2="640" y2="196" stroke="#3A3A36" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <polygon fill="url(#g0)" points="0.0,45.0 20.6,35.9 41.3,30.4 61.9,23.1 82.6,30.4 103.2,54.2 123.9,23.1 144.5,81.6 165.2,46.9 185.8,48.7 206.5,113.6 227.1,114.6 247.7,115.5 268.4,119.1 289.0,116.4 309.7,115.5 330.3,98.1 351.0,63.3 371.6,62.4 392.3,70.6 412.9,86.2 433.5,87.1 454.2,99.0 474.8,99.0 495.5,138.4 516.1,147.5 536.8,142.0 557.4,148.4 578.1,152.1 598.7,154.8 619.4,162.1 640.0,164.9 640,196 0,196"/>
+          <polyline class="line" pathLength="1" fill="none" stroke="#FF3B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" style="filter:drop-shadow(0 0 7px rgba(255,59,47,.75))" points="0.0,45.0 20.6,35.9 41.3,30.4 61.9,23.1 82.6,30.4 103.2,54.2 123.9,23.1 144.5,81.6 165.2,46.9 185.8,48.7 206.5,113.6 227.1,114.6 247.7,115.5 268.4,119.1 289.0,116.4 309.7,115.5 330.3,98.1 351.0,63.3 371.6,62.4 392.3,70.6 412.9,86.2 433.5,87.1 454.2,99.0 474.8,99.0 495.5,138.4 516.1,147.5 536.8,142.0 557.4,148.4 578.1,152.1 598.7,154.8 619.4,162.1 640.0,164.9"/>
+        </svg>
+        <span class="dot a" style="top:78.5%"></span>
+      </div>
     </div>
-    <div class="sjrow sjnew">
-      <div class="sjurl">/buy-here-pay-here-san-diego</div>
-      <span class="sjpill sjp-new">New</span>
-      <div class="sjwhy">Four versions of this search have you at #11, #15, #19 and #23 &mdash; roughly 840 searches a month, no page.</div>
+    <div class="xax"><span>Apr &rsquo;24</span><span>Nov &rsquo;26</span></div>
+    <div class="legend">
+      <span><i style="background:#FF3B2F"></i>189 searches at your best &middot; 34 today</span>
     </div>
-    <div class="sjrow sjnew">
-      <div class="sjurl">/no-credit-first-time-buyer</div>
-      <span class="sjpill sjp-new">New</span>
-      <div class="sjwhy">Different customer, different worries, different page. Also the cheapest ad term in the market.</div>
-    </div>
-    <div class="sjrow sjnew">
-      <div class="sjurl">/car-rentals-san-diego</div>
-      <span class="sjpill sjp-new">New</span>
-      <div class="sjwhy">You are an LLC with &ldquo;Rental&rdquo; in the name and a rental category on Google. The word appears nowhere on your site.</div>
-    </div>
-    <div class="sjrow sjnew">
-      <div class="sjurl">/inventory/suvs &middot; /sedans &middot; /trucks-vans</div>
-      <span class="sjpill sjp-new">New</span>
-      <div class="sjwhy">Permanent category pages. These survive inventory turnover; a VIN page does not.</div>
-    </div>
-    <div class="sjrow">
-      <div class="sjurl">/financing</div>
-      <span class="sjpill sjp-rw">Rewrite</span>
-      <div class="sjwhy">Already written, already indexed, ranking #36. Pointed at the wrong search.</div>
-    </div>
-    <div class="sjrow">
-      <div class="sjurl">/tradein</div>
-      <span class="sjpill sjp-rw">Rewrite</span>
-      <div class="sjwhy">Sitting at #62&ndash;85 for four trade-in searches. Thin, and not about San Diego.</div>
-    </div>
-    <div class="sjrow">
-      <div class="sjurl">/ &nbsp;(homepage)</div>
-      <span class="sjpill sjp-fix">Fix</span>
-      <div class="sjwhy">The &lt;h1&gt; currently starts with &ldquo;About&rdquo;. It should say what you sell and where.</div>
-    </div>
-    <div class="sjrow">
-      <div class="sjurl">/contact &middot; Google profile</div>
-      <span class="sjpill sjp-fix">Fix</span>
-      <div class="sjwhy">Site says (619) 350-2259. Google says (619) 230-5075. Pick one and make it true everywhere.</div>
-    </div>
+    <div class="psrc">Pulled 17 November 2026</div>
   </div>
 
   <div class="callout rv">
-    <b>The point of all of this is permanence.</b>
-    <p>Your footprint fell from 189 keywords to 34 because the only pages you own are cars, and cars leave. Every page above is still there next year whether or not the lot turns over. <strong>That is the whole structural fix</strong> &mdash; everything else on this page is built on top of it.</p>
+    <b>Here is why &mdash; and it is not something you did wrong.</b>
+    <p>Almost every page on your website is one car for sale. When that car sells, the page goes away, and every search it used to turn up for goes away with it. <strong>So the site gets a little smaller every time you have a good week.</strong> Nothing on it stays put.</p>
   </div>
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Page template <b>/ 03</b></div>
-  <h2 class="rv">What each of those pages looks like.</h2>
-  <p class="deck rv">Same skeleton every time, so they are quick to build and quick to add to. Using the bad-credit page as the example:</p>
+  <div class="kick rv">What that costs <b>/ 02</b></div>
+  <h2 class="rv">A lot in El Cajon gets 34 times your visitors.</h2>
+  <p class="deck rv">These are people who found each lot on Google and clicked through. Nobody paid for them:</p>
+
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Where everybody stands</div>
+      <div class="s">Visitors per month from Google &middot; November 2026 &middot; bars compared within each group</div>
+    </div>
+    <div class="bgroup">Free visitors from Google every month</div>
+    <div class="bar"><div class="n">Auto City<span>a lot in El Cajon</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">2,848</div></div>
+    <div class="bar"><div class="n">Karz Plus<span>National City</span></div><div class="track"><div class="fill" style="--w:22%"></div></div><div class="v">616</div></div>
+    <div class="bar"><div class="n">Bahia Auto Sales<span>Chula Vista</span></div><div class="track"><div class="fill" style="--w:16%"></div></div><div class="v">459</div></div>
+    <div class="bar"><div class="n">Prime Auto Imports</div><div class="track"><div class="fill" style="--w:7%"></div></div><div class="v">207</div></div>
+    <div class="bar"><div class="n">West Coast Auto Finance</div><div class="track"><div class="fill" style="--w:6%"></div></div><div class="v">166</div></div>
+    <div class="bar"><div class="n">La Mesa Pre-Owned<span>3 miles up your street</span></div><div class="track"><div class="fill" style="--w:4%"></div></div><div class="v">118</div></div>
+    <div class="bar you"><div class="n">You</div><div class="track"><div class="fill" style="--w:3%"></div></div><div class="v">84</div></div>
+    <div class="bgroup">What you&rsquo;d pay to buy those visitors as ads &middot; separate scale</div>
+    <div class="bar"><div class="n">Auto City</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">$5,077/mo</div></div>
+    <div class="bar"><div class="n">Karz Plus</div><div class="track"><div class="fill" style="--w:35%"></div></div><div class="v">$1,791/mo</div></div>
+    <div class="bar you"><div class="n">You</div><div class="track"><div class="fill" style="--w:6%"></div></div><div class="v">$286/mo</div></div>
+    <div class="psrc">Pulled 17 November 2026</div>
+  </div>
+
+  <div class="callout rv">
+    <b>The surprising part: it is not their cars.</b>
+    <p>Auto City&rsquo;s best pages are not cars at all. One compares a Honda Accord to a Toyota Camry. Another explains when to change your oil. People search those things, land on Auto City, and now Auto City is the lot they have heard of. <strong>That is the entire trick</strong>, and nobody selling to bad-credit buyers is doing it.</p>
+  </div>
+</section>
+
+<section class="sheet">
+  <div class="kick rv">Fix one <b>/ 03</b></div>
+  <h2 class="rv">Give Google a page for each thing you do.</h2>
+  <p class="deck rv">Type &ldquo;used cars san diego bad credit&rdquo; into Google &mdash; the search your whole business is built for. Here is who comes up, and which of their pages comes up:</p>
+
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Who Google shows, 1 through 9</div>
+      <div class="s">&ldquo;used cars san diego bad credit&rdquo; &middot; pulled 17 November 2026</div>
+    </div>
+    <div class="sjrank">
+      <div class="sjr"><b>1</b><div class="sjwho">Karz Plus</div><div class="sjpg">a page about bad credit</div></div>
+      <div class="sjr"><b>2</b><div class="sjwho">Toyota Chula Vista</div><div class="sjpg">a page about bad credit</div></div>
+      <div class="sjr"><b>3</b><div class="sjwho">Pacific Honda</div><div class="sjpg">a page about bad credit</div></div>
+      <div class="sjr"><b>4</b><div class="sjwho">Siry Auto</div><div class="sjpg">a page about bad credit</div></div>
+      <div class="sjr"><b>5</b><div class="sjwho">DriveTime</div><div class="sjpg">a page about no credit</div></div>
+      <div class="sjr"><b>6</b><div class="sjwho">Bob Stall Chevrolet</div><div class="sjpg">a page about bad credit</div></div>
+      <div class="sjr sjyou"><b>7</b><div class="sjwho">You</div><div class="sjpg">your front page</div></div>
+      <div class="sjr"><b>8</b><div class="sjwho">Yelp</div><div class="sjpg">a &ldquo;best of&rdquo; list you are not on</div></div>
+      <div class="sjr"><b>9</b><div class="sjwho">Prime Auto Imports</div><div class="sjpg">a page about paying weekly</div></div>
+    </div>
+    <div class="psrc">Pulled 17 November 2026</div>
+  </div>
+
+  <div class="callout rv">
+    <b>Six dealers, six pages built on purpose. You, one front page.</b>
+    <p>Yours is the only one on that list that is not actually about bad credit. It is your front page, and the big headline at the top of it starts with the word &ldquo;About.&rdquo; <strong>You are still beating three new-car dealerships with it.</strong> That is how little it would take.</p>
+  </div>
+
+  <h3 class="sjh3 rv">So here is what we build.</h3>
+  <div class="wide sjtree rv">
+    <div class="sjrow sjnew">
+      <div class="sjurl">A page about bad credit</div>
+      <span class="sjpill sjp-new">New</span>
+      <div class="sjwhy">The big one. You are already 7th for this with nothing but your front page.</div>
+    </div>
+    <div class="sjrow sjnew">
+      <div class="sjurl">A page about paying weekly</div>
+      <span class="sjpill sjp-new">New</span>
+      <div class="sjwhy">About 840 people a month search this. You turn up around 11th to 23rd. No page.</div>
+    </div>
+    <div class="sjrow sjnew">
+      <div class="sjurl">A page for first-time buyers</div>
+      <span class="sjpill sjp-new">New</span>
+      <div class="sjwhy">Different worries, different page. Also the cheapest advert in the whole market.</div>
+    </div>
+    <div class="sjrow sjnew">
+      <div class="sjurl">A page about your rentals</div>
+      <span class="sjpill sjp-new">New</span>
+      <div class="sjwhy">&ldquo;Rental&rdquo; is in your business name and on your Google listing. It is nowhere on your website.</div>
+    </div>
+    <div class="sjrow sjnew">
+      <div class="sjurl">One page each for SUVs, sedans, trucks</div>
+      <span class="sjpill sjp-new">New</span>
+      <div class="sjwhy">These stay put when a car sells. That is what stops the drop in the first chart.</div>
+    </div>
+    <div class="sjrow">
+      <div class="sjurl">Your financing page</div>
+      <span class="sjpill sjp-rw">Redo</span>
+      <div class="sjwhy">Already written, already on Google, but aimed at the wrong search.</div>
+    </div>
+    <div class="sjrow">
+      <div class="sjurl">Your trade-in page</div>
+      <span class="sjpill sjp-rw">Redo</span>
+      <div class="sjwhy">Buried on page 7 and 8 of Google. Too thin, and it never says San Diego.</div>
+    </div>
+    <div class="sjrow">
+      <div class="sjurl">Your front page headline</div>
+      <span class="sjpill sjp-fix">Quick fix</span>
+      <div class="sjwhy">It starts with &ldquo;About&rdquo;. It should say what you sell and where you are.</div>
+    </div>
+    <div class="sjrow">
+      <div class="sjurl">Your phone number</div>
+      <span class="sjpill sjp-fix">Quick fix</span>
+      <div class="sjwhy">Your site says 350-2259. Google says 230-5075. Google trusts a business less when the details disagree.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet">
+  <div class="kick rv">What goes on it <b>/ 04</b></div>
+  <h2 class="rv">What one of those pages actually says.</h2>
+  <p class="deck rv">Same shape every time. Using the bad-credit page as the example:</p>
 
   <div class="wide sjanat rv">
     <div class="sjblk sjhot">
       <div class="sjn">01</div>
-      <div><h4>A headline that matches the search</h4>
-      <p>&ldquo;Bad credit car loans in San Diego&rdquo; &mdash; not &ldquo;About Sammy J Auto Sales&rdquo;. This single line is the biggest gap between you and the six dealers above you.</p></div>
+      <div><h4>A headline that matches what they typed</h4>
+      <p>&ldquo;Bad credit car loans in San Diego&rdquo; &mdash; not &ldquo;About Sammy J Auto Sales&rdquo;. This one line is the biggest difference between you and the six dealers above you.</p></div>
     </div>
     <div class="sjblk">
       <div class="sjn">02</div>
       <div><h4>The promise, then the proof</h4>
-      <p>Approved where the bank said no, followed immediately by the 4.3 on Google and the count of five-star customers. Claim, then evidence, in that order.</p></div>
+      <p>You get approved where the bank said no &mdash; then straight away your star rating and how many happy customers you have. Say it, then back it up.</p></div>
     </div>
     <div class="sjblk sjhot">
       <div class="sjn">03</div>
       <div><h4>&ldquo;What you need to bring&rdquo;</h4>
-      <p>The actual question every subprime buyer has and almost nobody answers on a website: licence, proof of income, down payment, what happens if there is a repo on file. This block is why people call instead of bouncing.</p></div>
+      <p>Licence, proof of income, how much down, what happens if they have had a car taken back. This is the question everybody has and nearly no dealer answers online. It is the block that makes people phone you instead of leaving.</p></div>
     </div>
     <div class="sjblk">
       <div class="sjn">04</div>
-      <div><h4>A real payment example</h4>
-      <p>What a typical approval looks like &mdash; down, monthly, term. Vague financing copy is why these pages normally fail.</p></div>
+      <div><h4>A real example of a payment</h4>
+      <p>What a typical approval looks like &mdash; money down, monthly, how long. Vague financing talk is why most of these pages do nothing.</p></div>
     </div>
     <div class="sjblk">
       <div class="sjn">05</div>
-      <div><h4>Live inventory strip</h4>
-      <p>Pulled from the feed you already have, so it stays current. The page is permanent; the cars inside it rotate. That is the difference that keeps the ranking.</p></div>
-    </div>
-    <div class="sjblk">
-      <div class="sjn">06</div>
-      <div><h4>Apply form and phone, twice</h4>
-      <p>Once above the fold, once at the bottom. Both go to a real inbox and a real sequence rather than a form that disappears.</p></div>
-    </div>
-    <div class="sjblk sjhot">
-      <div class="sjn">07</div>
-      <div><h4>FAQ block, built from Google&rsquo;s own questions</h4>
-      <p>These are the questions Google is already showing people on this exact search. Answering them on the page is how you get into that box:</p></div>
+      <div><h4>Your cars, pulled in automatically</h4>
+      <p>The page stays put forever. The cars inside it change as you sell them. That is the difference that keeps you on Google.</p></div>
     </div>
   </div>
 
-  <div class="wide sjtabwrap rv">
-    <table class="sjtab">
-      <thead><tr><th>Question Google already shows</th><th>Where it comes from</th></tr></thead>
-      <tbody>
-        <tr><td>Where is the best place to get a used car with bad credit?</td><td class="sjmono">People Also Ask</td></tr>
-        <tr><td>What is the lowest credit score to get a used car?</td><td class="sjmono">People Also Ask</td></tr>
-        <tr><td>Can I buy a car with a 480 credit score?</td><td class="sjmono">People Also Ask</td></tr>
-        <tr><td>Can I purchase a car with a 500 credit score?</td><td class="sjmono">People Also Ask</td></tr>
-        <tr><td>Buy here pay here San Diego no credit check</td><td class="sjmono">Related searches</td></tr>
-        <tr><td>Used cars san diego bad credit under $10,000</td><td class="sjmono">Related searches</td></tr>
-      </tbody>
-    </table>
+  <div class="wide panel rv sjqpanel">
+    <div class="phead">
+      <div class="t">And at the bottom, answers to these</div>
+      <div class="s">Questions Google already shows people on this exact search</div>
+    </div>
+    <div class="sjqs">
+      <span>Where is the best place to get a used car with bad credit?</span>
+      <span>What is the lowest credit score to get a used car?</span>
+      <span>Can I buy a car with a 480 credit score?</span>
+      <span>Can I purchase a car with a 500 credit score?</span>
+      <span>Buy here pay here San Diego no credit check</span>
+      <span>Used cars san diego bad credit under $10,000</span>
+    </div>
+    <div class="psrc">Taken straight off the Google results page, 17 November 2026</div>
   </div>
-  <p class="sjnote rv"><b>Source:</b> Google SERP for &ldquo;used cars san diego bad credit&rdquo; and &ldquo;bad credit car dealership san diego&rdquo;, pulled 17 November 2026. These are not invented questions &mdash; Google is telling you what to write.</p>
+  <p class="sjnote rv"><b>I did not make those up.</b> Google is literally showing people those questions. Answer them on the page and you can end up in that box.</p>
 </section>
 
 <section class="sheet">
-  <div class="kick rv">After launch <b>/ 04</b></div>
-  <h2 class="rv">Then we run the Auto City play.</h2>
-  <p class="deck rv">Auto City in El Cajon pulls 2,848 visits a month &mdash; traffic that would cost $5,077 to rent on Google Ads. Almost none of it is inventory. It is articles:</p>
+  <div class="kick rv">Fix two <b>/ 05</b></div>
+  <h2 class="rv">Ask your happy customers to say so.</h2>
+  <p class="deck rv">Reviews are the other half of showing up on Google&rsquo;s map. Here is where you sit:</p>
 
-  <div class="wide sjtabwrap rv">
-    <table class="sjtab">
-      <thead><tr><th>Their page</th><th>Rank</th><th>For</th><th>Searches/mo</th></tr></thead>
-      <tbody>
-        <tr><td class="sjmono">/honda-accord-vs-toyota-camry</td><td>1</td><td>honda accord vs toyota camry</td><td>1,900</td></tr>
-        <tr><td class="sjmono">/2017-toyota-camry-review</td><td>3</td><td>2017 camry</td><td>8,100</td></tr>
-        <tr><td class="sjmono">/2016-honda-accord-review</td><td>10</td><td>2016 honda accord</td><td>33,100</td></tr>
-        <tr><td class="sjmono">/change-engine-oil</td><td>9</td><td>engine oil oil change</td><td>110,000</td></tr>
-        <tr><td class="sjmono">/diy-auto-repair</td><td>9</td><td>diy vehicle repairs</td><td>1,300</td></tr>
-      </tbody>
-    </table>
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Reviews on Google</div>
+      <div class="s">The same lots as before &middot; November 2026</div>
+    </div>
+    <div class="bgroup">Reviews on Google &middot; the same lots</div>
+    <div class="bar"><div class="n">Auto City<span>4.7 stars</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">1,400</div></div>
+    <div class="bar"><div class="n">Bahia Auto Sales<span>4.8 stars</span></div><div class="track"><div class="fill" style="--w:49%"></div></div><div class="v">688</div></div>
+    <div class="bar"><div class="n">Karz Plus<span>4.1 stars</span></div><div class="track"><div class="fill" style="--w:24%"></div></div><div class="v">333</div></div>
+    <div class="bar"><div class="n">La Mesa Pre-Owned<span>4.5 stars</span></div><div class="track"><div class="fill" style="--w:20%"></div></div><div class="v">285</div></div>
+    <div class="bar"><div class="n">Siry Auto<span>4.9 stars</span></div><div class="track"><div class="fill" style="--w:19%"></div></div><div class="v">262</div></div>
+    <div class="bar"><div class="n">Prime Auto Imports<span>4.4 stars</span></div><div class="track"><div class="fill" style="--w:7%"></div></div><div class="v">93</div></div>
+    <div class="bar you"><div class="n">You<span>4.3 stars</span></div><div class="track"><div class="fill" style="--w:4%"></div></div><div class="v">55</div></div>
+    <div class="psrc">Pulled 17 November 2026</div>
   </div>
 
-  <p class="sjnote rv"><b>Four pages a month</b>, written about the cars actually sitting on your lot. A comparison between the two sedans you stock most. A model review for a year and trim you keep getting in. A straight answer to a maintenance question. Nothing clever &mdash; it is the most boring work in this document and it is the reason Auto City out-ranks every franchise dealer in the county. Nobody in the bad-credit market is doing it.</p>
-</section>
+  <div class="callout rv">
+    <b>Your 4.3 is not a quality problem. You just have too few reviews.</b>
+    <p>Of your 55 reviews, 44 are five stars. Eight are one star. With a total that small, those eight drag the whole average down. <strong>Get ten to fifteen new ones a month and they stop mattering inside three months.</strong> You do not need to chase the bad ones. You need more of the good ones.</p>
+  </div>
 
-<section class="sheet">
-  <div class="kick rv">Email <b>/ 05</b></div>
-  <h2 class="rv">Three sequences on a list you already own.</h2>
-  <p class="deck rv">No list-building required. All three of these run on people who have already walked onto your lot or filled in one of your forms.</p>
-
+  <h3 class="sjh3 rv">Three messages, on people who already know you.</h3>
   <div class="wide sjseq rv">
     <div class="sjcard">
-      <div class="sjwho">After every delivery</div>
-      <b>The review engine</b>
-      <p>You have 44 five-star reviews and eight one-stars. With only 55 total, those eight set your average. Volume is the fix, not damage control.</p>
+      <div class="sjwho2">After every car you sell</div>
+      <b>Ask for the review</b>
+      <p>One text with a link straight to your Google page. One reminder a few days later. That is it.</p>
       <div class="sjsteps">
-        <span><i>Day 1</i>Text with a direct Google review link</span>
+        <span><i>Day 1</i>Text with the review link</span>
         <span><i>Day 4</i>One reminder, then stop</span>
-        <span><i>Day 10</i>Happy customers only &rarr; Yelp</span>
+        <span><i>Day 10</i>Happy ones &rarr; Yelp too</span>
       </div>
     </div>
     <div class="sjcard">
-      <div class="sjwho">Applied, didn&rsquo;t buy</div>
-      <b>The pre-approval save</b>
-      <p>The most qualified list you own. Somebody told you their situation and then left. Today that goes nowhere.</p>
+      <div class="sjwho2">Applied but never bought</div>
+      <b>Go back to them</b>
+      <p>They already told you their situation and then disappeared. Right now nothing happens. These are the warmest people you have.</p>
       <div class="sjsteps">
-        <span><i>Day 1</i>What we can do with your numbers</span>
-        <span><i>Day 3</i>What to bring to get approved</span>
-        <span><i>Day 7</i>Cars in your payment range</span>
+        <span><i>Day 1</i>What we can do for you</span>
+        <span><i>Day 3</i>What to bring in</span>
+        <span><i>Day 7</i>Cars in your price range</span>
         <span><i>Day 30</i>New arrivals that fit</span>
       </div>
     </div>
     <div class="sjcard">
-      <div class="sjwho">12 months after purchase</div>
-      <b>The credit check-in</b>
-      <p>A year of on-time payments moves a subprime buyer up a tier. They can refinance or trade up &mdash; and you are the dealer who said yes when nobody else would. Nobody in this market runs this.</p>
+      <div class="sjwho2">A year after they bought</div>
+      <b>The best one nobody does</b>
+      <p>A year of payments on time and their credit has improved. Now they can get a better rate or a better car &mdash; and you are the one who said yes when nobody else did.</p>
       <div class="sjsteps">
-        <span><i>Mo 12</i>&ldquo;Your credit has probably moved&rdquo;</span>
-        <span><i>Mo 14</i>Trade-up offer on their car</span>
-        <span><i>Mo 18</i>Referral ask</span>
+        <span><i>Month 12</i>&ldquo;Your credit has likely improved&rdquo;</span>
+        <span><i>Month 14</i>Offer to trade them up</span>
+        <span><i>Month 18</i>Ask who they know</span>
       </div>
     </div>
   </div>
-
-  <p class="sjnote rv"><b>Plus the Car Finder form</b>, which is already on your site and is already an email list. Somebody telling you the exact vehicle they want that you do not have in stock is the easiest email you will ever send &mdash; the day it lands on the lot.</p>
+  <p class="sjnote rv"><b>You already have the list.</b> The &ldquo;Car Finder&rdquo; form on your site is people telling you exactly which car they want. When one lands on your lot, that is the easiest message you will ever send.</p>
 </section>
 
 <section class="sheet">
-  <div class="kick rv">Paid <b>/ 06</b></div>
-  <h2 class="rv">Buy the cheap clicks. Fix Yelp before paying Yelp.</h2>
+  <div class="kick rv">Fix three <b>/ 06</b></div>
+  <h2 class="rv">Buy the cheap clicks, not the expensive ones.</h2>
+  <p class="deck rv">With Google ads you pay per click, and the price goes up the more dealers want the same words. Look at what everyone is fighting over versus what they ignore:</p>
 
-  <div class="wide sjsplit rv">
-    <div>
-      <div class="sjhead">Google Ads &mdash; three campaigns</div>
-      <div class="sjanat">
-        <div class="sjblk">
-          <div class="sjn">01</div>
-          <div><h4>Local inventory &mdash; the volume</h4>
-          <p>&ldquo;Used cars san diego&rdquo; is 3,600 searches a month at $2.91. &ldquo;Cars for sale san diego&rdquo; is 1,300 at $2.44. About 5,870 searches at roughly $2.85 blended.</p></div>
-        </div>
-        <div class="sjblk sjhot">
-          <div class="sjn">02</div>
-          <div><h4>Subprime intent &mdash; the underbid one</h4>
-          <p>Everyone bids &ldquo;buy here pay here san diego&rdquo; to $14.63 for 110 searches. Skip it. &ldquo;First time car buyer program&rdquo; is high intent at competition 43 of 100 &mdash; the one genuinely cheap term in the category.</p></div>
-        </div>
-        <div class="sjblk">
-          <div class="sjn">03</div>
-          <div><h4>Brand defence</h4>
-          <p>Cheap, and it stops other dealers buying your name. You already rank #1 for it organically; this protects the click.</p></div>
-        </div>
-      </div>
-      <p class="sjnote"><b>The whole trick:</b> do the credit qualifying in the ad copy and on the landing page, not in the bid. Same customer, a third of the click price, twenty times the pool.</p>
+  <div class="wide panel rv">
+    <div class="phead">
+      <div class="t">Who is bidding on what</div>
+      <div class="s">All seven on the same scale &middot; San Diego &middot; November 2026</div>
     </div>
+    <div class="bgroup">What San Diego actually searches &middot; bar = people per month &middot; <b style="color:#FF3B2F">red = what I&rsquo;d buy</b></div>
+    <div class="bar you"><div class="n">used cars san diego<span>$2.91 a click</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="v">3,600</div></div>
+    <div class="bar you"><div class="n">cars for sale san diego<span>$2.44 a click</span></div><div class="track"><div class="fill" style="--w:36%"></div></div><div class="v">1,300</div></div>
+    <div class="bar you"><div class="n">used car dealerships san diego<span>$4.00 a click</span></div><div class="track"><div class="fill" style="--w:13%"></div></div><div class="v">480</div></div>
+    <div class="bar you"><div class="n">cars for sale near me<span>$3.01 a click</span></div><div class="track"><div class="fill" style="--w:9%"></div></div><div class="v">320</div></div>
+    <div class="bar"><div class="n">buy here pay here san diego<span>$9.20 a click</span></div><div class="track"><div class="fill" style="--w:3%"></div></div><div class="v">110</div></div>
+    <div class="bar"><div class="n">no credit check car dealership<span>$13.86 a click</span></div><div class="track"><div class="fill" style="--w:1%"></div></div><div class="v">20</div></div>
+    <div class="bar"><div class="n">no money down car dealership<span>$23.34 a click</span></div><div class="track"><div class="fill" style="--w:1%"></div></div><div class="v">10</div></div>
+    <div class="psrc">Google Ads figures, San Diego, November 2026</div>
+  </div>
 
-    <div>
-      <div class="sjhead">Yelp &mdash; in this order</div>
-      <div class="sjanat">
-        <div class="sjblk sjhot">
-          <div class="sjn">01</div>
-          <div><h4>Reviews first</h4>
-          <p>Six reviews and a 3.5. Paying to send traffic there today is paying to show people your weakest page. The delivery sequence above fixes this in a quarter.</p></div>
-        </div>
-        <div class="sjblk">
-          <div class="sjn">02</div>
-          <div><h4>Complete the profile</h4>
-          <p>Photos, hours, the financing detail, and the rental line that exists nowhere online. Yelp&rsquo;s own &ldquo;Top 10 Bad Credit Used Car Sales in San Diego&rdquo; list ranks #8 on Google for your best search and you are not on it.</p></div>
-        </div>
-        <div class="sjblk">
-          <div class="sjn">03</div>
-          <div><h4>Then ads</h4>
-          <p>Yelp ads place you inside competitors&rsquo; profiles. With the review count fixed, it is the cheapest conquest buy in this market. Not before.</p></div>
-        </div>
-      </div>
+  <div class="callout rv">
+    <b>Same customer. A third of the price. Twenty times as many people.</b>
+    <p>Plenty of the people typing &ldquo;used cars san diego&rdquo; have bad credit &mdash; they just did not type the words. <strong>You sort that out in the advert itself</strong> (&ldquo;approved with bad credit, no credit, first car&rdquo;) and on the page they land on. You do not have to pay triple to find them.</p>
+  </div>
+
+  <h3 class="sjh3 rv">Yelp, in this order.</h3>
+  <div class="wide sjanat rv">
+    <div class="sjblk sjhot">
+      <div class="sjn">01</div>
+      <div><h4>Reviews first, before you spend anything</h4>
+      <p>You have six reviews on Yelp and a 3.5. Paying Yelp to send people there today is paying to show people your worst page. The texts above fix this in about three months.</p></div>
+    </div>
+    <div class="sjblk">
+      <div class="sjn">02</div>
+      <div><h4>Fill the page in properly</h4>
+      <p>Photos, hours, the financing detail, and the rentals. Yelp&rsquo;s own &ldquo;best bad credit dealers in San Diego&rdquo; list is the 8th thing Google shows for your main search &mdash; and you are not on it.</p></div>
+    </div>
+    <div class="sjblk">
+      <div class="sjn">03</div>
+      <div><h4>Then pay</h4>
+      <p>Yelp ads put you on your competitors&rsquo; pages. Once the reviews are fixed it is the cheapest way to get in front of someone already shopping. Not before.</p></div>
     </div>
   </div>
 </section>
 
 <section class="sheet">
   <div class="kick rv">Recap <b>/ 07</b></div>
-  <h2 class="rv">What&rsquo;s included.</h2>
+  <h2 class="rv">What you get.</h2>
 
   <div class="wide sjrecap rv">
     <div>
-      <h4>Build &mdash; one time</h4>
+      <h4>The build &mdash; once</h4>
       <ul>
-        <li>Six new pages: bad credit, buy here pay here, no credit / first-time buyer, rentals, and three inventory categories</li>
-        <li>Two rewrites: financing and trade-in</li>
-        <li>Homepage heading and title fixed</li>
-        <li>Phone number reconciled across the site, Google and Yelp</li>
-        <li>FAQ blocks built from Google&rsquo;s own People Also Ask</li>
-        <li>Forms wired to a real inbox and the sequences below</li>
+        <li>Six new pages: bad credit, weekly payments, first-time buyers, rentals, and three for your vehicle types</li>
+        <li>Two pages redone: financing and trade-in</li>
+        <li>Front page headline fixed</li>
+        <li>Phone number made the same everywhere</li>
+        <li>Answers to the questions Google is already asking</li>
+        <li>Forms that actually go somewhere</li>
       </ul>
     </div>
     <div>
-      <h4>SEO &mdash; monthly</h4>
+      <h4>Google &mdash; every month</h4>
       <ul>
-        <li>Four articles a month on the cars you actually stock</li>
-        <li>Comparisons, model reviews, maintenance answers</li>
-        <li>Google Business Profile upkeep and posts</li>
-        <li>Rank and traffic reporting against the dealers in the audit</li>
+        <li>Four write-ups a month about the cars you actually stock</li>
+        <li>Comparisons, reviews, straight answers &mdash; the Auto City play</li>
+        <li>Your Google listing kept up to date</li>
+        <li>A monthly report showing where you sit against the lots in this document</li>
       </ul>
     </div>
     <div>
-      <h4>Email / SMS &mdash; monthly</h4>
+      <h4>Texts and emails &mdash; every month</h4>
       <ul>
-        <li>Delivery &rarr; review sequence (Google, then Yelp)</li>
-        <li>Pre-approval save sequence</li>
-        <li>12-month credit check-in and trade-up</li>
-        <li>Car Finder match alerts</li>
+        <li>Review request after every sale</li>
+        <li>Follow-up for people who applied and did not buy</li>
+        <li>The one-year check-in and trade-up offer</li>
+        <li>Alerts when a car someone asked for arrives</li>
       </ul>
     </div>
     <div>
-      <h4>Paid &mdash; monthly</h4>
+      <h4>Ads &mdash; every month</h4>
       <ul>
-        <li>Google Ads: local inventory, subprime intent, brand defence</li>
-        <li>Negative keyword list and search term review</li>
-        <li>Yelp Ads once reviews clear 30</li>
-        <li>Call tracking so you can see what each campaign actually produced</li>
+        <li>Google ads on the cheap, high-volume searches</li>
+        <li>Blocking the searches that waste money</li>
+        <li>Yelp ads once reviews pass 30</li>
+        <li>Call tracking, so you can see which ads made the phone ring</li>
       </ul>
     </div>
   </div>
-
-  <p class="sjend rv"><b>Pages first.</b> They are the cheapest thing on this list, they are the only part that compounds, and both other programs need them to exist before they are worth running. Everything after launch is scoped and decided on separately.</p>
 </section>
+
+<div class="close">
+  <div class="sheet">
+    <div>
+      <h2>Pages first<em>.</em></h2>
+      <p class="sub">They are the cheapest thing on this list, they are the only part that keeps paying you back year after year, and the other two both need them to exist before they are worth running.</p>
+      <div class="btns">
+        <a class="btn" href="sms:4152650873">Text Ron &nearr;</a>
+        <a class="btn ghost" href="tel:4152650873">Call 415-265-0873</a>
+      </div>
+      <div class="alt">Text or call when you want to go through any of it.</div>
+    </div>
+  </div>
+</div>
 
 </main>
 
